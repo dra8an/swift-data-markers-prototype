@@ -1,0 +1,10 @@
+test (ns)	typed, 3 flags -O	value API, 3 flags -O	typed, Embedded -Osize	value API, Embedded -Osize
+new Gregorian YMD medium	421.3	423.0	551.4	569.6
+new Japanese YMDT long	590.6	650.7	754.3	815.3
+format Gregorian YMD medium en	82.0	91.2	153.6	226.6
+format Gregorian YMDT medium en	113.0	127.8	237.7	326.5
+format Japanese YMDT long ja	115.6	138.0	234.7	314.6
+format Hebrew YMD long he	105.9	118.4	173.2	231.0
+format Chinese YMD long zh	78.6	97.3	119.1	125.1
+format Gregorian YMD long ar-EG	84.1	94.7	167.7	241.9
+style.format, new formatter each time, Gregorian YMD medium en	-	462.1	-	704.9

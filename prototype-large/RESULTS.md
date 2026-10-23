@@ -140,6 +140,82 @@ The fix was `static let` `Array` literals. The compiler puts them in `__DATA_CON
 | Missing marker in cut data | compile error (shown in the small prototype) | compile error (a trait bound) | not tested here |
 | Experimental features needed | none (a struct of `Span` values would need `Lifetimes`, so `withTables` passes 5 spans) | none | none |
 
+## A value API in the style of Foundation
+
+Foundation must keep its API: the calendar, the format and the locale are values chosen at run time, not types. So a second test put the typed formatter behind a value API (`swift/Sources/DateFormatting/`): `Calendar(identifier: .chinese)` and `DateFormatStyle(date:time:locale:calendar:)`, with `date` as `.numeric`, `.abbreviated`, `.long` or `.complete`, and `time` as `.omitted` or `.shortened`. The module imports the data, as Foundation would contain its data. It switches on the values, and uses `FixedCalendarFormatter` inside. Its functions are not inlinable. Added on 2026-10-23, after the first results.
+
+| Question | Result |
+|---|---|
+| Correct output | The same text as ICU4X on **247,104 of 247,104** cases that the styles can express (`ValueCheck`, `tools/compare.py --keyed`). 8,316 more cases are outside the Chinese table. |
+| Markers in an app | **All 25**, in every build: Embedded, Embedded with LTO, normal Swift with and without the 3 flags. This is also true if the calendar is the constant `.chinese` (`ValueChinese`), because the switch refers to all 6 calendars. |
+| Data with all locales | 1,008,104 to 1,044,360 bytes, against 268,678 bytes for one typed calendar |
+| Data cut for `fr` (all markers) | 40,088 bytes (normal Swift, 3 flags). The app still works. A cut locale falls back to `und`. |
+| Code | 51,428 bytes (3 flags) and 296,020 bytes (Embedded) for `ValueChinese`. Embedded Swift specializes all 24 combinations of calendar and field set. |
+
+Speed, in ns for one operation (`results/bench-value-summary.tsv`):
+
+| Test | Typed, 3 flags, `-O` | Value API, 3 flags, `-O` | Typed, Embedded, `-Osize` | Value API, Embedded, `-Osize` |
+|---|---:|---:|---:|---:|
+| new, Gregorian YMD | 421 | 423 | 551 | 570 |
+| new, Japanese YMDT | 591 | 651 | 754 | 815 |
+| format, Gregorian YMD, `en` | 82 | 91 | 154 | 227 |
+| format, Gregorian YMDT, `en` | 113 | 128 | 238 | 327 |
+| format, Japanese YMDT, `ja` | 116 | 138 | 235 | 315 |
+| format, Hebrew YMD, `he` | 106 | 118 | 173 | 231 |
+| format, Chinese YMD, `zh` | 79 | 97 | 119 | 125 |
+| format, Gregorian YMD, `ar-EG` | 84 | 95 | 168 | 242 |
+| `style.format`, a new formatter each time | | 462 | | 705 |
+
+What this means:
+* The data design works behind a value API, with the same output.
+* The automatic cut by marker is lost: a value API keeps the data of every calendar and field set that it can reach. Only a cut at build time (`--markers`, `--locales`) makes the data smaller.
+* If the build cuts the markers of a calendar, the value API module does not compile, because it names all 6 calendars. To make such a cut give an error at run time instead, the generator would have to write empty tables for the cut markers. This is not built.
+
+## Limits of the automatic cut, and ways around them
+
+Written on 2026-10-23, after a talk with Dragan. Nothing in this section is built, except where it says "tested".
+
+### What the build can remove by itself
+
+| Kind of data | Removed automatically? | Why |
+|---|---|---|
+| Markers, with a typed API (`FixedCalendarFormatter<Chinese, YMD>`) | **Yes** (Embedded Swift, or normal Swift with the 3 flags). Tested. | The calendar and the field set are types. The code refers only to their tables, and the linker removes the rest. |
+| Markers, with a value API (`Calendar(identifier:)`, `DateFormatStyle`) | **No.** Tested. | See below. |
+| Locales | **No**, with any API. Tested in ICU4X too. | All locales of a marker are in one table. The lookup happens at run time. |
+| Attributes (widths, lengths) | **No.** | The code picks them at run time from the pattern and the style. |
+
+### Why a value API keeps all calendars
+
+The linker starts at `main` and keeps all code and data that any reachable code refers to. It does not know which code runs.
+
+A value API must turn a run time value into a calendar. Any code that does this must be ready for every calendar, so it refers to the tables of every calendar: a `switch`, a dictionary of functions, an array of formatters, or `any CalendarSystem`. The switch is only where the problem shows. The cause is the run time value. The same is true for the date and time styles, so the value API also keeps all field sets.
+
+A constant such as `Calendar(identifier: .chinese)` did not help in the test, even with LTO. The switch is in a function of another module that is not inlinable. ICU4X has the same limit: its any calendar formatter kept 43 markers.
+
+Foundation must keep its value API (Dragan, 2026-10-23), so this limit applies to Foundation.
+
+### Ways around it
+
+1. **Cut at build time with the generator (works now, tested).** The developer gives `--markers`, `--locales` and `--attributes`. The marker list can come from the built app (`tools/build-cut.sh`), but only for a typed API. For a value API, the developer must give it.
+2. **A build setting, such as a package trait.** For example, a trait for each calendar. A calendar that the trait leaves out is not in the switch, so its code and its data are not in the build.
+3. **The app registers its calendars.** For example `DateFormatting.register(Chinese.self)`. The value API reaches only registered calendars, so only their data stays. A calendar that is not registered gives an error at run time.
+4. **An inlinable value API.** The app's compiler could then remove the dead cases of the switch, but only if the calendar is a constant in the code. If the calendar comes from the user's settings, every case can run, so this cannot help.
+5. **The locale as a type** (`FixedCalendarFormatter<Chinese, YMD, French>`, with one symbol for each locale of each marker). The linker could then remove unused locales. This needs a typed API, so it does not fit Foundation. ICU4X does not have it either.
+6. **The locale list of the app.** An Apple app lists its locales in its `.lproj` folders or in `CFBundleLocalizations`. A SwiftPM build plugin could pass this list to `--locales`, and the marker list of way 1, with no manual step.
+
+### Slicing with the generator: what to know
+
+The generator slices correctly, with any API:
+* `--markers` keeps only those markers. With the typed API, the data module then declares only the calendars and field sets whose markers are all there.
+* `--locales` keeps each listed locale and every locale that its lookup can try (the fallback of ICU4X: for example `fr-CA`, `fr`, `und`).
+* `--attributes` keeps only the listed widths and lengths.
+
+Four cautions:
+1. **A value API and a cut calendar.** The value API names all 6 calendars, so the build fails if the data has no markers for one of them. To make the build work and give an error at run time instead, the generator would have to write empty tables for the cut markers (not built). Ways 2 and 3 above avoid this.
+2. **A cut locale gives no error.** It falls back to `und`, for example `2026 M09 14` for `ja` in the `fr` data. The text is correct root data, but not in the language of the user. The locale list must have every locale that the app can get.
+3. **Attributes with a value API.** The styles pick the widths at run time, so a cut by attribute can remove a width that the app needs. Then the formatter cannot be made (`nil`). Cut attributes only if the app uses fixed styles.
+4. **The marker list for a value API.** `tools/build-cut.sh` reads the markers from the built app. With a value API, it finds all 25, so the list must come from the developer.
+
 ## Open problems
 
 1. **Embedded Swift with `-O` crashes.** The snapshot `swift-DEVELOPMENT-SNAPSHOT-2026-06-24-a` builds the Bench app, but it stops at once with `EXC_BAD_ACCESS` in `merged one-time initialization function for pool`. The function writes to a table in `__DATA_CONST`, which is read only. `-Osize` works. Three small tests did not show the crash (`explore/embedded-O-crash/`). To show it: `OPT=-O swift/build.sh embedded data/full Bench out/bench-O-embedded`, then run `out/bench-O-embedded/Bench`.

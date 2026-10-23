@@ -1,0 +1,37 @@
+{
+ "DatetimeNamesMonthChineseV1": {
+  "keys": 11,
+  "values": 5,
+  "words": 104,
+  "pool_bytes": 619,
+  "table_bytes": 1125
+ },
+ "DatetimeNamesYearChineseV1": {
+  "keys": 3,
+  "values": 1,
+  "words": 62,
+  "pool_bytes": 438,
+  "table_bytes": 712
+ },
+ "DatetimePatternsDateChineseV1": {
+  "keys": 17,
+  "values": 17,
+  "words": 375,
+  "pool_bytes": 128,
+  "table_bytes": 1802
+ },
+ "DecimalSymbolsV1": {
+  "keys": 2,
+  "values": 2,
+  "words": 20,
+  "pool_bytes": 26,
+  "table_bytes": 130
+ },
+ "DecimalDigitsV1": {
+  "keys": 1,
+  "values": 1,
+  "words": 10,
+  "pool_bytes": 26,
+  "table_bytes": 80
+ }
+}

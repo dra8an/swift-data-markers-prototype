@@ -11,3 +11,6 @@
 13175 run-all
 16761 run-all-2
 19444 build-embedded-lto
+25482 build-value
+27038 build-value-2
+28429 build-value-3

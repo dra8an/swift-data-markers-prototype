@@ -25,7 +25,11 @@ if [ "${SKIP_LIBS:-0}" != 1 ]; then
     module DataMarkers $P/Sources/DataMarkers/*.swift
     module DateTimeFormat $P/Sources/DateTimeFormat/*.swift
     module DateTimeData "$data"/swift/*.swift
+    [ "${VALUE_API:-0}" = 1 ] && module DateFormatting $P/Sources/DateFormatting/*.swift
 fi
+objects=("$out/DataMarkers.o" "$out/DateTimeFormat.o" "$out/DateTimeData.o")
+# VALUE_API=1 also builds and links the value API in the style of Foundation (Sources/DateFormatting).
+[ "${VALUE_API:-0}" = 1 ] && objects+=("$out/DateFormatting.o")
 [ "$app" = none ] && { echo "built the modules in $out"; exit 0; }
-"$swiftc" "${flags[@]}" -module-name "$app" "$P/apps/$app/main.swift" "$out/DataMarkers.o" "$out/DateTimeFormat.o" "$out/DateTimeData.o" -Xlinker -dead_strip -o "$out/$app" > "$out/$app.log" 2>&1 || { echo "FAILED $app"; grep -m12 -A3 "error:" "$out/$app.log"; exit 1; }
+"$swiftc" "${flags[@]}" -module-name "$app" "$P/apps/$app/main.swift" "${objects[@]}" -Xlinker -dead_strip -o "$out/$app" > "$out/$app.log" 2>&1 || { echo "FAILED $app"; grep -m12 -A3 "error:" "$out/$app.log"; exit 1; }
 echo "built $out/$app"

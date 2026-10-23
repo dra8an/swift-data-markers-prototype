@@ -14,7 +14,8 @@ Made on 2026-10-23. The small prototype is in `../prototype/` and did not change
 |---|---|---|
 | `generator/` | `generate.py`: makes the Swift and Rust tables from the JSON of `icu4x-datagen`, and cuts them | yes |
 | `swift/Sources/` | The Swift modules `DataMarkers` and `DateTimeFormat` | yes |
-| `swift/apps/` | `Check`, `GregorianYMD`, `JapaneseYMDT`, `AnyCalendar`, `Bench`, `Baseline` | yes |
+| `swift/Sources/DateFormatting/` | The value API in the style of Foundation (`RESULTS.md`, "A value API"). Built only with `VALUE_API=1` | yes |
+| `swift/apps/` | `Check`, `GregorianYMD`, `JapaneseYMDT`, `AnyCalendar`, `Bench`, `Baseline`, and for the value API `ValueCheck`, `ValueChinese`, `ValueRuntime`, `ValueBench` (`tools/build-value.sh`) | yes |
 | `swift/build.sh`, `swift/build-sizes.sh` | The Swift builds | yes |
 | `rust-copy/` | The Rust copy of the Swift design, with the same apps in `src/bin/` | yes, not `target/` |
 | `icu4x-apps/` | `reference` (the correctness reference), `chinese-table`, `sizes` (built-in data, and `bench`), `sizes-cut` (cut data) | yes, not `target/` |

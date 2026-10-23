@@ -1,0 +1,25 @@
+{
+ "tag": "dmk1",
+ "markers": {
+  "DatetimeNamesMonthChineseV1": {
+   "hash": 1733495596,
+   "tag": "64 6d 6b 31 2c 0b 53 67"
+  },
+  "DatetimeNamesYearChineseV1": {
+   "hash": 2691325757,
+   "tag": "64 6d 6b 31 3d 5f 6a a0"
+  },
+  "DatetimePatternsDateChineseV1": {
+   "hash": 2236691167,
+   "tag": "64 6d 6b 31 df 32 51 85"
+  },
+  "DecimalSymbolsV1": {
+   "hash": 3228937036,
+   "tag": "64 6d 6b 31 4c ab 75 c0"
+  },
+  "DecimalDigitsV1": {
+   "hash": 1709370419,
+   "tag": "64 6d 6b 31 33 ec e2 65"
+  }
+ }
+}

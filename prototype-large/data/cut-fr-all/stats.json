@@ -1,0 +1,177 @@
+{
+ "DatetimeNamesMonthGregorianV1": {
+  "keys": 13,
+  "values": 6,
+  "words": 66,
+  "pool_bytes": 246,
+  "table_bytes": 616
+ },
+ "DatetimeNamesYearGregorianV1": {
+  "keys": 6,
+  "values": 3,
+  "words": 12,
+  "pool_bytes": 97,
+  "table_bytes": 197
+ },
+ "DatetimePatternsDateGregorianV1": {
+  "keys": 19,
+  "values": 19,
+  "words": 504,
+  "pool_bytes": 136,
+  "table_bytes": 2346
+ },
+ "DatetimeNamesMonthBuddhistV1": {
+  "keys": 13,
+  "values": 6,
+  "words": 66,
+  "pool_bytes": 246,
+  "table_bytes": 616
+ },
+ "DatetimeNamesYearBuddhistV1": {
+  "keys": 6,
+  "values": 4,
+  "words": 12,
+  "pool_bytes": 59,
+  "table_bytes": 163
+ },
+ "DatetimePatternsDateBuddhistV1": {
+  "keys": 18,
+  "values": 18,
+  "words": 374,
+  "pool_bytes": 132,
+  "table_bytes": 1812
+ },
+ "DatetimeNamesMonthJapaneseV1": {
+  "keys": 13,
+  "values": 6,
+  "words": 66,
+  "pool_bytes": 246,
+  "table_bytes": 616
+ },
+ "DatetimeNamesYearJapaneseV1": {
+  "keys": 6,
+  "values": 5,
+  "words": 80,
+  "pool_bytes": 163,
+  "table_bytes": 543
+ },
+ "DatetimePatternsDateJapaneseV1": {
+  "keys": 18,
+  "values": 18,
+  "words": 374,
+  "pool_bytes": 132,
+  "table_bytes": 1812
+ },
+ "DatetimeNamesMonthHebrewV1": {
+  "keys": 11,
+  "values": 5,
+  "words": 109,
+  "pool_bytes": 286,
+  "table_bytes": 812
+ },
+ "DatetimeNamesYearHebrewV1": {
+  "keys": 6,
+  "values": 3,
+  "words": 9,
+  "pool_bytes": 52,
+  "table_bytes": 140
+ },
+ "DatetimePatternsDateHebrewV1": {
+  "keys": 18,
+  "values": 18,
+  "words": 374,
+  "pool_bytes": 132,
+  "table_bytes": 1812
+ },
+ "DatetimeNamesMonthChineseV1": {
+  "keys": 11,
+  "values": 5,
+  "words": 104,
+  "pool_bytes": 619,
+  "table_bytes": 1125
+ },
+ "DatetimeNamesYearChineseV1": {
+  "keys": 3,
+  "values": 1,
+  "words": 62,
+  "pool_bytes": 438,
+  "table_bytes": 712
+ },
+ "DatetimePatternsDateChineseV1": {
+  "keys": 17,
+  "values": 17,
+  "words": 375,
+  "pool_bytes": 128,
+  "table_bytes": 1802
+ },
+ "DatetimeNamesMonthHijriV1": {
+  "keys": 11,
+  "values": 7,
+  "words": 79,
+  "pool_bytes": 492,
+  "table_bytes": 906
+ },
+ "DatetimeNamesYearHijriV1": {
+  "keys": 5,
+  "values": 3,
+  "words": 12,
+  "pool_bytes": 55,
+  "table_bytes": 149
+ },
+ "DatetimePatternsDateHijriV1": {
+  "keys": 18,
+  "values": 18,
+  "words": 374,
+  "pool_bytes": 132,
+  "table_bytes": 1812
+ },
+ "DatetimeNamesWeekdayV1": {
+  "keys": 16,
+  "values": 6,
+  "words": 48,
+  "pool_bytes": 205,
+  "table_bytes": 521
+ },
+ "DatetimeNamesDayperiodV1": {
+  "keys": 12,
+  "values": 2,
+  "words": 8,
+  "pool_bytes": 82,
+  "table_bytes": 198
+ },
+ "DatetimePatternsTimeV1": {
+  "keys": 4,
+  "values": 3,
+  "words": 63,
+  "pool_bytes": 33,
+  "table_bytes": 325
+ },
+ "DatetimePatternsGlueV1": {
+  "keys": 16,
+  "values": 8,
+  "words": 33,
+  "pool_bytes": 132,
+  "table_bytes": 396
+ },
+ "CalendarJapaneseModernV1": {
+  "keys": 1,
+  "values": 1,
+  "words": 21,
+  "pool_bytes": 39,
+  "table_bytes": 137
+ },
+ "DecimalSymbolsV1": {
+  "keys": 2,
+  "values": 2,
+  "words": 20,
+  "pool_bytes": 26,
+  "table_bytes": 130
+ },
+ "DecimalDigitsV1": {
+  "keys": 1,
+  "values": 1,
+  "words": 10,
+  "pool_bytes": 26,
+  "table_bytes": 80
+ }
+}

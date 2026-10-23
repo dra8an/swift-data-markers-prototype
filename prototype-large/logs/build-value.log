@@ -1,0 +1,13 @@
+built out/value-normal/ValueCheck
+built out/value-normal/ValueChinese
+built out/value-normal/ValueRuntime
+built out/value-embedded/ValueChinese
+built out/value-embedded-lto/ValueChinese
+built out/value-normal3/ValueChinese
+built out/value-embedded/ValueRuntime
+built out/value-embedded-lto/ValueRuntime
+built out/value-normal3/ValueRuntime
+built out/value-bench-O-normal3/ValueBench
+built out/value-embedded/ValueBench
+ALL DONE
+rc=0
