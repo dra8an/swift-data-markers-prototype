@@ -1,0 +1,101 @@
+{
+ "tag": "dmk1",
+ "markers": {
+  "CalendarJapaneseModernV1": {
+   "hash": 4040175302,
+   "tag": "64 6d 6b 31 c6 2e d0 f0"
+  },
+  "DatetimeNamesDayperiodV1": {
+   "hash": 3562685026,
+   "tag": "64 6d 6b 31 62 42 5a d4"
+  },
+  "DatetimeNamesMonthBuddhistV1": {
+   "hash": 3529343182,
+   "tag": "64 6d 6b 31 ce 80 5d d2"
+  },
+  "DatetimeNamesMonthChineseV1": {
+   "hash": 1733495596,
+   "tag": "64 6d 6b 31 2c 0b 53 67"
+  },
+  "DatetimeNamesMonthGregorianV1": {
+   "hash": 3274862979,
+   "tag": "64 6d 6b 31 83 71 32 c3"
+  },
+  "DatetimeNamesMonthHebrewV1": {
+   "hash": 2260090520,
+   "tag": "64 6d 6b 31 98 3e b6 86"
+  },
+  "DatetimeNamesMonthHijriV1": {
+   "hash": 1799498489,
+   "tag": "64 6d 6b 31 f9 2a 42 6b"
+  },
+  "DatetimeNamesMonthJapaneseV1": {
+   "hash": 1638158860,
+   "tag": "64 6d 6b 31 0c 52 a4 61"
+  },
+  "DatetimeNamesYearBuddhistV1": {
+   "hash": 2275795009,
+   "tag": "64 6d 6b 31 41 e0 a5 87"
+  },
+  "DatetimeNamesYearChineseV1": {
+   "hash": 2691325757,
+   "tag": "64 6d 6b 31 3d 5f 6a a0"
+  },
+  "DatetimeNamesYearGregorianV1": {
+   "hash": 432764626,
+   "tag": "64 6d 6b 31 d2 76 cb 19"
+  },
+  "DatetimeNamesYearHebrewV1": {
+   "hash": 3021905423,
+   "tag": "64 6d 6b 31 0f 9e 1e b4"
+  },
+  "DatetimeNamesYearHijriV1": {
+   "hash": 2389520468,
+   "tag": "64 6d 6b 31 54 30 6d 8e"
+  },
+  "DatetimeNamesYearJapaneseV1": {
+   "hash": 1462415315,
+   "tag": "64 6d 6b 31 d3 af 2a 57"
+  },
+  "DatetimePatternsDateBuddhistV1": {
+   "hash": 2144811659,
+   "tag": "64 6d 6b 31 8b 3a d7 7f"
+  },
+  "DatetimePatternsDateChineseV1": {
+   "hash": 2236691167,
+   "tag": "64 6d 6b 31 df 32 51 85"
+  },
+  "DatetimePatternsDateGregorianV1": {
+   "hash": 883492520,
+   "tag": "64 6d 6b 31 a8 06 a9 34"
+  },
+  "DatetimePatternsDateHebrewV1": {
+   "hash": 3361221477,
+   "tag": "64 6d 6b 31 65 2b 58 c8"
+  },
+  "DatetimePatternsDateHijriV1": {
+   "hash": 3767988490,
+   "tag": "64 6d 6b 31 0a f1 96 e0"
+  },
+  "DatetimePatternsDateJapaneseV1": {
+   "hash": 2708338985,
+   "tag": "64 6d 6b 31 29 f9 6d a1"
+  },
+  "DatetimePatternsGlueV1": {
+   "hash": 4275990419,
+   "tag": "64 6d 6b 31 93 6f de fe"
+  },
+  "DatetimePatternsTimeV1": {
+   "hash": 3674971847,
+   "tag": "64 6d 6b 31 c7 9e 0b db"
+  },
+  "DecimalDigitsV1": {
+   "hash": 1709370419,
+   "tag": "64 6d 6b 31 33 ec e2 65"
+  },
+  "DecimalSymbolsV1": {
+   "hash": 3228937036,
+   "tag": "64 6d 6b 31 4c ab 75 c0"
+  }
+ }
+}

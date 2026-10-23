@@ -1,0 +1,5 @@
+binary	code	data	other	total	markers	marker names
+baseline/swift-embedded	12752	440	319	13511	0	
+baseline/swift-normal	956	18	512	1486	0	
+baseline/swift-normal3	720	18	476	1214	0	
+baseline/rust	190328	17792	38169	246289	0	

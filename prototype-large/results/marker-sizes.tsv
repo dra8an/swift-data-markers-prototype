@@ -1,0 +1,27 @@
+marker	ICU4X lookup	ICU4X data	ICU4X total	prototype tables	prototype / ICU4X
+DatetimeNamesMonthGregorianV1	4921	75502	80423	74024	0.92
+DatetimeNamesYearGregorianV1	2785	19457	22242	19426	0.87
+DatetimePatternsDateGregorianV1	7564	120391	127955	158374	1.24
+DatetimeNamesMonthBuddhistV1	4921	75502	80423	74024	0.92
+DatetimeNamesYearBuddhistV1	689	2588	3277	2935	0.90
+DatetimePatternsDateBuddhistV1	6616	67368	73984	88435	1.20
+DatetimeNamesMonthJapaneseV1	4921	75502	80423	74024	0.92
+DatetimeNamesYearJapaneseV1	2803	39172	41975	42555	1.01
+DatetimePatternsDateJapaneseV1	6175	63188	69363	82677	1.19
+DatetimeNamesMonthHebrewV1	1018	11040	12058	15491	1.28
+DatetimeNamesYearHebrewV1	316	1085	1401	1306	0.93
+DatetimePatternsDateHebrewV1	6400	66533	72933	86578	1.19
+DatetimeNamesMonthChineseV1	949	11795	12744	25554	2.01
+DatetimeNamesYearChineseV1	210	9026	9236	10363	1.12
+DatetimePatternsDateChineseV1	2614	22202	24816	29927	1.21
+DatetimeNamesMonthHijriV1	1328	27470	28798	26417	0.92
+DatetimeNamesYearHijriV1	676	2695	3371	3072	0.91
+DatetimePatternsDateHijriV1	6621	66854	73475	87783	1.19
+DatetimeNamesWeekdayV1	6079	49304	55383	59507	1.07
+DatetimeNamesDayperiodV1	4731	18343	23074	25547	1.11
+DatetimePatternsTimeV1	1972	4408	6380	8357	1.31
+DatetimePatternsGlueV1	4064	10422	14486	16171	1.12
+CalendarJapaneseModernV1	0	7	7	137	19.57
+DecimalSymbolsV1	1440	2364	3804	5615	1.48
+DecimalDigitsV1	181	920	1101	2015	1.83
+all 25			923132	1020314	1.11

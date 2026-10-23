@@ -1,0 +1,9 @@
+2026-10-23T21:41:39.027Z INFO  [icu_provider_export::export_impl] Datagen configured with no deduplication, and these locales: []
+2026-10-23T21:41:39.032Z INFO  [icu_provider_export::export_impl] Generated marker DatetimePatternsTimeV1
+2026-10-23T21:41:39.033Z INFO  [icu_provider_export::export_impl] Generated marker DatetimeNamesYearJapaneseV1
+2026-10-23T21:41:39.033Z INFO  [icu_provider_export::export_impl] Generated marker DatetimeNamesDayperiodV1
+2026-10-23T21:41:39.035Z INFO  [icu_provider_export::export_impl] Generated marker DatetimeNamesMonthJapaneseV1
+2026-10-23T21:41:39.036Z INFO  [icu_provider_export::export_impl] Generated marker DatetimePatternsGlueV1
+2026-10-23T21:41:39.037Z INFO  [icu_provider_export::export_impl] Generated marker DatetimePatternsDateJapaneseV1
+2026-10-23T21:41:39.062Z INFO  [icu_provider_export::export_impl] Generated marker DecimalDigitsV1
+2026-10-23T21:41:39.063Z INFO  [icu_provider_export::export_impl] Generated marker DecimalSymbolsV1

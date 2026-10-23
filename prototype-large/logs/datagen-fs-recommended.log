@@ -1,0 +1,27 @@
+2026-10-23T20:58:42.235Z INFO  [icu_provider_export::export_impl] Datagen configured with maximal deduplication, and these locales: ["@und", "ady", "af", "ak", "am", "ar", "as", "ast", "az", "ba", "bal-Latn", "be", "bg", "bgc", "bho", "blo", "bn", "br", "brx", "bs", "bs-Cyrl", "bua", "ca", "ceb", "chr", "ckb", "cop", "cs", "csw", "cv", "cy", "da", "de", "doi", "dsb", "ee", "el", "en", "eo", "es", "et", "eu", "fa", "ff-Adlm", "fi", "fil", "fo", "fr", "fy", "ga", "gaa", "gd", "gl", "gu", "ha", "he", "hi", "hi-Latn", "hr", "hsb", "hu", "hy", "ia", "id", "ie", "ig", "ii", "is", "it", "ja", "jv", "ka", "kbd", "kea", "kek", "kgp", "ki", "kk", "kk-Arab", "km", "kn", "ko", "kok", "kok-Latn", "ks", "ks-Deva", "ksh", "ku", "kxv", "kxv-Deva", "kxv-Orya", "kxv-Telu", "ky", "lb", "lij", "lld", "lmo", "lo", "lt", "lv", "mai", "mi", "mk", "ml", "mn", "mni", "mr", "ms", "mt", "my", "nds", "ne", "nl", "nn", "no", "nqo", "nso", "oc", "om", "or", "pa", "pcm", "pl", "pms", "prg", "ps", "pt", "qu", "quc", "raj", "rm", "ro", "ru", "rw", "sa", "sah", "sat", "sc", "scn", "sd", "sd-Deva", "shn", "si", "sk", "sl", "so", "sq", "sr", "sr-Latn", "st", "su", "suz-Sunu", "sv", "sw", "syr", "szl", "ta", "te", "tg", "th", "ti", "tk", "tn", "to", "tr", "tt", "tyv", "ug", "uk", "ur", "uz", "uz-Cyrl", "vec", "vi", "vmw", "wo", "xh", "xnr", "yo", "yrl", "yue", "yue-Hans", "za", "zh", "zh-Hant", "zu"]
+2026-10-23T20:58:42.238Z INFO  [icu_provider_export::export_impl] Generated marker CalendarJapaneseModernV1
+2026-10-23T20:58:42.322Z INFO  [icu_provider_export::export_impl] Generated marker DatetimeNamesYearHebrewV1
+2026-10-23T20:58:42.390Z INFO  [icu_provider_export::export_impl] Generated marker DatetimeNamesMonthHebrewV1
+2026-10-23T20:58:42.404Z INFO  [icu_provider_export::export_impl] Generated marker DecimalSymbolsV1
+2026-10-23T20:58:42.416Z INFO  [icu_provider_export::export_impl] Generated marker DatetimeNamesYearChineseV1
+2026-10-23T20:58:42.593Z INFO  [icu_provider_export::export_impl] Generated marker DatetimeNamesMonthGregorianV1
+2026-10-23T20:58:42.635Z INFO  [icu_provider_export::export_impl] Generated marker DatetimeNamesWeekdayV1
+2026-10-23T20:58:42.752Z INFO  [icu_provider_export::export_impl] Generated marker DatetimePatternsDateChineseV1 (0.517s, 'raj/m0d' in 1.973ms, flushed in 4.875µs)
+2026-10-23T20:58:42.784Z INFO  [icu_provider_export::export_impl] Generated marker DatetimeNamesMonthBuddhistV1 (0.548s, 'ee-TG/3' in 3.640ms, flushed in 3.541µs)
+2026-10-23T20:58:42.797Z INFO  [icu_provider_export::export_impl] Generated marker DatetimeNamesYearGregorianV1
+2026-10-23T20:58:42.853Z INFO  [icu_provider_export::export_impl] Generated marker DatetimeNamesYearBuddhistV1
+2026-10-23T20:58:42.857Z INFO  [icu_provider_export::export_impl] Generated marker DecimalDigitsV1
+2026-10-23T20:58:42.926Z INFO  [icu_provider_export::export_impl] Generated marker DatetimePatternsDateHebrewV1 (0.690s, 'mt/ym0de' in 2.264ms, flushed in 4.500µs)
+2026-10-23T20:58:42.958Z INFO  [icu_provider_export::export_impl] Generated marker DatetimeNamesYearJapaneseV1
+2026-10-23T20:58:42.992Z INFO  [icu_provider_export::export_impl] Generated marker DatetimeNamesMonthChineseV1
+2026-10-23T20:58:43.126Z INFO  [icu_provider_export::export_impl] Generated marker DatetimePatternsDateBuddhistV1 (0.629s, 'en-LV/y' in 3.888ms, flushed in 4.333µs)
+2026-10-23T20:58:43.170Z INFO  [icu_provider_export::export_impl] Generated marker DatetimeNamesMonthHijriV1
+2026-10-23T20:58:43.193Z INFO  [icu_provider_export::export_impl] Generated marker DatetimeNamesMonthJapaneseV1
+2026-10-23T20:58:43.212Z INFO  [icu_provider_export::export_impl] Generated marker DatetimeNamesYearHijriV1 (0.974s, 'sk/3' in 7.771ms, flushed in 3.209µs)
+2026-10-23T20:58:43.231Z INFO  [icu_provider_export::export_impl] Generated marker DatetimePatternsGlueV1
+2026-10-23T20:58:43.363Z INFO  [icu_provider_export::export_impl] Generated marker DatetimeNamesDayperiodV1 (1.127s, 'so-KE/4' in 24.950ms, flushed in 4.166µs)
+2026-10-23T20:58:43.387Z INFO  [icu_provider_export::export_impl] Generated marker DatetimePatternsDateJapaneseV1 (0.889s, 'zh-Hans-MO/m0de' in 4.872ms, flushed in 5.333µs)
+2026-10-23T20:58:43.425Z INFO  [icu_provider_export::export_impl] Generated marker DatetimePatternsTimeV1 (1.190s, 'fr-LU/j' in 4.009ms, flushed in 3.208µs)
+2026-10-23T20:58:43.428Z INFO  [icu_provider_export::export_impl] Generated marker DatetimePatternsDateHijriV1 (1.193s, 'sd-Deva/d' in 8.135ms, flushed in 3.500µs)
+2026-10-23T20:58:43.448Z INFO  [icu_provider_export::export_impl] Generated marker DatetimePatternsDateGregorianV1 (1.212s, 'wo/m0' in 1.680ms, flushed in 3.750µs)
+rc=0

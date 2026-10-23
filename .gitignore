@@ -3,6 +3,17 @@
 /data/
 /prototype/out/
 /icu4x-experiments/apps/*/target/
+# The large prototype: build output and data that its scripts make again (see prototype-large/README.md)
+/prototype-large/out/
+/prototype-large/rust-copy/target/
+/prototype-large/icu4x-apps/*/target/
+/prototype-large/icu4x-data/
+/prototype-large/results/icu4x-reference.tsv
+/prototype-large/results/*-check.tsv
+/prototype-large/results/profile/
+# Scratch runs of the large prototype, can be deleted
+/prototype-large/explore/
+/prototype-large/generator/__pycache__/
 # Left over from the setup, can be deleted
 /prototype/data/full-duplicate/
 /icu4x-experiments/apps-src-tmp/

@@ -39,7 +39,8 @@ The scripts use absolute paths to `/Users/draganm4/Projects/dra8an/swift-data-ma
 
 | Folder | Content |
 |---|---|
-| `prototype/` | The Swift prototype, done on 2026-10-23. Start with `prototype/PROTOTYPE-RESULTS.md`, then `prototype/DESIGN.md`. `prototype/QUICK_GUIDE.md` compares Rust and Swift in four tables. `prototype/data/full-duplicate/` is a copy of `data/full` made by mistake, and it can be deleted. |
+| `prototype/` | The Swift prototype, done on 2026-10-23. Start with `prototype/PROTOTYPE-RESULTS.md`, then `prototype/DESIGN.md`. `prototype/QUICK_GUIDE.md` compares Rust and Swift in four tables. `prototype/data/full-duplicate/` is a copy of `data/full` made by mistake, and it can be deleted. Note: its `static let` `InlineArray` tables have the copy problem of `prototype-large/RESULTS.md`, "The copy of InlineArray". Its results are about size, so the problem does not change them. |
+| `prototype-large/` | The large prototype, done on 2026-10-23: a date formatter for 6 calendars and 25 ICU4X markers, in Swift, in a Rust copy, and against ICU4X itself. It compares the output, the data size, the code size and the speed. Start with `prototype-large/RESULTS.md`, then `prototype-large/README.md`. |
 | `tools/rust/` | Rust 1.99.1 (stable, minimal profile), from `rustup-init` for `aarch64-apple-darwin`. The SHA-256 of `rustup-init` matched the published one. `cargo/registry` holds every crate that the builds below need, so they work with `--offline`. |
 | `tools/bin/` | Two builds of `icu4x-datagen` from `tools/icu4x-src`: `icu4x-datagen` (default features) and `icu4x-datagen-unstable` (`--features unstable`, needed for some datetime markers). |
 | `tools/icu4x-src/` | A shallow clone of `github.com/unicode-org/icu4x` at commit `747356078891d513c1f731320e3d0e1ee9912e33`. |

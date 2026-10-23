@@ -1,0 +1,9 @@
+new Gregorian YMD medium	4663
+new Japanese YMDT long	6852
+format Gregorian YMD medium en	982
+format Gregorian YMDT medium en	1843
+format Japanese YMDT long ja	1802
+format Hebrew YMD long he	1419
+format Chinese YMD long zh	1416
+format Gregorian YMD long ar-EG	1269
+sink	161300000

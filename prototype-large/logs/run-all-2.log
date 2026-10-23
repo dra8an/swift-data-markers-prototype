@@ -1,0 +1,28 @@
+15:09:57 check builds
+built out/normal-full/Check
+built out/embedded-full/Check
+15:12:14 checks
+Swift normal: 327888 same, 10692 outside the Chinese table, 0 different
+Swift Embedded: 327888 same, 10692 outside the Chinese table, 0 different
+Rust copy: 327888 same, 10692 outside the Chinese table, 0 different
+15:12:16 sizes, full data
+ALL DONE
+15:14:54 sizes, cut data
+ALL DONE
+15:15:47 bench builds
+ALL DONE
+15:18:29 bench runs
+tools/run-bench.sh: line 5: 18520 Bus error: 10           perl -e 'alarm shift; exec @ARGV' 300 $bin > results/bench-$name.tsv 2>&1
+swift-embedded-O: 0 s
+swift-normal-O: 1 s
+swift-normal3-O: 1 s
+swift-embedded-Osize: 1 s
+swift-normal-Osize: 2 s
+swift-normal3-Osize: 2 s
+rustcopy-opt3: 0 s
+rustcopy-opts: 1 s
+icu4x-opt3: 1 s
+icu4x-opts: 2 s
+ALL DONE
+15:18:40 ALL DONE
+rc=0

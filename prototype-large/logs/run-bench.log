@@ -1,0 +1,11 @@
+swift-embedded-O: 22 s
+swift-normal-O: 18 s
+swift-normal3-O: 17 s
+swift-embedded-Osize: 142 s
+swift-normal-Osize: 21 s
+swift-normal3-Osize: 17 s
+rustcopy-opt3: 1 s
+rustcopy-opts: 1 s
+icu4x-opt3: 1 s
+icu4x-opts: 2 s
+ALL DONE

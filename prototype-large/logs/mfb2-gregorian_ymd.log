@@ -1,0 +1,6 @@
+2026-10-23T21:41:38.786Z INFO  [icu_provider_export::export_impl] Datagen configured with no deduplication, and these locales: []
+2026-10-23T21:41:38.795Z INFO  [icu_provider_export::export_impl] Generated marker DatetimeNamesYearGregorianV1
+2026-10-23T21:41:38.797Z INFO  [icu_provider_export::export_impl] Generated marker DatetimeNamesMonthGregorianV1
+2026-10-23T21:41:38.798Z INFO  [icu_provider_export::export_impl] Generated marker DatetimePatternsDateGregorianV1
+2026-10-23T21:41:38.868Z INFO  [icu_provider_export::export_impl] Generated marker DecimalDigitsV1
+2026-10-23T21:41:38.869Z INFO  [icu_provider_export::export_impl] Generated marker DecimalSymbolsV1

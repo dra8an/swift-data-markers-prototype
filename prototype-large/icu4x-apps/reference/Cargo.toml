@@ -1,0 +1,14 @@
+[package]
+name = "reference"
+version = "0.1.0"
+edition = "2021"
+
+# The reference for the correctness test (DESIGN.md, decision 7): formats a fixed list of dates with ICU4X and its built-in data.
+[dependencies]
+icu_datetime = { path = "/Users/draganm4/Projects/dra8an/swift-data-markers-prototype/tools/icu4x-src/components/datetime" }
+icu_calendar = { path = "/Users/draganm4/Projects/dra8an/swift-data-markers-prototype/tools/icu4x-src/components/calendar" }
+icu_locale_core = { path = "/Users/draganm4/Projects/dra8an/swift-data-markers-prototype/tools/icu4x-src/components/locale_core" }
+writeable = { path = "/Users/draganm4/Projects/dra8an/swift-data-markers-prototype/tools/icu4x-src/utils/writeable" }
+
+[profile.release]
+strip = true

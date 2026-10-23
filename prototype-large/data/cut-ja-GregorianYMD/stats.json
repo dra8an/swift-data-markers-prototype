@@ -1,0 +1,37 @@
+{
+ "DatetimeNamesMonthGregorianV1": {
+  "keys": 11,
+  "values": 4,
+  "words": 40,
+  "pool_bytes": 166,
+  "table_bytes": 412
+ },
+ "DatetimeNamesYearGregorianV1": {
+  "keys": 6,
+  "values": 3,
+  "words": 12,
+  "pool_bytes": 59,
+  "table_bytes": 159
+ },
+ "DatetimePatternsDateGregorianV1": {
+  "keys": 21,
+  "values": 21,
+  "words": 512,
+  "pool_bytes": 168,
+  "table_bytes": 2430
+ },
+ "DecimalDigitsV1": {
+  "keys": 1,
+  "values": 1,
+  "words": 10,
+  "pool_bytes": 26,
+  "table_bytes": 80
+ },
+ "DecimalSymbolsV1": {
+  "keys": 1,
+  "values": 1,
+  "words": 10,
+  "pool_bytes": 20,
+  "table_bytes": 74
+ }
+}

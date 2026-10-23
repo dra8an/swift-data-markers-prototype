@@ -1,0 +1,10 @@
+test (ns)	Swift Embedded -Osize	Swift normal -O	Swift normal 3 flags -O	Swift normal -Osize	Swift normal 3 flags -Osize	Rust copy opt 3	Rust copy opt s	ICU4X opt 3	ICU4X opt s
+new Gregorian YMD medium	551.4	610.9	421.3	535.4	557.2	216.1	242.1	466.3	544.4
+new Japanese YMDT long	754.3	632.5	590.6	736.2	744.2	326.4	376.7	685.2	787.8
+format Gregorian YMD medium en	153.6	92.7	82.0	166.1	173.8	49.4	58.6	98.2	132.1
+format Gregorian YMDT medium en	237.7	146.1	113.0	283.9	300.6	79.9	101.8	184.3	232.0
+format Japanese YMDT long ja	234.7	156.6	115.6	271.7	273.7	87.6	106.4	180.2	223.8
+format Hebrew YMD long he	173.2	116.8	105.9	198.9	203.9	74.2	76.2	141.9	182.3
+format Chinese YMD long zh	119.1	88.9	78.6	133.0	139.9	39.4	41.4	141.6	162.0
+format Gregorian YMD long ar-EG	167.7	99.1	84.1	191.5	189.9	50.5	60.7	126.9	163.1
+sink	161300000	161300000	161300000	161300000	161300000	161300000	161300000	161300000	161300000

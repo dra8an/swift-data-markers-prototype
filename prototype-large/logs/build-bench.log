@@ -1,0 +1,8 @@
+built out/bench-O-embedded/Bench
+built out/bench-O-normal/Bench
+built out/bench-O-normal3/Bench
+built out/full-embedded/Bench
+built out/full-normal/Bench
+built out/full-normal3/Bench
+ALL DONE
+rc=0

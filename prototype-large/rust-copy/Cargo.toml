@@ -1,0 +1,32 @@
+[package]
+name = "rust-copy"
+version = "0.1.0"
+edition = "2021"
+
+# The Rust copy of the Swift design (DESIGN.md, "The three implementations"). No dependencies.
+# The data comes from the generator: set RUST_COPY_DATA to the absolute path of <data folder>/rust/data.rs.
+[dependencies]
+
+[features]
+default = ["any-calendar"]
+# The any calendar formatter and the check app need data for all 6 calendars.
+any-calendar = []
+
+[[bin]]
+name = "check"
+required-features = ["any-calendar"]
+
+[[bin]]
+name = "any_calendar"
+required-features = ["any-calendar"]
+
+[profile.release]
+opt-level = "s"
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true
+
+[profile.speed]
+inherits = "release"
+opt-level = 3

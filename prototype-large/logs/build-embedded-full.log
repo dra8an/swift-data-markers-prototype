@@ -1,0 +1,17 @@
+FAILED Check
+/Users/draganm4/Projects/dra8an/swift-data-markers-prototype/prototype-large/swift/apps/Check/main.swift:148:17: error: cannot find 'CommandLine' in scope
+146 | }
+147 | 
+148 | let arguments = CommandLine.arguments
+    |                 `- error: cannot find 'CommandLine' in scope
+149 | let locales = readLines(arguments[1])
+150 | let cases = readLines(arguments[2]).map(makeCase)
+
+/Users/draganm4/Projects/dra8an/swift-data-markers-prototype/prototype-large/swift/apps/Check/main.swift:86:78: error: cannot find 'stdout' in scope
+ 84 | 
+ 85 | func flush() {
+ 86 |     output.withUnsafeBufferPointer { _ = fwrite($0.baseAddress, 1, $0.count, stdout) }
+    |                                                                              `- error: cannot find 'stdout' in scope
+ 87 |     output.removeAll(keepingCapacity: true)
+ 88 | }
+rc=1

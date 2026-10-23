@@ -1,0 +1,31 @@
+[package]
+name = "sizes"
+version = "0.1.0"
+edition = "2021"
+
+# The ICU4X size apps (DESIGN.md, decision 8), with the built-in data of ICU4X (compiled_data).
+[dependencies]
+icu_datetime = { path = "/Users/draganm4/Projects/dra8an/swift-data-markers-prototype/tools/icu4x-src/components/datetime" }
+icu_calendar = { path = "/Users/draganm4/Projects/dra8an/swift-data-markers-prototype/tools/icu4x-src/components/calendar" }
+icu_locale_core = { path = "/Users/draganm4/Projects/dra8an/swift-data-markers-prototype/tools/icu4x-src/components/locale_core" }
+writeable = { path = "/Users/draganm4/Projects/dra8an/swift-data-markers-prototype/tools/icu4x-src/utils/writeable" }
+
+[profile.release]
+opt-level = "s"
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true
+
+[profile.speed]
+inherits = "release"
+opt-level = 3
+
+# Only for icu4x-datagen --markers-for-bin: with LTO, the tags of the markers are removed too.
+[profile.markers]
+inherits = "release"
+opt-level = 3
+lto = false
+codegen-units = 16
+panic = "unwind"
+strip = true

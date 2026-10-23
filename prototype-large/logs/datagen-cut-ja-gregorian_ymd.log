@@ -1,0 +1,7 @@
+2026-10-23T21:45:39.072Z INFO  [icu_provider_export::export_impl] Datagen configured with maximal deduplication, and these locales: ["ja"]
+2026-10-23T21:45:39.084Z INFO  [icu_provider_export::export_impl] Generated marker DatetimeNamesMonthGregorianV1
+2026-10-23T21:45:39.084Z INFO  [icu_provider_export::export_impl] Generated marker DatetimeNamesYearGregorianV1
+2026-10-23T21:45:39.084Z INFO  [icu_provider_export::export_impl] Generated marker DatetimePatternsDateGregorianV1
+2026-10-23T21:45:39.144Z INFO  [icu_provider_export::export_impl] Generated marker DecimalDigitsV1
+2026-10-23T21:45:39.144Z INFO  [icu_provider_export::export_impl] Generated marker DecimalSymbolsV1
+2026-10-23T21:45:39.144Z INFO  [icu_provider_baked::export] Writing macros module...

@@ -1,0 +1,8 @@
+[package]
+name = "chinese-table"
+version = "0.1.0"
+edition = "2021"
+
+# Dumps the Chinese years 1900 to 2100 from icu_calendar, for the table of the Swift code and the Rust copy (DESIGN.md, decision 6).
+[dependencies]
+icu_calendar = { path = "/Users/draganm4/Projects/dra8an/swift-data-markers-prototype/tools/icu4x-src/components/calendar" }

@@ -1,0 +1,11 @@
+built out/full-embedded/GregorianYMD
+built out/full-normal/GregorianYMD
+built out/full-normal3/GregorianYMD
+built out/full-embedded/JapaneseYMDT
+built out/full-normal/JapaneseYMDT
+built out/full-normal3/JapaneseYMDT
+built out/full-embedded/AnyCalendar
+built out/full-normal/AnyCalendar
+built out/full-normal3/AnyCalendar
+ALL DONE
+rc=0

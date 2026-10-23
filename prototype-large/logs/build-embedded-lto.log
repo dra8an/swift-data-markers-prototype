@@ -1,0 +1,4 @@
+built out/full-embedded-lto/GregorianYMD
+built out/full-embedded-lto/JapaneseYMDT
+built out/full-embedded-lto/AnyCalendar
+rc=0

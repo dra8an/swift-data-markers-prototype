@@ -1,0 +1,65 @@
+{
+ "CalendarJapaneseModernV1": {
+  "keys": 1,
+  "values": 1,
+  "words": 21,
+  "pool_bytes": 39,
+  "table_bytes": 137
+ },
+ "DatetimeNamesDayperiodV1": {
+  "keys": 12,
+  "values": 2,
+  "words": 8,
+  "pool_bytes": 99,
+  "table_bytes": 215
+ },
+ "DatetimeNamesMonthJapaneseV1": {
+  "keys": 11,
+  "values": 4,
+  "words": 40,
+  "pool_bytes": 166,
+  "table_bytes": 412
+ },
+ "DatetimeNamesYearJapaneseV1": {
+  "keys": 6,
+  "values": 4,
+  "words": 64,
+  "pool_bytes": 155,
+  "table_bytes": 467
+ },
+ "DatetimePatternsDateJapaneseV1": {
+  "keys": 21,
+  "values": 21,
+  "words": 418,
+  "pool_bytes": 168,
+  "table_bytes": 2054
+ },
+ "DatetimePatternsGlueV1": {
+  "keys": 12,
+  "values": 4,
+  "words": 15,
+  "pool_bytes": 100,
+  "table_bytes": 252
+ },
+ "DatetimePatternsTimeV1": {
+  "keys": 6,
+  "values": 4,
+  "words": 79,
+  "pool_bytes": 45,
+  "table_bytes": 417
+ },
+ "DecimalDigitsV1": {
+  "keys": 1,
+  "values": 1,
+  "words": 10,
+  "pool_bytes": 26,
+  "table_bytes": 80
+ },
+ "DecimalSymbolsV1": {
+  "keys": 1,
+  "values": 1,
+  "words": 10,
+  "pool_bytes": 20,
+  "table_bytes": 74
+ }
+}

@@ -1,0 +1,41 @@
+{
+ "tag": "dmk1",
+ "markers": {
+  "CalendarJapaneseModernV1": {
+   "hash": 4040175302,
+   "tag": "64 6d 6b 31 c6 2e d0 f0"
+  },
+  "DatetimeNamesDayperiodV1": {
+   "hash": 3562685026,
+   "tag": "64 6d 6b 31 62 42 5a d4"
+  },
+  "DatetimeNamesMonthJapaneseV1": {
+   "hash": 1638158860,
+   "tag": "64 6d 6b 31 0c 52 a4 61"
+  },
+  "DatetimeNamesYearJapaneseV1": {
+   "hash": 1462415315,
+   "tag": "64 6d 6b 31 d3 af 2a 57"
+  },
+  "DatetimePatternsDateJapaneseV1": {
+   "hash": 2708338985,
+   "tag": "64 6d 6b 31 29 f9 6d a1"
+  },
+  "DatetimePatternsGlueV1": {
+   "hash": 4275990419,
+   "tag": "64 6d 6b 31 93 6f de fe"
+  },
+  "DatetimePatternsTimeV1": {
+   "hash": 3674971847,
+   "tag": "64 6d 6b 31 c7 9e 0b db"
+  },
+  "DecimalDigitsV1": {
+   "hash": 1709370419,
+   "tag": "64 6d 6b 31 33 ec e2 65"
+  },
+  "DecimalSymbolsV1": {
+   "hash": 3228937036,
+   "tag": "64 6d 6b 31 4c ab 75 c0"
+  }
+ }
+}

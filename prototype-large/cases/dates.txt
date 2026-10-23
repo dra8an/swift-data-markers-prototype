@@ -1,0 +1,17 @@
+# The dates of the correctness test and the speed test: year month day hour minute second (ISO).
+# Each line tests one rule. Negative years are ISO extended years (0 is 1 BCE).
+2026 10 23 13 5 9
+2000 2 29 0 0 0
+1989 1 7 12 0 0
+1989 1 8 23 59 0
+2019 4 30 9 30 0
+2019 5 1 9 30 0
+1868 10 22 8 0 0
+1950 6 15 18 45 0
+2023 4 15 6 7 0
+2025 8 1 20 20 0
+2024 3 15 11 11 0
+1900 1 31 12 0 0
+2100 12 31 0 0 0
+50 3 1 12 0 0
+-99 7 1 12 0 0

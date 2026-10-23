@@ -1,0 +1,27 @@
+[package]
+name = "sizes-cut"
+version = "0.1.0"
+edition = "2021"
+
+# The ICU4X size apps with data cut by icu4x-datagen (DESIGN.md, decision 8). Set ICU4X_CUT_DATA to the mod.rs of the data.
+[dependencies]
+icu_datetime = { path = "/Users/draganm4/Projects/dra8an/swift-data-markers-prototype/tools/icu4x-src/components/datetime", default-features = false }
+icu_decimal = { path = "/Users/draganm4/Projects/dra8an/swift-data-markers-prototype/tools/icu4x-src/components/decimal", default-features = false }
+icu_calendar = { path = "/Users/draganm4/Projects/dra8an/swift-data-markers-prototype/tools/icu4x-src/components/calendar" }
+icu_locale_core = { path = "/Users/draganm4/Projects/dra8an/swift-data-markers-prototype/tools/icu4x-src/components/locale_core" }
+icu_provider = { path = "/Users/draganm4/Projects/dra8an/swift-data-markers-prototype/tools/icu4x-src/provider/core", features = ["baked"] }
+icu_locale_fallback = { path = "/Users/draganm4/Projects/dra8an/swift-data-markers-prototype/tools/icu4x-src/components/locale_fallback", features = ["compiled_data"] }
+zerovec = { path = "/Users/draganm4/Projects/dra8an/swift-data-markers-prototype/tools/icu4x-src/utils/zerovec" }
+writeable = { path = "/Users/draganm4/Projects/dra8an/swift-data-markers-prototype/tools/icu4x-src/utils/writeable" }
+icu_pattern = { path = "/Users/draganm4/Projects/dra8an/swift-data-markers-prototype/tools/icu4x-src/components/pattern" }
+
+[profile.release]
+opt-level = "s"
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true
+
+[profile.speed]
+inherits = "release"
+opt-level = 3

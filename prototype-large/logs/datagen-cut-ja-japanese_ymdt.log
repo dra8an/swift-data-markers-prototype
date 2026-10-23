@@ -1,0 +1,10 @@
+2026-10-23T21:45:39.171Z INFO  [icu_provider_export::export_impl] Datagen configured with maximal deduplication, and these locales: ["ja"]
+2026-10-23T21:45:39.179Z INFO  [icu_provider_export::export_impl] Generated marker DatetimePatternsTimeV1
+2026-10-23T21:45:39.179Z INFO  [icu_provider_export::export_impl] Generated marker DatetimeNamesYearJapaneseV1
+2026-10-23T21:45:39.180Z INFO  [icu_provider_export::export_impl] Generated marker DatetimeNamesMonthJapaneseV1
+2026-10-23T21:45:39.182Z INFO  [icu_provider_export::export_impl] Generated marker DatetimePatternsGlueV1
+2026-10-23T21:45:39.182Z INFO  [icu_provider_export::export_impl] Generated marker DatetimePatternsDateJapaneseV1
+2026-10-23T21:45:39.186Z INFO  [icu_provider_export::export_impl] Generated marker DatetimeNamesDayperiodV1
+2026-10-23T21:45:39.208Z INFO  [icu_provider_export::export_impl] Generated marker DecimalDigitsV1
+2026-10-23T21:45:39.209Z INFO  [icu_provider_export::export_impl] Generated marker DecimalSymbolsV1
+2026-10-23T21:45:39.209Z INFO  [icu_provider_baked::export] Writing macros module...

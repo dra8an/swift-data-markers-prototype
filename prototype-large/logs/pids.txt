@@ -1,0 +1,13 @@
+79584 datagen-fs
+80072 datagen-fs
+82169 build-reference
+94362 build-normal-full
+96779 build-embedded-full
+2797 build-icu4x-sizes
+3279 build-sizes-full
+6398 build-cut-ja
+8772 build-bench
+9922 run-bench
+13175 run-all
+16761 run-all-2
+19444 build-embedded-lto
