@@ -1,6 +1,6 @@
 # prototype-large: a date formatter with the data design of ICU4X, in Swift and in Rust
 
-Made on 2026-10-23. The small prototype is in `../prototype/` and did not change. Dragan does all git work.
+Made on 2026-10-23. The small prototype is in `../prototype/`. The overview of both prototypes is in `../README.md`.
 
 ## Start here
 
@@ -26,11 +26,11 @@ Made on 2026-10-23. The small prototype is in `../prototype/` and did not change
 | `logs/` | The logs of the runs | yes |
 | `icu4x-data/` | The JSON output of `icu4x-datagen` (66 MB) | no, make it again |
 | `out/` | The build output (685 MB) | no |
-| `explore/` | Scratch runs for the design and the tests of `InlineArray` and the crash | no, can be deleted |
+| `explore/` | Scratch runs for the design, and the tests of `InlineArray` and of the crash | no |
 
 ## Commands
 
-Run `. ../env.sh` first (from this folder: `. /Users/draganm4/Projects/dra8an/swift-data-markers-prototype/env.sh`).
+Run `. ../env.sh` first, in this folder.
 
 ```
 # 1. The source data (DESIGN.md, decision 1)
@@ -65,11 +65,5 @@ icu4x-datagen-unstable --cldr-root $CLDR_ROOT --tzdb-root $TZDB_ROOT --markers $
 
 1. The apps read the locale from `LOCALE`. `Check` reads `LOCALES` and `DATES` (Embedded Swift has no `CommandLine`).
 2. Use `python3 -I -B`, so that Python writes no `__pycache__` folder.
-3. The settings do not allow deletes. The generator writes over its own output with `--replace` only.
+3. The generator does not write into a folder that is not empty, except with `--replace` over its own output.
 4. Embedded Swift with `-O` crashes (`RESULTS.md`, "Open problems"). The scripts use `-Osize` for Embedded Swift, except the one `-O` bench build that shows the crash.
-
-## Leftovers that Dragan may delete
-
-* `explore/` (122 MB): scratch runs.
-* `generator/__pycache__/`: made by one test import.
-* `icu4x-apps/sizes/target/markers/` and the other `target/` folders: Cargo build output.

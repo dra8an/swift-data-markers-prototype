@@ -1,80 +1,121 @@
 # swift-data-markers-prototype
 
-A work folder for one question: can Swift use the data architecture of ICU4X, where each kind of locale data is its own type ("marker"), so that the linker removes the data an app does not use?
+Can Swift use the data design of [ICU4X](https://github.com/unicode-org/icu4x), so that an app keeps only the locale data that it uses? This repository answers the question with two prototypes, and measures Swift against Rust and against ICU4X itself.
 
-Made on 2026-10-23. Dragan does all git work. The `.gitignore` keeps the large downloaded and rebuilt parts out of the repository (see "Rebuild after a fresh clone").
+In ICU4X, each kind of locale data (for example "the month names of the Japanese calendar") is its own type, a **marker**. Code that never uses a marker never refers to its data, so the linker removes that data from the app. A tool can also cut the data to a list of locales before the build.
 
-## Start here
+## The answers
 
-1. Run `. ./env.sh` in a shell. It sets `RUSTUP_HOME`, `CARGO_HOME`, `PATH`, `TMPDIR`, and the paths `ICU4X_SRC`, `CLDR_ROOT` and `TZDB_ROOT`.
-2. Read the results of the prototype: `prototype/PROTOTYPE-RESULTS.md`, then `prototype/DESIGN.md` and `prototype/QUICK_GUIDE.md`.
-3. Read the background in `docs/`:
-   * `DATA-SLICING.md`: how the date data of PR #2330 slices for a small Embedded Swift app.
-   * `ICU4X-COMPARISON.md`: how #2330 compares with ICU4X.
-   * `ICU4X-DATA-GUIDE.md`: a step by step guide to how ICU4X stores, finds and cuts its data, with the results of real runs.
-   * `RESULTS.md`: the first Embedded Swift measurement of #2330, including why FoundationEssentials does not build in Embedded mode yet.
+| Question | Answer |
+|---|---|
+| Does the design work in Swift? | **Yes.** A marker is an `enum` with no cases, and a separate data module gives each marker its tables. |
+| Does the linker remove unused markers? | **Embedded Swift: yes**, with no extra flags. **Normal Swift: only with 3 flags** together: `-Xfrontend -internalize-at-link -Xfrontend -conditional-runtime-records -lto=llvm-full`. |
+| Is the output correct? | **Yes.** A date formatter for 6 calendars gives the same text as ICU4X on 327,888 of 327,888 test cases. |
+| Data size | About the same as ICU4X: the tables are 1.11x the size of the ICU4X data. |
+| Code size | Smaller than ICU4X: 19,736 bytes against 77,416 bytes for a Gregorian date formatter (normal Swift with the 3 flags). |
+| Speed | A little faster than ICU4X: 82 ns against 98 ns to format a date (`-O` and the 3 flags). A Rust copy of the same Swift design is 1.3x to 2x faster than the Swift. |
+| Does it work behind an API like Foundation's? | **Yes**, with the same output. But a value API (`Calendar(identifier:)`, a format style) keeps the data of every calendar. Only a cut at build time makes the data small. |
 
-`docs/` is a copy of `/Users/draganm4/Projects/dra8an/Docs/pr-2330-deep-review/embedded-20261020/`, made on 2026-10-23, without the two `SWIFT-MARKERS-*` files (they are copies of files in `prototype/`) and without `scripts.zip` (a zip of `docs/scripts/`). If one of the two copies changes, copy it again.
+The details are in [`prototype/PROTOTYPE-RESULTS.md`](prototype/PROTOTYPE-RESULTS.md) (the small prototype) and [`prototype-large/RESULTS.md`](prototype-large/RESULTS.md) (the large prototype).
+
+## The two prototypes
+
+| | Small prototype (`prototype/`) | Large prototype (`prototype-large/`) |
+|---|---|---|
+| Question | Does the linker remove unused markers? | Swift against Rust and ICU4X: correctness, data size, code size, speed |
+| Scope | 4 markers: month and weekday names, 2 calendars | A date formatter: 6 calendars, 4 field sets, 25 ICU4X markers |
+| Data | Made from CLDR by a Python script | Made from the JSON output of `icu4x-datagen`, so all implementations use the same data |
+| Implementations | Swift | Swift (normal and Embedded), a Rust copy of the Swift design, and ICU4X |
+| Start with | `prototype/PROTOTYPE-RESULTS.md` | `prototype-large/RESULTS.md`, then `prototype-large/README.md` |
+
+## How it works
+
+The example is an app that formats 2026-10-23 in the Chinese calendar, in French, with the medium length. It prints `14 9yuè bing-wu`. The code is in `prototype-large/`.
+
+**1. The source data.** `icu4x-datagen` reads CLDR and writes one small JSON file for each marker, attribute and locale. For example, `datetime/names/month/chinese/v1/3/fr.json` holds the abbreviated French names of the Chinese months. There is no file for a locale whose data is the same as its parent's.
+
+**2. The generator picks what to keep.** `generator/generate.py` keeps the markers of `--markers` and the locales of `--locales`. For each locale, it also keeps the locales that a lookup falls back to, with the rules of ICU4X: for `fr`, that is `fr` and `und` (the root).
+
+**3. The generator packs each marker into 5 tables.** One pool holds every text once (for example `9yuè`). Sorted keys (locale, separator, attribute) lead to the values. Values are 32 bit words: a kind, counts, and references to the texts. The generator also parses the patterns: `d MMM U` becomes 5 items.
+
+**4. The generator writes Swift code.** Each marker gets an extension with its tables: `extension DatetimeNamesMonthChineseV1: BakedDataMarker { static let pool: [UInt8] = [...] ... }`. A second file declares the calendars and field sets whose markers are all in the data: `extension Chinese: BakedCalendar {}`.
+
+**5. The build.** The app writes `FixedCalendarFormatter<Chinese, YMD>(locale: "fr", length: .medium)`. The type `Chinese` names its markers, so this code refers only to the Chinese tables and the decimal tables. The linker removes the other tables. If the data has no Chinese tables, the app does not compile.
+
+**6. Making the formatter, at run time.** It finds the date pattern for the key `fr` + `ym0d`, and picks `d MMM U`. Then, for each field, it loads the names. The month names come from `fr`. The cyclic year names are not in `fr`, so the lookup falls back to `und`. The formatter keeps only positions in the tables, and copies no text.
+
+**7. Formatting, at run time.** The Chinese calendar gives day 14 of month 9 of cyclic year 43. The pattern writes `14`, a space, `9yuè`, a space, and `bing-wu`.
+
+The API of the formatter is written by hand and is the same in every build. The generator makes only data, and the declarations that the data is there.
+
+## How to slice the data
+
+Run the commands in `prototype-large/`, after `. ../env.sh`.
+
+```
+# All markers, all locales
+python3 -I -B generator/generate.py --fs icu4x-data/fs-recommended --fallback icu4x-data/fs-fallback --out data/full
+
+# Only French, German and Japanese (and the locales that they fall back to)
+python3 -I -B generator/generate.py --fs icu4x-data/fs-recommended --fallback icu4x-data/fs-fallback --locales fr,de,ja --out data/cut-fr-de-ja
+
+# Only the Chinese calendar, for French: 3,849 bytes of tables, against about 73 KB for all locales
+python3 -I -B generator/generate.py --fs icu4x-data/fs-recommended --fallback icu4x-data/fs-fallback \
+  --markers DatetimeNamesMonthChineseV1,DatetimeNamesYearChineseV1,DatetimePatternsDateChineseV1,DecimalSymbolsV1,DecimalDigitsV1 \
+  --locales fr --out data/cut-fr-chinese
+```
+
+| Option | Keeps |
+|---|---|
+| `--markers A,B` | only these markers |
+| `--locales fr,de` | these locales, and every locale that a lookup for them can try. For example, `fr-CA` keeps `fr-CA`, `fr` and `und`. |
+| `--attributes 3,5` | only these widths and lengths |
+| `--replace` | allows writing over an earlier run in the same folder |
+
+For an app with the typed API, the marker list can come from the app itself: `tools/build-cut.sh` builds the app with all data, reads the markers that the linker kept, and builds again with only those markers. This is what `--markers-for-bin` does in ICU4X.
+
+Know these limits:
+* **The build cannot cut locales by itself.** The locale is a value at run time. The developer must give `--locales`. ICU4X has the same limit.
+* **A locale that was cut gives no error.** It falls back to the root data, so the text is not in the language of the user.
+* **A value API keeps every calendar.** Code that picks the calendar from a value must refer to all calendars. With a value API, the developer must give the marker list too.
+* **Cut attributes with care.** With a value API, the styles pick the widths at run time.
+
+`prototype-large/RESULTS.md`, section "Limits of the automatic cut, and ways around them", explains these limits, and lists 6 ideas to get around them.
+
+## What is in the repository
+
+| Folder | Content |
+|---|---|
+| `prototype/` | The small prototype |
+| `prototype-large/` | The large prototype. Its `README.md` lists its folders and all its commands. |
+| `icu4x-experiments/` | Two small ICU4X apps and the `icu4x-datagen` runs that the background notes use |
+| `docs/` | Background notes: how the date data of swift-foundation PR #2330 slices, how it compares with ICU4X, and a step by step guide to the ICU4X data (`ICU4X-DATA-GUIDE.md`) |
+| `env.sh` | Sets the paths of the tools. Run `. ./env.sh` first. |
+| `NOTES.md` | Internal notes of the people who made the prototypes |
 
 ## Rebuild after a fresh clone
 
-The repository has the sources, the generated data, the results and the logs. These parts are not in it, and a rebuild needs them:
+The repository has the sources, the generated tables, the results and the logs. A rebuild also needs these parts, which are not in the repository:
 
 | Part | Where it goes | Source |
 |---|---|---|
-| Rust 1.99.1 | `docs/` | The background documents and their tools (see "Start here"). |
-| `tools/rust/` | `rustup-init` from `https://static.rust-lang.org/rustup/dist/aarch64-apple-darwin/rustup-init`, run with `RUSTUP_HOME` and `CARGO_HOME` from `env.sh`, and `-y --no-modify-path --profile minimal --default-toolchain stable` |
+| Rust 1.99.1 | `tools/rust/` | `rustup-init` from `https://static.rust-lang.org/rustup/dist/aarch64-apple-darwin/rustup-init`, run with `RUSTUP_HOME` and `CARGO_HOME` from `env.sh`, and `-y --no-modify-path --profile minimal --default-toolchain stable` |
 | ICU4X | `tools/icu4x-src/` | `github.com/unicode-org/icu4x` at commit `747356078891d513c1f731320e3d0e1ee9912e33` |
 | `icu4x-datagen` | `tools/bin/` | `cargo build --release -p icu4x-datagen` in `tools/icu4x-src`, once with and once without `--features unstable` |
 | CLDR 49.0.0-BETA4 | `data/cldr-49.0.0-BETA4/` | `cldr-49.0.0-BETA4-json-full.zip` from the releases of `github.com/unicode-org/cldr-json`, unpacked into `full/` |
 | tzdata 2026e | `data/tzdata-2026e/` | `https://www.iana.org/time-zones/repository/releases/tzdata2026e.tar.gz`, unpacked into `root/` |
-| Embedded Swift | `/Library/Developer/Toolchains/` | `swift-DEVELOPMENT-SNAPSHOT-2026-06-24-a` from swift.org |
-| Normal Swift | | the toolchain of Xcode 8 (Swift 6.5) |
+| Embedded Swift | `/Library/Developer/Toolchains/` | the snapshot `swift-DEVELOPMENT-SNAPSHOT-2026-06-24-a` from swift.org |
+| Normal Swift | | Swift 6.5, the default toolchain of Xcode |
+| The JSON data of the large prototype | `prototype-large/icu4x-data/` | the two `icu4x-datagen` commands in `prototype-large/README.md` |
 
-The scripts use absolute paths to `/Users/draganm4/Projects/dra8an/swift-data-markers-prototype`. In a clone at another path, change `PROTO` in `env.sh` and the paths at the top of the scripts.
+The builds of the large prototype are in `prototype-large/tools/run-all.sh`.
 
-**Licenses.** The generated tables in `prototype/data/` and `icu4x-experiments/runs/` contain CLDR data, and `icu4x-experiments/guide-tools/decode.py` is a port of ICU4X code. Both are under the Unicode License. Add its notice before the repository becomes public.
+**Paths.** `env.sh`, the shell scripts and the `Cargo.toml` files use the absolute path `/Users/draganm4/Projects/dra8an/swift-data-markers-prototype`. In a clone at another path, change `PROTO` in `env.sh`, the paths at the top of the scripts, and the `path =` entries in the `Cargo.toml` files.
 
-## What is in this folder
+**Platform.** The prototypes were built and measured on an Apple silicon Mac with macOS 27. The Embedded Swift builds use the target `arm64-apple-macos15`.
 
-| Folder | Content |
-|---|---|
-| `prototype/` | The Swift prototype, done on 2026-10-23. Start with `prototype/PROTOTYPE-RESULTS.md`, then `prototype/DESIGN.md`. `prototype/QUICK_GUIDE.md` compares Rust and Swift in four tables. `prototype/data/full-duplicate/` is a copy of `data/full` made by mistake, and it can be deleted. Note: its `static let` `InlineArray` tables have the copy problem of `prototype-large/RESULTS.md`, "The copy of InlineArray". Its results are about size, so the problem does not change them. |
-| `prototype-large/` | The large prototype, done on 2026-10-23: a date formatter for 6 calendars and 25 ICU4X markers, in Swift, in a Rust copy, and against ICU4X itself. It compares the output, the data size, the code size and the speed. Start with `prototype-large/RESULTS.md`, then `prototype-large/README.md`. |
-| `tools/rust/` | Rust 1.99.1 (stable, minimal profile), from `rustup-init` for `aarch64-apple-darwin`. The SHA-256 of `rustup-init` matched the published one. `cargo/registry` holds every crate that the builds below need, so they work with `--offline`. |
-| `tools/bin/` | Two builds of `icu4x-datagen` from `tools/icu4x-src`: `icu4x-datagen` (default features) and `icu4x-datagen-unstable` (`--features unstable`, needed for some datetime markers). |
-| `tools/icu4x-src/` | A shallow clone of `github.com/unicode-org/icu4x` at commit `747356078891d513c1f731320e3d0e1ee9912e33`. |
-| `data/cldr-49.0.0-BETA4/` | The CLDR JSON data that this ICU4X commit is tested with: the zip from the `cldr-json` releases on GitHub, and the unpacked files in `full/`. Use `--cldr-root $CLDR_ROOT`. |
-| `data/tzdata-2026e/` | The IANA time zone database, release 2026e: the archive, and the unpacked files in `root/`. Use `--tzdb-root $TZDB_ROOT`. |
-| `icu4x-experiments/apps/` | Two Rust apps that print the wide Korean month names of the Japanese calendar. `app-a` uses the built-in data of ICU4X. `app-b` uses its own provider with generated data for one marker. `build.sh` builds them. |
-| `icu4x-experiments/runs/` | The output and logs of `icu4x-datagen` runs. `ko-japanese-wide-sep/` is the data that `app-b` uses. `ko-app-a-markers-tz/` is the data for the 80 markers of `app-a`, used with `ICU4X_DATA_DIR`. `run6.sh` makes it. |
-| `icu4x-experiments/guide-tools/` | `decode.py`: a Python port of the ICU4X reader code. It decodes a `.rs.data` file. |
+## Licenses
 
-`copy.sh` and `copy.log` record how this folder was filled from `/tmp/deep-review/`. The originals in `/tmp/deep-review/` were left in place. macOS removes them on its own.
-
-`icu4x-experiments/apps-src-tmp/` is an empty folder that was left by the copy. It can be deleted.
-
-## Examples
-
-```
-. ./env.sh
-
-# Generate the wide Korean month names of the Japanese calendar
-icu4x-datagen-unstable --cldr-root $CLDR_ROOT --markers DatetimeNamesMonthJapaneseV1 --locales ko \
-  --attribute-filter datetime_month_length=/5/ --format baked --use-separate-crates --out /some/new/folder
-
-# Build and run app B with that data
-cd icu4x-experiments/apps/app-b
-APP_B_DATA=/some/new/folder/mod.rs cargo build --release --offline
-LOCALE=ko target/release/app-b      # prints 9월
-
-# Decode a data file
-python3 -I icu4x-experiments/guide-tools/decode.py /some/new/folder/datetime_names_month_japanese_v1.rs.data ko/5
-```
-
-## Notes
-
-1. `icu4x-datagen` cannot download through the sandbox proxy. Always pass `--cldr-root` and, for time zone data, `--tzdb-root`.
-2. `--pretty` needs the `rustfmt` component, which is not installed. Leave it out.
-3. `icu4x-datagen` does not write into an output folder that is not empty. Use a new folder.
-4. The builds work with `--offline`. The domains `sh.rustup.rs`, `static.rust-lang.org`, `index.crates.io` and `static.crates.io` are only needed for new crates or a new toolchain.
+* The generated tables (`prototype/data/`, `prototype-large/data/`, `icu4x-experiments/runs/`) contain CLDR data, under the [Unicode License v3](https://www.unicode.org/license.txt).
+* `icu4x-experiments/guide-tools/decode.py` is a port of ICU4X code. The apps in `icu4x-experiments/apps/` and `prototype-large/icu4x-apps/` use ICU4X. ICU4X is under the Unicode License v3 too.
+* tzdata is in the public domain.

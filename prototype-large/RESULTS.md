@@ -173,7 +173,7 @@ What this means:
 
 ## Limits of the automatic cut, and ways around them
 
-Written on 2026-10-23, after a talk with Dragan. Nothing in this section is built, except where it says "tested".
+Written on 2026-10-23. Nothing in this section is built, except where it says "tested".
 
 ### What the build can remove by itself
 
@@ -192,7 +192,7 @@ A value API must turn a run time value into a calendar. Any code that does this 
 
 A constant such as `Calendar(identifier: .chinese)` did not help in the test, even with LTO. The switch is in a function of another module that is not inlinable. ICU4X has the same limit: its any calendar formatter kept 43 markers.
 
-Foundation must keep its value API (Dragan, 2026-10-23), so this limit applies to Foundation.
+Foundation must keep its value API, so this limit applies to Foundation.
 
 ### Ways around it
 
@@ -226,7 +226,7 @@ Four cautions:
 ## How to repeat the runs
 
 ```
-cd /Users/draganm4/Projects/dra8an/swift-data-markers-prototype && . ./env.sh && cd prototype-large
+cd swift-data-markers-prototype && . ./env.sh && cd prototype-large
 tools/run-all.sh                      # builds and runs the checks, the sizes and the speed tests
 python3 -I -B tools/compare.py results/icu4x-reference.tsv results/swift-normal-check.tsv
 python3 -I -B tools/measure.py data/full/markers.json out/full-normal3/GregorianYMD
