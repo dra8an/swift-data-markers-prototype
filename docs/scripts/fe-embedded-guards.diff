@@ -1,0 +1,361 @@
+diff --color -ru /tmp/deep-review/embedded-20261020/src/Sources/FoundationEssentials/AttributedString/Conversion.swift /tmp/deep-review/embedded-20261020/work/l2/fe-noos/AttributedString/Conversion.swift
+--- /tmp/deep-review/embedded-20261020/src/Sources/FoundationEssentials/AttributedString/Conversion.swift	2026-10-20 11:08:20
++++ /tmp/deep-review/embedded-20261020/work/l2/fe-noos/AttributedString/Conversion.swift	2026-10-20 16:00:30
+@@ -13,7 +13,9 @@
+ 
+ #if FOUNDATION_FRAMEWORK
+ import Darwin
++#if !hasFeature(Embedded)
+ internal import os
++#endif
+ @_spi(Unstable) internal import CollectionsInternal
+ #elseif canImport(_RopeModule)
+ internal import _RopeModule
+diff --color -ru /tmp/deep-review/embedded-20261020/src/Sources/FoundationEssentials/Calendar/Calendar_Astronomy.swift /tmp/deep-review/embedded-20261020/work/l2/fe-noos/Calendar/Calendar_Astronomy.swift
+--- /tmp/deep-review/embedded-20261020/src/Sources/FoundationEssentials/Calendar/Calendar_Astronomy.swift	2026-10-20 11:08:20
++++ /tmp/deep-review/embedded-20261020/work/l2/fe-noos/Calendar/Calendar_Astronomy.swift	2026-10-20 16:00:30
+@@ -13,7 +13,9 @@
+ // Below is for sin/cos
+ 
+ #if canImport(Darwin)
++#if !hasFeature(Embedded)
+ internal import os
++#endif
+ #elseif canImport(Bionic)
+ @preconcurrency import Bionic
+ #elseif canImport(Glibc)
+diff --color -ru /tmp/deep-review/embedded-20261020/src/Sources/FoundationEssentials/Calendar/Calendar_Enumerate.swift /tmp/deep-review/embedded-20261020/work/l2/fe-noos/Calendar/Calendar_Enumerate.swift
+--- /tmp/deep-review/embedded-20261020/src/Sources/FoundationEssentials/Calendar/Calendar_Enumerate.swift	2026-10-20 11:08:20
++++ /tmp/deep-review/embedded-20261020/work/l2/fe-noos/Calendar/Calendar_Enumerate.swift	2026-10-20 16:00:30
+@@ -12,7 +12,9 @@
+ 
+ #if FOUNDATION_FRAMEWORK
+ // For Logger
++#if !hasFeature(Embedded)
+ internal import os
++#endif
+ #endif
+ 
+ /// Internal-use error for indicating unexpected situations when finding dates.
+diff --color -ru /tmp/deep-review/embedded-20261020/src/Sources/FoundationEssentials/Calendar/Calendar_Gregorian.swift /tmp/deep-review/embedded-20261020/work/l2/fe-noos/Calendar/Calendar_Gregorian.swift
+--- /tmp/deep-review/embedded-20261020/src/Sources/FoundationEssentials/Calendar/Calendar_Gregorian.swift	2026-10-20 11:08:20
++++ /tmp/deep-review/embedded-20261020/work/l2/fe-noos/Calendar/Calendar_Gregorian.swift	2026-10-20 16:00:30
+@@ -12,7 +12,9 @@
+ 
+ #if FOUNDATION_FRAMEWORK
+ // For Logger
++#if !hasFeature(Embedded)
+ internal import os
++#endif
+ #endif
+ 
+ /// Julian date helper
+diff --color -ru /tmp/deep-review/embedded-20261020/src/Sources/FoundationEssentials/Data/Data+Error.swift /tmp/deep-review/embedded-20261020/work/l2/fe-noos/Data/Data+Error.swift
+--- /tmp/deep-review/embedded-20261020/src/Sources/FoundationEssentials/Data/Data+Error.swift	2026-10-20 11:08:20
++++ /tmp/deep-review/embedded-20261020/work/l2/fe-noos/Data/Data+Error.swift	2026-10-20 16:00:30
+@@ -12,7 +12,9 @@
+ 
+ #if FOUNDATION_FRAMEWORK
+ // For Logger
++#if !hasFeature(Embedded)
+ internal import os
++#endif
+ internal import _ForSwiftFoundation
+ internal import _FoundationCShims
+ #endif
+diff --color -ru /tmp/deep-review/embedded-20261020/src/Sources/FoundationEssentials/FileManager/FileManager+Directories.swift /tmp/deep-review/embedded-20261020/work/l2/fe-noos/FileManager/FileManager+Directories.swift
+--- /tmp/deep-review/embedded-20261020/src/Sources/FoundationEssentials/FileManager/FileManager+Directories.swift	2026-10-20 11:08:20
++++ /tmp/deep-review/embedded-20261020/work/l2/fe-noos/FileManager/FileManager+Directories.swift	2026-10-20 16:00:30
+@@ -13,7 +13,9 @@
+ #if FOUNDATION_FRAMEWORK
+ internal import containermanager
+ internal import _ForSwiftFoundation
++#if !hasFeature(Embedded)
+ internal import os
++#endif
+ #endif
+ 
+ #if canImport(Darwin)
+diff --color -ru /tmp/deep-review/embedded-20261020/src/Sources/FoundationEssentials/Locale/Locale_Cache.swift /tmp/deep-review/embedded-20261020/work/l2/fe-noos/Locale/Locale_Cache.swift
+--- /tmp/deep-review/embedded-20261020/src/Sources/FoundationEssentials/Locale/Locale_Cache.swift	2026-10-20 11:08:20
++++ /tmp/deep-review/embedded-20261020/work/l2/fe-noos/Locale/Locale_Cache.swift	2026-10-20 16:00:30
+@@ -14,7 +14,9 @@
+ internal import _ForSwiftFoundation
+ import CoreFoundation
+ internal import CoreFoundation_Private.CFNotificationCenter
++#if !hasFeature(Embedded)
+ internal import os
++#endif
+ #endif
+ 
+ #if !NO_CSHIMS
+diff --color -ru /tmp/deep-review/embedded-20261020/src/Sources/FoundationEssentials/NotificationCenter/AsyncMessage+AsyncSequence.swift /tmp/deep-review/embedded-20261020/work/l2/fe-noos/NotificationCenter/AsyncMessage+AsyncSequence.swift
+--- /tmp/deep-review/embedded-20261020/src/Sources/FoundationEssentials/NotificationCenter/AsyncMessage+AsyncSequence.swift	2026-10-20 11:08:20
++++ /tmp/deep-review/embedded-20261020/work/l2/fe-noos/NotificationCenter/AsyncMessage+AsyncSequence.swift	2026-10-20 16:01:27
+@@ -19,7 +19,9 @@
+ internal import _FoundationCollections
+ #endif
+ #if canImport(os)
++#if !hasFeature(Embedded)
+ internal import os.log
++#endif
+ #endif
+ internal import Synchronization
+ 
+diff --color -ru /tmp/deep-review/embedded-20261020/src/Sources/FoundationEssentials/NotificationCenter/AsyncMessage.swift /tmp/deep-review/embedded-20261020/work/l2/fe-noos/NotificationCenter/AsyncMessage.swift
+--- /tmp/deep-review/embedded-20261020/src/Sources/FoundationEssentials/NotificationCenter/AsyncMessage.swift	2026-10-20 11:08:20
++++ /tmp/deep-review/embedded-20261020/work/l2/fe-noos/NotificationCenter/AsyncMessage.swift	2026-10-20 16:01:27
+@@ -14,7 +14,9 @@
+ internal import _ForSwiftFoundation
+ #endif
+ #if canImport(os)
++#if !hasFeature(Embedded)
+ internal import os.log
++#endif
+ #endif
+ 
+ @available(FoundationPreview 6.2, *)
+diff --color -ru /tmp/deep-review/embedded-20261020/src/Sources/FoundationEssentials/NotificationCenter/MainActorMessage.swift /tmp/deep-review/embedded-20261020/work/l2/fe-noos/NotificationCenter/MainActorMessage.swift
+--- /tmp/deep-review/embedded-20261020/src/Sources/FoundationEssentials/NotificationCenter/MainActorMessage.swift	2026-10-20 11:08:20
++++ /tmp/deep-review/embedded-20261020/work/l2/fe-noos/NotificationCenter/MainActorMessage.swift	2026-10-20 16:01:27
+@@ -14,7 +14,9 @@
+ internal import _ForSwiftFoundation
+ #endif
+ #if canImport(os)
++#if !hasFeature(Embedded)
+ internal import os.log
++#endif
+ #endif
+ 
+ @available(FoundationPreview 6.2, *)
+diff --color -ru /tmp/deep-review/embedded-20261020/src/Sources/FoundationEssentials/NotificationCenter/NotificationCenter.swift /tmp/deep-review/embedded-20261020/work/l2/fe-noos/NotificationCenter/NotificationCenter.swift
+--- /tmp/deep-review/embedded-20261020/src/Sources/FoundationEssentials/NotificationCenter/NotificationCenter.swift	2026-10-20 11:08:20
++++ /tmp/deep-review/embedded-20261020/work/l2/fe-noos/NotificationCenter/NotificationCenter.swift	2026-10-20 16:01:27
+@@ -11,7 +11,9 @@
+ //===----------------------------------------------------------------------===//
+ 
+ #if canImport(os)
++#if !hasFeature(Embedded)
+ internal import os.log
++#endif
+ 
+ extension NotificationCenter {
+     internal static let logger: Logger = {
+diff --color -ru /tmp/deep-review/embedded-20261020/src/Sources/FoundationEssentials/NotificationCenter/NotificationCenterMessage.swift /tmp/deep-review/embedded-20261020/work/l2/fe-noos/NotificationCenter/NotificationCenterMessage.swift
+--- /tmp/deep-review/embedded-20261020/src/Sources/FoundationEssentials/NotificationCenter/NotificationCenterMessage.swift	2026-10-20 11:08:20
++++ /tmp/deep-review/embedded-20261020/work/l2/fe-noos/NotificationCenter/NotificationCenterMessage.swift	2026-10-20 16:01:27
+@@ -15,7 +15,9 @@
+ internal import _ForSwiftFoundation
+ #endif
+ #if canImport(os)
++#if !hasFeature(Embedded)
+ internal import os.log
++#endif
+ #endif
+ 
+ @available(FoundationPreview 6.2, *)
+diff --color -ru /tmp/deep-review/embedded-20261020/src/Sources/FoundationEssentials/ProgressManager/ProgressFraction.swift /tmp/deep-review/embedded-20261020/work/l2/fe-noos/ProgressManager/ProgressFraction.swift
+--- /tmp/deep-review/embedded-20261020/src/Sources/FoundationEssentials/ProgressManager/ProgressFraction.swift	2026-10-20 11:08:20
++++ /tmp/deep-review/embedded-20261020/work/l2/fe-noos/ProgressManager/ProgressFraction.swift	2026-10-20 16:01:49
+@@ -1,3 +1,4 @@
++#if !hasFeature(Embedded)
+ //===----------------------------------------------------------------------===//
+ //
+ // This source file is part of the Swift.org open source project
+@@ -344,3 +345,5 @@
+         return (n / gcd, d / gcd)
+     }
+ }
++
++#endif
+diff --color -ru /tmp/deep-review/embedded-20261020/src/Sources/FoundationEssentials/ProgressManager/ProgressManager+Interop.swift /tmp/deep-review/embedded-20261020/work/l2/fe-noos/ProgressManager/ProgressManager+Interop.swift
+--- /tmp/deep-review/embedded-20261020/src/Sources/FoundationEssentials/ProgressManager/ProgressManager+Interop.swift	2026-10-20 11:08:20
++++ /tmp/deep-review/embedded-20261020/work/l2/fe-noos/ProgressManager/ProgressManager+Interop.swift	2026-10-20 16:01:49
+@@ -1,3 +1,4 @@
++#if !hasFeature(Embedded)
+ //===----------------------------------------------------------------------===//
+ //
+ // This source file is part of the Swift.org open source project
+@@ -363,4 +364,6 @@
+         }
+     }
+ }
++#endif
++
+ #endif
+diff --color -ru /tmp/deep-review/embedded-20261020/src/Sources/FoundationEssentials/ProgressManager/ProgressManager+Properties+Accessors.swift /tmp/deep-review/embedded-20261020/work/l2/fe-noos/ProgressManager/ProgressManager+Properties+Accessors.swift
+--- /tmp/deep-review/embedded-20261020/src/Sources/FoundationEssentials/ProgressManager/ProgressManager+Properties+Accessors.swift	2026-10-20 11:08:20
++++ /tmp/deep-review/embedded-20261020/work/l2/fe-noos/ProgressManager/ProgressManager+Properties+Accessors.swift	2026-10-20 16:01:49
+@@ -1,3 +1,4 @@
++#if !hasFeature(Embedded)
+ //===----------------------------------------------------------------------===//
+ //
+ // This source file is part of the Swift.org open source project
+@@ -534,3 +535,5 @@
+         }
+     }
+ }
++
++#endif
+diff --color -ru /tmp/deep-review/embedded-20261020/src/Sources/FoundationEssentials/ProgressManager/ProgressManager+Properties+Definitions.swift /tmp/deep-review/embedded-20261020/work/l2/fe-noos/ProgressManager/ProgressManager+Properties+Definitions.swift
+--- /tmp/deep-review/embedded-20261020/src/Sources/FoundationEssentials/ProgressManager/ProgressManager+Properties+Definitions.swift	2026-10-20 11:08:20
++++ /tmp/deep-review/embedded-20261020/work/l2/fe-noos/ProgressManager/ProgressManager+Properties+Definitions.swift	2026-10-20 16:01:49
+@@ -1,3 +1,4 @@
++#if !hasFeature(Embedded)
+ //===----------------------------------------------------------------------===//
+ //
+ // This source file is part of the Swift.org open source project
+@@ -275,3 +276,5 @@
+         }
+     }
+ }
++
++#endif
+diff --color -ru /tmp/deep-review/embedded-20261020/src/Sources/FoundationEssentials/ProgressManager/ProgressManager+Properties+Helpers.swift /tmp/deep-review/embedded-20261020/work/l2/fe-noos/ProgressManager/ProgressManager+Properties+Helpers.swift
+--- /tmp/deep-review/embedded-20261020/src/Sources/FoundationEssentials/ProgressManager/ProgressManager+Properties+Helpers.swift	2026-10-20 11:08:20
++++ /tmp/deep-review/embedded-20261020/work/l2/fe-noos/ProgressManager/ProgressManager+Properties+Helpers.swift	2026-10-20 16:01:49
+@@ -1,3 +1,4 @@
++#if !hasFeature(Embedded)
+ //===----------------------------------------------------------------------===//
+ //
+ // This source file is part of the Swift.org open source project
+@@ -432,3 +433,5 @@
+         }
+     }
+ }
++
++#endif
+diff --color -ru /tmp/deep-review/embedded-20261020/src/Sources/FoundationEssentials/ProgressManager/ProgressManager+State.swift /tmp/deep-review/embedded-20261020/work/l2/fe-noos/ProgressManager/ProgressManager+State.swift
+--- /tmp/deep-review/embedded-20261020/src/Sources/FoundationEssentials/ProgressManager/ProgressManager+State.swift	2026-10-20 11:08:20
++++ /tmp/deep-review/embedded-20261020/work/l2/fe-noos/ProgressManager/ProgressManager+State.swift	2026-10-20 16:01:49
+@@ -1,3 +1,4 @@
++#if !hasFeature(Embedded)
+ //===----------------------------------------------------------------------===//
+ //
+ // This source file is part of the Swift.org open source project
+@@ -1670,3 +1671,5 @@
+         }
+     }
+ }
++
++#endif
+diff --color -ru /tmp/deep-review/embedded-20261020/src/Sources/FoundationEssentials/ProgressManager/ProgressManager.swift /tmp/deep-review/embedded-20261020/work/l2/fe-noos/ProgressManager/ProgressManager.swift
+--- /tmp/deep-review/embedded-20261020/src/Sources/FoundationEssentials/ProgressManager/ProgressManager.swift	2026-10-20 11:08:20
++++ /tmp/deep-review/embedded-20261020/work/l2/fe-noos/ProgressManager/ProgressManager.swift	2026-10-20 16:01:49
+@@ -1,3 +1,4 @@
++#if !hasFeature(Embedded)
+ //===----------------------------------------------------------------------===//
+ //
+ // This source file is part of the Swift.org open source project
+@@ -565,3 +566,5 @@
+         return self.description
+     }
+ }
++
++#endif
+diff --color -ru /tmp/deep-review/embedded-20261020/src/Sources/FoundationEssentials/ProgressManager/ProgressReporter.swift /tmp/deep-review/embedded-20261020/work/l2/fe-noos/ProgressManager/ProgressReporter.swift
+--- /tmp/deep-review/embedded-20261020/src/Sources/FoundationEssentials/ProgressManager/ProgressReporter.swift	2026-10-20 11:08:20
++++ /tmp/deep-review/embedded-20261020/work/l2/fe-noos/ProgressManager/ProgressReporter.swift	2026-10-20 16:01:49
+@@ -1,3 +1,4 @@
++#if !hasFeature(Embedded)
+ //===----------------------------------------------------------------------===//
+ //
+ // This source file is part of the Swift.org open source project
+@@ -271,3 +272,5 @@
+         ObjectIdentifier(lhs) == ObjectIdentifier(rhs)
+     }
+ }
++
++#endif
+diff --color -ru /tmp/deep-review/embedded-20261020/src/Sources/FoundationEssentials/ProgressManager/Subprogress.swift /tmp/deep-review/embedded-20261020/work/l2/fe-noos/ProgressManager/Subprogress.swift
+--- /tmp/deep-review/embedded-20261020/src/Sources/FoundationEssentials/ProgressManager/Subprogress.swift	2026-10-20 11:08:20
++++ /tmp/deep-review/embedded-20261020/work/l2/fe-noos/ProgressManager/Subprogress.swift	2026-10-20 16:01:49
+@@ -1,3 +1,4 @@
++#if !hasFeature(Embedded)
+ //===----------------------------------------------------------------------===//
+ //
+ // This source file is part of the Swift.org open source project
+@@ -81,3 +82,5 @@
+         }
+     }
+ }
++
++#endif
+diff --color -ru /tmp/deep-review/embedded-20261020/src/Sources/FoundationEssentials/String/String+Path.swift /tmp/deep-review/embedded-20261020/work/l2/fe-noos/String/String+Path.swift
+--- /tmp/deep-review/embedded-20261020/src/Sources/FoundationEssentials/String/String+Path.swift	2026-10-20 11:08:20
++++ /tmp/deep-review/embedded-20261020/work/l2/fe-noos/String/String+Path.swift	2026-10-20 16:00:30
+@@ -11,7 +11,9 @@
+ //===----------------------------------------------------------------------===//
+ 
+ #if canImport(Darwin)
++#if !hasFeature(Embedded)
+ internal import os
++#endif
+ #elseif canImport(Android)
+ @preconcurrency import Android
+ #elseif canImport(Glibc)
+diff --color -ru /tmp/deep-review/embedded-20261020/src/Sources/FoundationEssentials/URL/URL.swift /tmp/deep-review/embedded-20261020/work/l2/fe-noos/URL/URL.swift
+--- /tmp/deep-review/embedded-20261020/src/Sources/FoundationEssentials/URL/URL.swift	2026-10-20 11:08:20
++++ /tmp/deep-review/embedded-20261020/work/l2/fe-noos/URL/URL.swift	2026-10-20 16:00:30
+@@ -625,7 +625,9 @@
+ #endif
+ 
+ #if canImport(os)
++#if !hasFeature(Embedded)
+ internal import os
++#endif
+ #endif
+ 
+ /// A value that identifies the location of a resource, such as an item on a remote server or the path to a local file.
+diff --color -ru /tmp/deep-review/embedded-20261020/src/Sources/FoundationEssentials/URL/URLComponents_ObjC.swift /tmp/deep-review/embedded-20261020/work/l2/fe-noos/URL/URLComponents_ObjC.swift
+--- /tmp/deep-review/embedded-20261020/src/Sources/FoundationEssentials/URL/URLComponents_ObjC.swift	2026-10-20 11:08:20
++++ /tmp/deep-review/embedded-20261020/work/l2/fe-noos/URL/URLComponents_ObjC.swift	2026-10-20 16:00:30
+@@ -13,7 +13,9 @@
+ #if FOUNDATION_FRAMEWORK
+ 
+ internal import _ForSwiftFoundation
++#if !hasFeature(Embedded)
+ internal import os
++#endif
+ internal import Synchronization
+ 
+ @objc
+diff --color -ru /tmp/deep-review/embedded-20261020/src/Sources/FoundationEssentials/URL/URL_Bridge.swift /tmp/deep-review/embedded-20261020/work/l2/fe-noos/URL/URL_Bridge.swift
+--- /tmp/deep-review/embedded-20261020/src/Sources/FoundationEssentials/URL/URL_Bridge.swift	2026-10-20 11:08:20
++++ /tmp/deep-review/embedded-20261020/work/l2/fe-noos/URL/URL_Bridge.swift	2026-10-20 16:00:30
+@@ -15,7 +15,9 @@
+ internal import CoreFoundation_Private.CFURL
+ 
+ #if canImport(os)
++#if !hasFeature(Embedded)
+ internal import os
++#endif
+ #endif
+ 
+ /// `_BridgedURL` wraps an `NSURL` reference. Its methods use the old implementations, which call directly into `NSURL` methods.
+diff --color -ru /tmp/deep-review/embedded-20261020/src/Sources/FoundationEssentials/URL/URL_Impl.swift /tmp/deep-review/embedded-20261020/work/l2/fe-noos/URL/URL_Impl.swift
+--- /tmp/deep-review/embedded-20261020/src/Sources/FoundationEssentials/URL/URL_Impl.swift	2026-10-20 11:08:20
++++ /tmp/deep-review/embedded-20261020/work/l2/fe-noos/URL/URL_Impl.swift	2026-10-20 16:00:30
+@@ -30,7 +30,9 @@
+ internal import _ForSwiftFoundation
+ internal import Synchronization
+ #if canImport(os)
++#if !hasFeature(Embedded)
+ internal import os
++#endif
+ #endif
+ #endif
+ 
+diff --color -ru /tmp/deep-review/embedded-20261020/src/Sources/FoundationEssentials/URL/URL_Swift.swift /tmp/deep-review/embedded-20261020/work/l2/fe-noos/URL/URL_Swift.swift
+--- /tmp/deep-review/embedded-20261020/src/Sources/FoundationEssentials/URL/URL_Swift.swift	2026-10-20 11:08:20
++++ /tmp/deep-review/embedded-20261020/work/l2/fe-noos/URL/URL_Swift.swift	2026-10-20 16:00:30
+@@ -13,7 +13,9 @@
+ #if FOUNDATION_FRAMEWORK
+ 
+ #if canImport(os)
++#if !hasFeature(Embedded)
+ internal import os
++#endif
+ #endif
+ internal import _ForSwiftFoundation
+ internal import Synchronization

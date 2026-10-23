@@ -1,0 +1,7 @@
+2026-10-23T17:29:47.463Z INFO  [icu_provider_export::export_impl] Datagen configured with maximal deduplication, and these locales: ["ko"]
+2026-10-23T17:29:47.475Z WARN  [icu_provider::error] I/O error: No such file or directory (os error 2)
+Error: ICU4X data error: I/O: NotFound (marker: DataMarkerId { debug: "DatetimeNamesMonthJapaneseV1", hash: [116, 100, 109, 104, 217, 192, 146, 17] })
+
+Location:
+    provider/icu4x-datagen/src/main.rs:479:15
+rc=1

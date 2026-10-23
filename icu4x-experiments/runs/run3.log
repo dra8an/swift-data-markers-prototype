@@ -1,0 +1,23 @@
+2026-10-23T17:31:09.345Z DEBUG [icu_provider_source::source] Reading: /tmp/deep-review/cldr-49b4/full/cldr-core/supplemental/likelySubtags.json
+2026-10-23T17:31:09.346Z DEBUG [icu_provider_source::source] Reading: /tmp/deep-review/cldr-49b4/full/cldr-core/coverageLevels.json
+2026-10-23T17:31:09.347Z DEBUG [icu_provider_source::source] Reading: /tmp/deep-review/cldr-49b4/full/cldr-core/supplemental/parentLocales.json
+2026-10-23T17:31:09.347Z INFO  [icu_provider_export::export_impl] Datagen configured with maximal deduplication, and these locales: ["ko"]
+2026-10-23T17:31:09.347Z TRACE [icu_provider_export::export_impl] Generating marker DatetimeNamesMonthJapaneseV1
+2026-10-23T17:31:09.351Z TRACE [icu_provider_export::export_impl] Including ko-CN: descendant of ko: DatetimeNamesMonthJapaneseV1
+2026-10-23T17:31:09.351Z TRACE [icu_provider_export::export_impl] Including und: ancestor of ko: DatetimeNamesMonthJapaneseV1
+2026-10-23T17:31:09.351Z TRACE [icu_provider_export::export_impl] Including ko-KP: descendant of ko: DatetimeNamesMonthJapaneseV1
+2026-10-23T17:31:09.351Z TRACE [icu_provider_export::export_impl] Generating marker/locale: DatetimeNamesMonthJapaneseV1/ko-KP/5
+2026-10-23T17:31:09.351Z TRACE [icu_provider_export::export_impl] Generating marker/locale: DatetimeNamesMonthJapaneseV1/ko-CN/5
+2026-10-23T17:31:09.351Z TRACE [icu_provider_export::export_impl] Generating marker/locale: DatetimeNamesMonthJapaneseV1/und/5
+2026-10-23T17:31:09.351Z DEBUG [icu_provider_source::source] Reading: /tmp/deep-review/cldr-49b4/full/cldr-cal-japanese-full/main/ko-KP/ca-japanese.json
+2026-10-23T17:31:09.351Z DEBUG [icu_provider_source::source] Reading: /tmp/deep-review/cldr-49b4/full/cldr-cal-japanese-full/main/und/ca-japanese.json
+2026-10-23T17:31:09.351Z DEBUG [icu_provider_source::source] Reading: /tmp/deep-review/cldr-49b4/full/cldr-cal-japanese-full/main/ko-CN/ca-japanese.json
+2026-10-23T17:31:09.351Z TRACE [icu_provider_export::export_impl] Generating marker/locale: DatetimeNamesMonthJapaneseV1/ko/5
+2026-10-23T17:31:09.351Z DEBUG [icu_provider_source::source] Reading: /tmp/deep-review/cldr-49b4/full/cldr-cal-japanese-full/main/ko/ca-japanese.json
+2026-10-23T17:31:09.352Z TRACE [icu_provider_export::export_impl] Deduplicating ko-CN/5 (inherits from ko)
+2026-10-23T17:31:09.352Z TRACE [icu_provider_export::export_impl] Deduplicating ko-KP/5 (inherits from ko)
+2026-10-23T17:31:09.353Z WARN  [icu_provider::error] I/O error: No such file or directory (os error 2)
+Error: ICU4X data error: I/O: NotFound (marker: DataMarkerId { debug: "DatetimeNamesMonthJapaneseV1", hash: [116, 100, 109, 104, 217, 192, 146, 17] })
+
+Location:
+    provider/icu4x-datagen/src/main.rs:479:15

@@ -1,0 +1,73 @@
+   Compiling proc-macro2 v1.0.107
+   Compiling quote v1.0.47
+   Compiling unicode-ident v1.0.27
+   Compiling stable_deref_trait v1.2.1
+   Compiling either v1.19.0
+   Compiling litemap v0.8.3 (/tmp/deep-review/icu4x-src/utils/litemap)
+   Compiling icu_locale_fallback_data v2.4.0 (/tmp/deep-review/icu4x-src/provider/data/locale_fallback)
+   Compiling libm v0.2.16
+   Compiling writeable v0.6.4 (/tmp/deep-review/icu4x-src/utils/writeable)
+   Compiling icu_calendar_data v2.4.0 (/tmp/deep-review/icu4x-src/provider/data/calendar)
+   Compiling icu_time_data v2.4.0 (/tmp/deep-review/icu4x-src/provider/data/time)
+   Compiling smallvec v1.16.4
+   Compiling icu_plurals_data v2.4.0 (/tmp/deep-review/icu4x-src/provider/data/plurals)
+   Compiling icu_decimal_data v2.4.0 (/tmp/deep-review/icu4x-src/provider/data/decimal)
+   Compiling icu_datetime_data v2.4.0 (/tmp/deep-review/icu4x-src/provider/data/datetime)
+   Compiling ixdtf v0.6.7 (/tmp/deep-review/icu4x-src/utils/ixdtf)
+   Compiling syn v3.0.9
+   Compiling core_maths v0.1.1
+   Compiling synstructure v0.14.0
+   Compiling displaydoc v0.2.7
+   Compiling zerovec-derive v0.11.7 (/tmp/deep-review/icu4x-src/utils/zerovec/derive)
+   Compiling zerofrom-derive v0.1.8 (/tmp/deep-review/icu4x-src/utils/zerofrom/derive)
+   Compiling yoke-derive v0.8.4 (/tmp/deep-review/icu4x-src/utils/yoke/derive)
+   Compiling calendrical_calculations v0.2.4 (/tmp/deep-review/icu4x-src/utils/calendrical_calculations)
+   Compiling fixed_decimal v0.7.3 (/tmp/deep-review/icu4x-src/utils/fixed_decimal)
+   Compiling zerofrom v0.1.8 (/tmp/deep-review/icu4x-src/utils/zerofrom)
+   Compiling yoke v0.8.4 (/tmp/deep-review/icu4x-src/utils/yoke)
+   Compiling zerovec v0.11.9 (/tmp/deep-review/icu4x-src/utils/zerovec)
+   Compiling zerotrie v0.2.5 (/tmp/deep-review/icu4x-src/utils/zerotrie)
+   Compiling tinystr v0.8.5 (/tmp/deep-review/icu4x-src/utils/tinystr)
+   Compiling potential_utf v0.1.6 (/tmp/deep-review/icu4x-src/utils/potential_utf)
+   Compiling icu_pattern v0.5.1 (/tmp/deep-review/icu4x-src/components/pattern)
+   Compiling icu_locale_core v2.4.0 (/tmp/deep-review/icu4x-src/components/locale_core)
+   Compiling icu_provider v2.4.0 (/tmp/deep-review/icu4x-src/provider/core)
+   Compiling icu_locale_fallback v2.4.0 (/tmp/deep-review/icu4x-src/components/locale_fallback)
+error: cannot find macro `impl_locale_likely_subtags_language_v1` in this scope
+  --> /tmp/deep-review/icu4x-src/components/locale_fallback/src/provider.rs:40:5
+   |
+40 |     impl_locale_likely_subtags_language_v1!(Baked);
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error: cannot find macro `impl_locale_parents_v1` in this scope
+  --> /tmp/deep-review/icu4x-src/components/locale_fallback/src/provider.rs:41:5
+   |
+41 |     impl_locale_parents_v1!(Baked);
+   |     ^^^^^^^^^^^^^^^^^^^^^^
+
+error[E0599]: no associated function or constant named `SINGLETON_LOCALE_LIKELY_SUBTAGS_LANGUAGE_V1` found for struct `provider::Baked` in the current scope
+   --> /tmp/deep-review/icu4x-src/components/locale_fallback/src/lib.rs:229:36
+    |
+229 |             likely_subtags: Baked::SINGLETON_LOCALE_LIKELY_SUBTAGS_LANGUAGE_V1,
+    |                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ associated function or constant not found in `provider::Baked`
+    |
+   ::: /tmp/deep-review/icu4x-src/components/locale_fallback/src/provider.rs:27:1
+    |
+ 27 | pub struct Baked;
+    | ---------------- associated function or constant `SINGLETON_LOCALE_LIKELY_SUBTAGS_LANGUAGE_V1` not found for this struct
+
+error[E0599]: no associated function or constant named `SINGLETON_LOCALE_PARENTS_V1` found for struct `provider::Baked` in the current scope
+   --> /tmp/deep-review/icu4x-src/components/locale_fallback/src/lib.rs:230:29
+    |
+230 |             parents: Baked::SINGLETON_LOCALE_PARENTS_V1,
+    |                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^ associated function or constant not found in `provider::Baked`
+    |
+   ::: /tmp/deep-review/icu4x-src/components/locale_fallback/src/provider.rs:27:1
+    |
+ 27 | pub struct Baked;
+    | ---------------- associated function or constant `SINGLETON_LOCALE_PARENTS_V1` not found for this struct
+
+For more information about this error, try `rustc --explain E0599`.
+error: could not compile `icu_locale_fallback` (lib) due to 4 previous errors
+warning: build failed, waiting for other jobs to finish...
+rc=101

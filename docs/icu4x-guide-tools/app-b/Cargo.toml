@@ -1,0 +1,17 @@
+[package]
+name = "app-b"
+version = "0.1.0"
+edition = "2021"
+
+# App B: no built-in datetime data. Only the generated data for one marker, built into the app.
+[dependencies]
+icu_datetime = { path = "/tmp/deep-review/icu4x-src/components/datetime", default-features = false }
+icu_calendar = { path = "/tmp/deep-review/icu4x-src/components/calendar" }
+icu_locale_core = { path = "/tmp/deep-review/icu4x-src/components/locale_core" }
+icu_provider = { path = "/tmp/deep-review/icu4x-src/provider/core", features = ["baked"] }
+icu_locale_fallback = { path = "/tmp/deep-review/icu4x-src/components/locale_fallback", features = ["compiled_data"] }
+zerovec = { path = "/tmp/deep-review/icu4x-src/utils/zerovec" }
+writeable = { path = "/tmp/deep-review/icu4x-src/utils/writeable" }
+
+[profile.release]
+strip = true

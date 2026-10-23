@@ -1,0 +1,5 @@
+2026-10-23T17:46:09.624Z INFO  [icu_provider_export::export_impl] Datagen configured with no deduplication, and these locales: ["ko"]
+2026-10-23T17:46:09.631Z INFO  [icu_provider_export::export_impl] Generated marker DatetimeNamesMonthJapaneseV1
+2026-10-23T17:46:09.656Z INFO  [icu_provider_export::export_impl] Generated marker DecimalDigitsV1
+2026-10-23T17:46:09.657Z INFO  [icu_provider_export::export_impl] Generated marker DecimalSymbolsV1
+2026-10-23T17:46:09.657Z INFO  [icu_provider_blob::export::blob_exporter] Serializing blob to output stream...

@@ -1,0 +1,10 @@
+# Downloaded or rebuilt, not in the repo (see README.md, "Rebuild after a fresh clone")
+/tools/
+/data/
+/prototype/out/
+/icu4x-experiments/apps/*/target/
+# Left over from the setup, can be deleted
+/prototype/data/full-duplicate/
+/icu4x-experiments/apps-src-tmp/
+/copy.log
+.DS_Store

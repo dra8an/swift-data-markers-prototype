@@ -1,0 +1,3 @@
+2026-10-23T17:31:33.764Z INFO  [icu_provider_export::export_impl] Datagen configured with maximal deduplication, and these locales: ["ko"]
+2026-10-23T17:31:33.769Z INFO  [icu_provider_export::export_impl] Generated marker DatetimeNamesMonthJapaneseV1
+2026-10-23T17:31:33.769Z INFO  [icu_provider_baked::export] Writing macros module...

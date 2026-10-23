@@ -1,0 +1,13 @@
+{
+ "MonthNamesJapaneseV1": {
+  "keys": 2,
+  "lists": 2,
+  "names": 24,
+  "pool_bytes": 104,
+  "table_bytes": 218,
+  "kept_keys": [
+   "ko/5",
+   "und/5"
+  ]
+ }
+}

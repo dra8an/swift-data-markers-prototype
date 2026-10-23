@@ -1,0 +1,39 @@
+   Compiling proc-macro2 v1.0.107
+   Compiling unicode-ident v1.0.27
+   Compiling quote v1.0.47
+   Compiling stable_deref_trait v1.2.1
+   Compiling either v1.19.0
+   Compiling litemap v0.8.3 (/Users/draganm4/Projects/dra8an/swift-data-markers-prototype/tools/icu4x-src/utils/litemap)
+   Compiling libm v0.2.16
+   Compiling icu_locale_fallback_data v2.4.0 (/Users/draganm4/Projects/dra8an/swift-data-markers-prototype/tools/icu4x-src/provider/data/locale_fallback)
+   Compiling writeable v0.6.4 (/Users/draganm4/Projects/dra8an/swift-data-markers-prototype/tools/icu4x-src/utils/writeable)
+   Compiling icu_calendar_data v2.4.0 (/Users/draganm4/Projects/dra8an/swift-data-markers-prototype/tools/icu4x-src/provider/data/calendar)
+   Compiling smallvec v1.16.4
+   Compiling ixdtf v0.6.7 (/Users/draganm4/Projects/dra8an/swift-data-markers-prototype/tools/icu4x-src/utils/ixdtf)
+   Compiling syn v3.0.9
+   Compiling core_maths v0.1.1
+   Compiling synstructure v0.14.0
+   Compiling displaydoc v0.2.7
+   Compiling zerovec-derive v0.11.7 (/Users/draganm4/Projects/dra8an/swift-data-markers-prototype/tools/icu4x-src/utils/zerovec/derive)
+   Compiling zerofrom-derive v0.1.8 (/Users/draganm4/Projects/dra8an/swift-data-markers-prototype/tools/icu4x-src/utils/zerofrom/derive)
+   Compiling yoke-derive v0.8.4 (/Users/draganm4/Projects/dra8an/swift-data-markers-prototype/tools/icu4x-src/utils/yoke/derive)
+   Compiling calendrical_calculations v0.2.4 (/Users/draganm4/Projects/dra8an/swift-data-markers-prototype/tools/icu4x-src/utils/calendrical_calculations)
+   Compiling fixed_decimal v0.7.3 (/Users/draganm4/Projects/dra8an/swift-data-markers-prototype/tools/icu4x-src/utils/fixed_decimal)
+   Compiling zerofrom v0.1.8 (/Users/draganm4/Projects/dra8an/swift-data-markers-prototype/tools/icu4x-src/utils/zerofrom)
+   Compiling yoke v0.8.4 (/Users/draganm4/Projects/dra8an/swift-data-markers-prototype/tools/icu4x-src/utils/yoke)
+   Compiling zerovec v0.11.9 (/Users/draganm4/Projects/dra8an/swift-data-markers-prototype/tools/icu4x-src/utils/zerovec)
+   Compiling zerotrie v0.2.5 (/Users/draganm4/Projects/dra8an/swift-data-markers-prototype/tools/icu4x-src/utils/zerotrie)
+   Compiling tinystr v0.8.5 (/Users/draganm4/Projects/dra8an/swift-data-markers-prototype/tools/icu4x-src/utils/tinystr)
+   Compiling potential_utf v0.1.6 (/Users/draganm4/Projects/dra8an/swift-data-markers-prototype/tools/icu4x-src/utils/potential_utf)
+   Compiling icu_pattern v0.5.1 (/Users/draganm4/Projects/dra8an/swift-data-markers-prototype/tools/icu4x-src/components/pattern)
+   Compiling icu_locale_core v2.4.0 (/Users/draganm4/Projects/dra8an/swift-data-markers-prototype/tools/icu4x-src/components/locale_core)
+   Compiling icu_provider v2.4.0 (/Users/draganm4/Projects/dra8an/swift-data-markers-prototype/tools/icu4x-src/provider/core)
+   Compiling icu_locale_fallback v2.4.0 (/Users/draganm4/Projects/dra8an/swift-data-markers-prototype/tools/icu4x-src/components/locale_fallback)
+   Compiling icu_plurals v2.4.0 (/Users/draganm4/Projects/dra8an/swift-data-markers-prototype/tools/icu4x-src/components/plurals)
+   Compiling icu_decimal v2.4.0 (/Users/draganm4/Projects/dra8an/swift-data-markers-prototype/tools/icu4x-src/components/decimal)
+   Compiling icu_calendar v2.4.0 (/Users/draganm4/Projects/dra8an/swift-data-markers-prototype/tools/icu4x-src/components/calendar)
+   Compiling icu_time v2.4.0 (/Users/draganm4/Projects/dra8an/swift-data-markers-prototype/tools/icu4x-src/components/time)
+   Compiling icu_datetime v2.4.0 (/Users/draganm4/Projects/dra8an/swift-data-markers-prototype/tools/icu4x-src/components/datetime)
+   Compiling app-b v0.1.0 (/Users/draganm4/Projects/dra8an/swift-data-markers-prototype/icu4x-experiments/apps/app-b)
+    Finished `release` profile [optimized] target(s) in 5.61s
+rc=0

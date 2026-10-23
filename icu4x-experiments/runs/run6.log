@@ -1,0 +1,75 @@
+markers: 80
+2026-10-23T17:44:04.727Z INFO  [icu_provider_export::export_impl] Datagen configured with maximal deduplication, and these locales: ["ko"]
+2026-10-23T17:44:04.742Z INFO  [icu_provider_export::export_impl] Generated marker DatetimePatternsRangeGlueV1
+2026-10-23T17:44:04.742Z INFO  [icu_provider_export::export_impl] Generated marker DatetimeNamesYearRocV1
+2026-10-23T17:44:04.743Z INFO  [icu_provider_export::export_impl] Generated marker DatetimeNamesYearIndianV1
+2026-10-23T17:44:04.743Z INFO  [icu_provider_export::export_impl] Generated marker DatetimeNamesYearCopticV1
+2026-10-23T17:44:04.743Z INFO  [icu_provider_source::source] Downloading https://www.iana.org/time-zones/repository/releases/tzdata2026e.tar.gz
+2026-10-23T17:44:04.744Z INFO  [icu_provider_export::export_impl] Generated marker DatetimeNamesYearHebrewV1
+2026-10-23T17:44:04.745Z INFO  [icu_provider_export::export_impl] Generated marker DatetimeNamesYearEthiopianV1
+2026-10-23T17:44:04.745Z INFO  [icu_provider_export::export_impl] Generated marker DatetimeNamesMonthJapaneseV1
+2026-10-23T17:44:04.746Z INFO  [icu_provider_export::export_impl] Generated marker DatetimeNamesWeekdayV1
+2026-10-23T17:44:04.747Z INFO  [icu_provider_export::export_impl] Generated marker PluralsCardinalV1
+2026-10-23T17:44:04.748Z INFO  [icu_provider_export::export_impl] Generated marker DatetimeNamesYearBuddhistV1
+2026-10-23T17:44:04.749Z INFO  [icu_provider_export::export_impl] Generated marker DatetimeNamesMonthDangiV1
+2026-10-23T17:44:04.752Z INFO  [icu_provider_export::export_impl] Generated marker DatetimePatternsDateDangiV1
+2026-10-23T17:44:04.752Z INFO  [icu_provider_export::export_impl] Generated marker DatetimeNamesYearGregorianV1
+2026-10-23T17:44:04.754Z INFO  [icu_provider_export::export_impl] Generated marker DatetimePatternsRangeDateBuddhistV1
+2026-10-23T17:44:04.754Z INFO  [icu_provider_export::export_impl] Generated marker DatetimePatternsRangeDateEthiopianV1
+2026-10-23T17:44:04.757Z INFO  [icu_provider_export::export_impl] Generated marker DatetimeNamesMonthRocV1
+2026-10-23T17:44:04.757Z INFO  [icu_provider_export::export_impl] Generated marker DatetimeNamesMonthCopticV1
+2026-10-23T17:44:04.758Z INFO  [icu_provider_export::export_impl] Generated marker DatetimePatternsRangeDateGregorianV1
+2026-10-23T17:44:04.758Z INFO  [icu_provider_export::export_impl] Generated marker DatetimePatternsDateEthiopianV1
+2026-10-23T17:44:04.758Z INFO  [icu_provider_export::export_impl] Generated marker PluralsOrdinalV1
+2026-10-23T17:44:04.759Z INFO  [icu_provider_export::export_impl] Generated marker DatetimePatternsRangeDateJapaneseV1
+2026-10-23T17:44:04.760Z INFO  [icu_provider_export::export_impl] Generated marker DatetimeNamesYearJapaneseV1
+2026-10-23T17:44:04.760Z INFO  [icu_provider_export::export_impl] Generated marker DatetimeNamesDayperiodV1
+2026-10-23T17:44:04.761Z INFO  [icu_provider_export::export_impl] Generated marker DatetimePatternsRangeDatePersianV1
+2026-10-23T17:44:04.763Z INFO  [icu_provider_export::export_impl] Generated marker DatetimeNamesYearDangiV1
+2026-10-23T17:44:04.764Z INFO  [icu_provider_export::export_impl] Generated marker PluralsRangesV1
+2026-10-23T17:44:04.765Z INFO  [icu_provider_export::export_impl] Generated marker CalendarWeekV1
+2026-10-23T17:44:04.765Z INFO  [icu_provider_export::export_impl] Generated marker DatetimeNamesMonthPersianV1
+2026-10-23T17:44:04.766Z INFO  [icu_provider_export::export_impl] Generated marker DatetimePatternsDateRocV1
+2026-10-23T17:44:04.768Z INFO  [icu_provider_export::export_impl] Generated marker DatetimePatternsRangeDateHebrewV1
+2026-10-23T17:44:04.768Z INFO  [icu_provider_export::export_impl] Generated marker DatetimePatternsDatePersianV1
+2026-10-23T17:44:04.768Z INFO  [icu_provider_export::export_impl] Generated marker CalendarJapaneseModernV1
+2026-10-23T17:44:04.769Z INFO  [icu_provider_export::export_impl] Generated marker CalendarPreferredV1
+2026-10-23T17:44:04.773Z INFO  [icu_provider_export::export_impl] Generated marker DatetimeNamesMonthBuddhistV1
+2026-10-23T17:44:04.773Z INFO  [icu_provider_export::export_impl] Generated marker TimezoneNamesEssentialsV1
+2026-10-23T17:44:04.775Z INFO  [icu_provider_export::export_impl] Generated marker DatetimePatternsDateGregorianV1
+2026-10-23T17:44:04.775Z INFO  [icu_provider_export::export_impl] Generated marker DatetimePatternsDateHijriV1
+2026-10-23T17:44:04.776Z INFO  [icu_provider_export::export_impl] Generated marker DatetimeNamesYearHijriV1
+2026-10-23T17:44:04.778Z INFO  [icu_provider_export::export_impl] Generated marker DatetimeNamesYearChineseV1
+2026-10-23T17:44:04.779Z INFO  [icu_provider_export::export_impl] Generated marker DatetimePatternsTimeV1
+2026-10-23T17:44:04.781Z INFO  [icu_provider_export::export_impl] Generated marker DatetimeNamesMonthHebrewV1
+2026-10-23T17:44:04.783Z INFO  [icu_provider_export::export_impl] Generated marker DatetimePatternsRangeTimeV1
+2026-10-23T17:44:04.783Z INFO  [icu_provider_export::export_impl] Generated marker DatetimePatternsDateCopticV1
+2026-10-23T17:44:04.786Z INFO  [icu_provider_export::export_impl] Generated marker DatetimeNamesMonthGregorianV1
+2026-10-23T17:44:04.790Z INFO  [icu_provider_export::export_impl] Generated marker DatetimePatternsRangeDateRocV1
+2026-10-23T17:44:04.794Z INFO  [icu_provider_export::export_impl] Generated marker DatetimePatternsDateIndianV1
+2026-10-23T17:44:04.794Z INFO  [icu_provider_export::export_impl] Generated marker DecimalDigitsV1
+2026-10-23T17:44:04.795Z INFO  [icu_provider_export::export_impl] Generated marker DecimalSymbolsV1
+2026-10-23T17:44:04.795Z INFO  [icu_provider_export::export_impl] Generated marker DecimalCompactLongV1
+2026-10-23T17:44:04.798Z INFO  [icu_provider_export::export_impl] Generated marker DatetimePatternsDateHebrewV1
+2026-10-23T17:44:04.798Z INFO  [icu_provider_export::export_impl] Generated marker DatetimeNamesMonthHijriV1
+2026-10-23T17:44:04.799Z INFO  [icu_provider_export::export_impl] Generated marker DatetimeNamesMonthIndianV1
+2026-10-23T17:44:04.799Z INFO  [icu_provider_export::export_impl] Generated marker LocaleParentsV1
+2026-10-23T17:44:04.799Z INFO  [icu_provider_export::export_impl] Generated marker LocaleLikelySubtagsLanguageV1
+2026-10-23T17:44:04.802Z INFO  [icu_provider_export::export_impl] Generated marker DatetimePatternsDateChineseV1
+2026-10-23T17:44:04.803Z INFO  [icu_provider_export::export_impl] Generated marker DatetimeNamesMonthChineseV1
+2026-10-23T17:44:04.804Z INFO  [icu_provider_export::export_impl] Generated marker DatetimeNamesYearPersianV1
+2026-10-23T17:44:04.809Z INFO  [icu_provider_export::export_impl] Generated marker DatetimePatternsRangeDateHijriV1
+2026-10-23T17:44:04.813Z INFO  [icu_provider_export::export_impl] Generated marker DatetimeNamesMonthEthiopianV1
+2026-10-23T17:44:12.874Z WARN  [icu_provider_source::source] Download error ConnectProxyFailed("proxy server did not respond"), retrying...
+2026-10-23T17:44:24.885Z WARN  [icu_provider_source::source] Download error ConnectProxyFailed("proxy server did not respond"), retrying...
+2026-10-23T17:44:36.892Z WARN  [icu_provider_source::source] Download error ConnectProxyFailed("proxy server did not respond"), retrying...
+2026-10-23T17:44:48.898Z WARN  [icu_provider_source::source] Download error ConnectProxyFailed("proxy server did not respond"), retrying...
+2026-10-23T17:45:00.907Z WARN  [icu_provider_source::source] Download error ConnectProxyFailed("proxy server did not respond"), retrying...
+2026-10-23T17:45:02.922Z WARN  [icu_provider::error] ICU4X data error: Download: CONNECT proxy failed: proxy server responded 403/403
+2026-10-23T17:45:02.922Z WARN  [icu_provider::error] ICU4X data error: Download (marker: TimezoneIdentifiersIanaExtendedV1, request: und)
+2026-10-23T17:45:02.923Z WARN  [icu_provider::error] ICU4X data error: Download (marker: TimezoneIdentifiersIanaCoreV1, request: und)
+Error: ICU4X data error (marker: DataMarkerId { debug: "TimezoneNamesLocationsRootV1", hash: [116, 100, 109, 104, 79, 184, 158, 202] }): Download
+
+Location:
+    provider/icu4x-datagen/src/main.rs:479:15
+rc=1

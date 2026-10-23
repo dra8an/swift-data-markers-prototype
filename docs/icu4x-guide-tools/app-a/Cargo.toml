@@ -1,0 +1,14 @@
+[package]
+name = "app-a"
+version = "0.1.0"
+edition = "2021"
+
+# App A: the default. icu_datetime brings its built-in data (compiled_data).
+[dependencies]
+icu_datetime = { path = "/tmp/deep-review/icu4x-src/components/datetime" }
+icu_calendar = { path = "/tmp/deep-review/icu4x-src/components/calendar" }
+icu_locale_core = { path = "/tmp/deep-review/icu4x-src/components/locale_core" }
+writeable = { path = "/tmp/deep-review/icu4x-src/utils/writeable" }
+
+[profile.release]
+strip = true
