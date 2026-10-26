@@ -76,11 +76,14 @@ Foundation already uses this idea for one feature. In PR #1991, Christopher Chap
 * A missing language **falls back** to its CLDR parent, then to the language without its region, then to the root (`ListFormatLookup.swift`).
 * `build-list-format-data --locales` **keeps only some languages.**
 
-So the list data is already "pieces with one entry for each language". This idea does not replace that work. It takes the same approach to every feature:
+Chris's open PR #2330 goes one step further, for the list data and for its new date data: every language has a complete entry, built from the CLDR parents by the tool, and identical entries are stored once. The app then resolves the language only once, not for every value. `DESIGN-DATA-KINDS.md`, section 9, proposes this way for all features.
+
+So the list data is already "pieces with one entry for each language", but with no marker types. This idea does not replace that work. It takes the same approach to every feature:
 
 | | List data today (#1991) | This idea |
 |---|---|---|
 | Features | list formatting only | every feature that uses locale data |
+| Marker types | none: one `switch` picks one of the 6 tables at run time | one type per piece. This helps only when the code picks the piece by type. `ListFormatStyle` takes the list type and the width as values at run time, so for lists the types would remove nothing. |
 | Format of the tables | made for list patterns | one format for all pieces |
 | Lookup and fallback | made for lists (`ListFormatLookup.swift`) | one lookup and one fallback for all pieces |
 | Cut by language | `--locales`, in the list tool | `--locales`, once for all features |

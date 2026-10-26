@@ -160,7 +160,48 @@ Tests/
 * **Where the JSON lives.** Today `ListFormatData.json` is in `FoundationInternationalization/Formatting/`. One folder for all intermediate data is cleaner, but the package manifest must exclude it from the target.
 * **The comment in `update-list-format-data`** still says that the second tool writes "a packed C header". It now writes Swift.
 
-## 9. Open questions for the team
+## 9. Removing duplicates
+
+There are two ways to avoid storing the same data many times.
+
+**Way A: sparse data, with a parent walk for every value.** A locale stores only the entries that differ from its parent's. The lookup walks the parent chain (`fr-CA`, `fr`, root) for each value. ICU4X, the prototype, and the list data of PR #1991 (merged) work this way.
+
+**Way B: fully resolved data, with no parent walk for values.** Every locale in the data has a complete row. Identical values are stored once and shared. A formatter resolves the locale identifier **once**: it follows a redirect (a CLDR parent locale, an alias, or a script fallback such as `en_Latn_GB` to `en_GB`), or drops the last subtag, until it finds a locale in the data. After that, every value comes from that locale's row. Chris's open PR #2330 works this way, for the date data (`DateFormatLookup.swift`: "resolved through CLDR inheritance for every locale", and "locales with identical months, for example, share one block") and for the list data (`ListFormatLookup.swift`: "each locale stores its resolved rows").
+
+**Proposal: way B, as in #2330.** It is simpler and faster at run time, and it makes the cut by locale simpler:
+
+| | Way A (prototype, ICU4X) | Way B (#2330, proposal) |
+|---|---|---|
+| Lookup of a value | a parent walk, for each kind and each attribute | one index into the locale's row |
+| Locale resolution | in every lookup | once, when the formatter is made |
+| Cut by locale | must also keep each parent locale, because values come from it at run time | keeps only the rows of the listed locales and the values that they use |
+| Risk | the walk at run time must match the walk of the generator exactly | the generator does all resolution, so there is nothing to match at run time |
+| Cost | entries only where a locale differs | one index for each locale in each kind |
+
+**How way B fits the pieces of this design:**
+* Each kind keeps its **own row table** (locale number to value number) and its **own shared values**. #2330 has one row per locale for all its groups of data, which ties the groups together, so the linker cannot remove one group. With one row table per kind, the linker can still remove a kind that the code never reaches.
+* All kinds share **one locale list and one redirect table**. The formatter resolves the identifier to a locale number once, and that number works in every kind's row table.
+* The cost of full rows is one small index per locale and kind. For example, about 400 locales with 2 byte indexes is about 800 bytes per kind. This is an estimate, not measured.
+
+**The other layers, from Chris's list tools:**
+
+| Layer | Proposal |
+|---|---|
+| Resolve CLDR inheritance at build time (`↑↑↑` markers, missing parts) | yes, the generator does all of it (way B) |
+| Store each text once | one pool for each group of kinds that are always kept together. Each feature keeps its own pool, so a build can still remove a feature that the app never calls. |
+| Store each value once | the same groups. Locales with the same values point to one copy. |
+| Store each locale name once | one locale list for all kinds. Rows and redirects use locale numbers. |
+| Store a whole kind once if another kind has the same data | yes: the calendar points to the existing kind, for example `Buddhist.MonthNames = DateNamesMonthGregorianV1`. The registry records "same as". |
+| Do not store what the code can compute | keep as a rule, as the list data does for Spanish "y" to "e", and for Hebrew and Thai |
+| A self-check in the generator | check that every locale's row equals the CLDR resolution of that locale |
+
+**The largest gain measured: whole kinds that are the same.** In the prototype data, the Buddhist and Japanese month names are identical to the Gregorian month names in all 1,139 entries: 148,048 bytes, 15% of all date data (1,020,314 bytes). The Hijri month names share only 9 of 289 entries, and the Hebrew ones none. ICU4X gets part of this gain by accident: LLVM merges equal constants, which is the likely reason why its any calendar data was smaller (`prototype-large/RESULTS.md`, section 2).
+
+**Sharing across calendars** costs nothing behind Foundation's value API, because that API keeps all calendars anyway (`CONCEPT.md`, section 4). A cut by calendar is a build step, and the generator makes the shared values again for the calendars that stay.
+
+**Not measured:** the size of way B against way A for the prototype data, and the gains of the shared pools.
+
+## 10. Open questions for the team
 
 1. Is one registry file acceptable as the source of truth for the Swift types?
 2. Who owns the word lists?
