@@ -1,5 +1,7 @@
 # swift-data-markers-prototype
 
+**New here? Read [`docs/CONCEPT.md`](docs/CONCEPT.md) first.** It explains the idea in plain words, with one measured example. [`DESIGN-DATA-KINDS.md`](docs/DESIGN-DATA-KINDS.md) is a draft design for how Foundation would define and name its kinds of data, and [`MARKER-CATALOG.md`](docs/MARKER-CATALOG.md) is the complete draft catalog: every kind of data that swift-foundation needs, predefined, with its name.
+
 Can Swift use the data design of [ICU4X](https://github.com/unicode-org/icu4x), so that an app keeps only the locale data that it uses? This repository answers the question with two prototypes, and measures Swift against Rust and against ICU4X itself.
 
 In ICU4X, each kind of locale data (for example "the month names of the Japanese calendar") is its own type, a **marker**. Code that never uses a marker never refers to its data, so the linker removes that data from the app. A tool can also cut the data to a list of locales before the build.
@@ -95,9 +97,8 @@ Know these limits:
 | `prototype/` | The small prototype |
 | `prototype-large/` | The large prototype. Its `README.md` lists its folders and all its commands. |
 | `icu4x-experiments/` | Two small ICU4X apps and the `icu4x-datagen` runs that the background notes use |
-| `docs/` | Background notes: how the date data of swift-foundation PR #2330 slices, how it compares with ICU4X, and a step by step guide to the ICU4X data (`ICU4X-DATA-GUIDE.md`) |
+| `docs/` | The documents: `CONCEPT.md` (the idea in plain words), `MARKER-CATALOG.md` (the draft catalog of data kinds for Foundation, made by `catalog/build_catalog.py`), `DESIGN-DATA-KINDS.md` (the rules behind the catalog), `NOTES.md` (internal notes). Also background notes: how the date data of swift-foundation PR #2330 slices, how it compares with ICU4X, and a step by step guide to the ICU4X data (`ICU4X-DATA-GUIDE.md`) |
 | `env.sh` | Sets the paths of the tools. Run `. ./env.sh` first. |
-| `NOTES.md` | Internal notes of the people who made the prototypes |
 
 ## Rebuild after a fresh clone
 

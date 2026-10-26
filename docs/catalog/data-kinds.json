@@ -1,0 +1,4708 @@
+{
+ "status": "draft design, 2026-10-26",
+ "source": "swift-foundation 662eac61",
+ "namingRule": "<Feature><Data><Item>[<Calendar>]V<version>",
+ "words": {
+  "features": [
+   "Date",
+   "Calendar",
+   "RelativeDate",
+   "Duration",
+   "TimeZone",
+   "Number",
+   "Currency",
+   "Unit",
+   "List",
+   "Plural",
+   "LocaleName",
+   "Locale",
+   "Collation",
+   "Text",
+   "URL",
+   "Encoding"
+  ],
+  "data": [
+   "Names",
+   "Patterns",
+   "Symbols",
+   "Rules",
+   "Info",
+   "Tables"
+  ],
+  "items": {
+   "Date": [
+    "Month",
+    "Era",
+    "Cyclic",
+    "Weekday",
+    "Quarter",
+    "DayPeriod",
+    "Field",
+    "Style",
+    "Skeleton",
+    "Glue",
+    "Interval",
+    "HourCycle",
+    "Context",
+    "Parse"
+   ],
+   "Calendar": [
+    "Week",
+    "Preference",
+    "JapaneseEras",
+    "UmmAlQura"
+   ],
+   "RelativeDate": [
+    "Unit"
+   ],
+   "Duration": [
+    "Time"
+   ],
+   "TimeZone": [
+    "Formats",
+    "Metazone",
+    "Zone",
+    "MetazoneMap",
+    "Aliases",
+    "Windows",
+    "Transitions"
+   ],
+   "Number": [
+    "Decimal",
+    "Compact",
+    "NumberingSystems",
+    "Algorithmic"
+   ],
+   "Currency": [
+    "Display",
+    "Format",
+    "Fractions",
+    "Region",
+    "Codes"
+   ],
+   "Unit": [
+    "Digital",
+    "Duration",
+    "Preference",
+    "MeasurementSystem"
+   ],
+   "List": [
+    "Join"
+   ],
+   "Plural": [
+    "Cardinal"
+   ],
+   "LocaleName": [
+    "Language",
+    "Script",
+    "Region",
+    "Variant",
+    "Keyword",
+    "Pattern"
+   ],
+   "Locale": [
+    "LikelySubtags",
+    "Parents",
+    "Aliases",
+    "WindowsLCID",
+    "Available",
+    "Regions",
+    "Layout",
+    "Delimiters",
+    "Exemplars"
+   ],
+   "Collation": [
+    "Root",
+    "Tailoring"
+   ],
+   "Text": [
+    "CaseMapping",
+    "BidiClass",
+    "Script",
+    "Block"
+   ],
+   "URL": [
+    "IDNA"
+   ],
+   "Encoding": [
+    "Converters"
+   ]
+  }
+ },
+ "calendars": [
+  {
+   "dataCalendar": "Gregorian",
+   "foundationIdentifiers": [
+    "gregorian",
+    "iso8601"
+   ],
+   "dataName": "gregorian",
+   "source": "cldr"
+  },
+  {
+   "dataCalendar": "Buddhist",
+   "foundationIdentifiers": [
+    "buddhist"
+   ],
+   "dataName": "buddhist",
+   "source": "cldr"
+  },
+  {
+   "dataCalendar": "Chinese",
+   "foundationIdentifiers": [
+    "chinese"
+   ],
+   "dataName": "chinese",
+   "source": "cldr"
+  },
+  {
+   "dataCalendar": "Coptic",
+   "foundationIdentifiers": [
+    "coptic"
+   ],
+   "dataName": "coptic",
+   "source": "cldr"
+  },
+  {
+   "dataCalendar": "Dangi",
+   "foundationIdentifiers": [
+    "dangi"
+   ],
+   "dataName": "dangi",
+   "source": "cldr"
+  },
+  {
+   "dataCalendar": "Ethiopic",
+   "foundationIdentifiers": [
+    "ethiopicAmeteMihret"
+   ],
+   "dataName": "ethiopic",
+   "source": "cldr"
+  },
+  {
+   "dataCalendar": "EthiopicAmeteAlem",
+   "foundationIdentifiers": [
+    "ethiopicAmeteAlem"
+   ],
+   "dataName": "ethiopic-amete-alem",
+   "source": "cldr"
+  },
+  {
+   "dataCalendar": "Hebrew",
+   "foundationIdentifiers": [
+    "hebrew"
+   ],
+   "dataName": "hebrew",
+   "source": "cldr"
+  },
+  {
+   "dataCalendar": "Indian",
+   "foundationIdentifiers": [
+    "indian"
+   ],
+   "dataName": "indian",
+   "source": "cldr"
+  },
+  {
+   "dataCalendar": "Islamic",
+   "foundationIdentifiers": [
+    "islamic",
+    "islamicCivil",
+    "islamicTabular",
+    "islamicUmmAlQura"
+   ],
+   "dataName": "islamic",
+   "source": "cldr"
+  },
+  {
+   "dataCalendar": "Japanese",
+   "foundationIdentifiers": [
+    "japanese"
+   ],
+   "dataName": "japanese",
+   "source": "cldr"
+  },
+  {
+   "dataCalendar": "Persian",
+   "foundationIdentifiers": [
+    "persian"
+   ],
+   "dataName": "persian",
+   "source": "cldr"
+  },
+  {
+   "dataCalendar": "Roc",
+   "foundationIdentifiers": [
+    "republicOfChina"
+   ],
+   "dataName": "roc",
+   "source": "cldr"
+  },
+  {
+   "dataCalendar": "Bangla",
+   "foundationIdentifiers": [
+    "bangla"
+   ],
+   "dataName": "bangla",
+   "source": "apple"
+  },
+  {
+   "dataCalendar": "Gujarati",
+   "foundationIdentifiers": [
+    "gujarati"
+   ],
+   "dataName": "gujarati",
+   "source": "apple"
+  },
+  {
+   "dataCalendar": "Kannada",
+   "foundationIdentifiers": [
+    "kannada"
+   ],
+   "dataName": "kannada",
+   "source": "apple"
+  },
+  {
+   "dataCalendar": "Malayalam",
+   "foundationIdentifiers": [
+    "malayalam"
+   ],
+   "dataName": "malayalam",
+   "source": "apple"
+  },
+  {
+   "dataCalendar": "Marathi",
+   "foundationIdentifiers": [
+    "marathi"
+   ],
+   "dataName": "marathi",
+   "source": "apple"
+  },
+  {
+   "dataCalendar": "Odia",
+   "foundationIdentifiers": [
+    "odia"
+   ],
+   "dataName": "odia",
+   "source": "apple"
+  },
+  {
+   "dataCalendar": "Tamil",
+   "foundationIdentifiers": [
+    "tamil"
+   ],
+   "dataName": "tamil",
+   "source": "apple"
+  },
+  {
+   "dataCalendar": "Telugu",
+   "foundationIdentifiers": [
+    "telugu"
+   ],
+   "dataName": "telugu",
+   "source": "apple"
+  },
+  {
+   "dataCalendar": "Vikram",
+   "foundationIdentifiers": [
+    "vikram"
+   ],
+   "dataName": "vikram",
+   "source": "apple"
+  },
+  {
+   "dataCalendar": "Vietnamese",
+   "foundationIdentifiers": [
+    "vietnamese"
+   ],
+   "dataName": "vietnamese",
+   "source": "apple"
+  }
+ ],
+ "settings": {
+  "core": {
+   "description": "always in the build: the locale fallback, calendar rules, digits, time zone IDs and offsets",
+   "needs": []
+  },
+  "dates": {
+   "description": "Date.FormatStyle, Date.VerbatimFormatStyle, Date.FormatString",
+   "needs": [
+    "core",
+    "plurals"
+   ]
+  },
+  "date-intervals": {
+   "description": "Date.IntervalFormatStyle",
+   "needs": [
+    "dates"
+   ]
+  },
+  "date-parsing": {
+   "description": "Date.ParseStrategy and lenient number parsing",
+   "needs": [
+    "dates"
+   ]
+  },
+  "relative-dates": {
+   "description": "Date.RelativeFormatStyle, Date.AnchoredRelativeFormatStyle",
+   "needs": [
+    "dates",
+    "numbers",
+    "plurals"
+   ]
+  },
+  "durations": {
+   "description": "Duration.TimeFormatStyle, Duration.UnitsFormatStyle",
+   "needs": [
+    "numbers",
+    "plurals",
+    "lists"
+   ]
+  },
+  "time-zone-names": {
+   "description": "TimeZone.localizedName, and time zone fields in dates",
+   "needs": [
+    "core"
+   ]
+  },
+  "numbers": {
+   "description": "IntegerFormatStyle, FloatingPointFormatStyle, Decimal.FormatStyle and their parse strategies",
+   "needs": [
+    "core",
+    "plurals"
+   ]
+  },
+  "algorithmic-numbers": {
+   "description": "numbers in algorithmic numbering systems, such as -u-nu-hebr",
+   "needs": [
+    "numbers"
+   ]
+  },
+  "currencies": {
+   "description": "the currency format styles, and currency names",
+   "needs": [
+    "numbers",
+    "plurals"
+   ]
+  },
+  "byte-counts": {
+   "description": "ByteCountFormatStyle",
+   "needs": [
+    "numbers",
+    "plurals"
+   ]
+  },
+  "lists": {
+   "description": "ListFormatStyle",
+   "needs": [
+    "core"
+   ]
+  },
+  "plurals": {
+   "description": "plural rules, used by other features",
+   "needs": [
+    "core"
+   ]
+  },
+  "locale-names": {
+   "description": "the localizedString(for...) methods of Locale",
+   "needs": [
+    "core",
+    "currencies"
+   ]
+  },
+  "locale-info": {
+   "description": "quotation marks and exemplar characters of Locale",
+   "needs": [
+    "core"
+   ]
+  },
+  "regions": {
+   "description": "the region containment of Locale.Region",
+   "needs": [
+    "core"
+   ]
+  },
+  "collation": {
+   "description": "localized string comparison and sorting",
+   "needs": [
+    "core"
+   ]
+  },
+  "case-mapping": {
+   "description": "case changes with a locale",
+   "needs": [
+    "core"
+   ]
+  },
+  "urls": {
+   "description": "URL parsing of international host names",
+   "needs": [
+    "core"
+   ]
+  },
+  "encodings": {
+   "description": "legacy text encodings",
+   "needs": []
+  },
+  "windows": {
+   "description": "Windows zone names and LCIDs",
+   "needs": [
+    "core"
+   ]
+  },
+  "calendar": {
+   "description": "selected by the calendars setting, not by a feature setting",
+   "needs": []
+  }
+ },
+ "kinds": [
+  {
+   "name": "DateNamesMonthGregorianV1",
+   "feature": "Date",
+   "data": "Names",
+   "item": "Month",
+   "calendar": "Gregorian",
+   "foundationCalendars": [
+    "gregorian",
+    "iso8601"
+   ],
+   "key": "locale",
+   "attributes": "context (format, standalone) x width (abbreviated, wide, narrow), month patterns for leap months",
+   "content": "Month names",
+   "source": "dates/calendars/gregorian/months, monthPatterns",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle, Date.VerbatimFormatStyle, parse strategies (udat)",
+   "icu4x": "DatetimeNamesMonthGregorianV1",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DateNamesMonthBuddhistV1",
+   "feature": "Date",
+   "data": "Names",
+   "item": "Month",
+   "calendar": "Buddhist",
+   "foundationCalendars": [
+    "buddhist"
+   ],
+   "key": "locale",
+   "attributes": "context (format, standalone) x width (abbreviated, wide, narrow), month patterns for leap months",
+   "content": "Month names",
+   "source": "dates/calendars/buddhist/months, monthPatterns",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle, Date.VerbatimFormatStyle, parse strategies (udat)",
+   "icu4x": "DatetimeNamesMonthBuddhistV1",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DateNamesMonthChineseV1",
+   "feature": "Date",
+   "data": "Names",
+   "item": "Month",
+   "calendar": "Chinese",
+   "foundationCalendars": [
+    "chinese"
+   ],
+   "key": "locale",
+   "attributes": "context (format, standalone) x width (abbreviated, wide, narrow), month patterns for leap months",
+   "content": "Month names",
+   "source": "dates/calendars/chinese/months, monthPatterns",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle, Date.VerbatimFormatStyle, parse strategies (udat)",
+   "icu4x": "DatetimeNamesMonthChineseV1",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DateNamesMonthCopticV1",
+   "feature": "Date",
+   "data": "Names",
+   "item": "Month",
+   "calendar": "Coptic",
+   "foundationCalendars": [
+    "coptic"
+   ],
+   "key": "locale",
+   "attributes": "context (format, standalone) x width (abbreviated, wide, narrow), month patterns for leap months",
+   "content": "Month names",
+   "source": "dates/calendars/coptic/months, monthPatterns",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle, Date.VerbatimFormatStyle, parse strategies (udat)",
+   "icu4x": "DatetimeNamesMonthCopticV1",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DateNamesMonthDangiV1",
+   "feature": "Date",
+   "data": "Names",
+   "item": "Month",
+   "calendar": "Dangi",
+   "foundationCalendars": [
+    "dangi"
+   ],
+   "key": "locale",
+   "attributes": "context (format, standalone) x width (abbreviated, wide, narrow), month patterns for leap months",
+   "content": "Month names",
+   "source": "dates/calendars/dangi/months, monthPatterns",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle, Date.VerbatimFormatStyle, parse strategies (udat)",
+   "icu4x": "DatetimeNamesMonthDangiV1",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DateNamesMonthEthiopicV1",
+   "feature": "Date",
+   "data": "Names",
+   "item": "Month",
+   "calendar": "Ethiopic",
+   "foundationCalendars": [
+    "ethiopicAmeteMihret"
+   ],
+   "key": "locale",
+   "attributes": "context (format, standalone) x width (abbreviated, wide, narrow), month patterns for leap months",
+   "content": "Month names",
+   "source": "dates/calendars/ethiopic/months, monthPatterns",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle, Date.VerbatimFormatStyle, parse strategies (udat)",
+   "icu4x": "DatetimeNamesMonthEthiopicV1",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DateNamesMonthEthiopicAmeteAlemV1",
+   "feature": "Date",
+   "data": "Names",
+   "item": "Month",
+   "calendar": "EthiopicAmeteAlem",
+   "foundationCalendars": [
+    "ethiopicAmeteAlem"
+   ],
+   "key": "locale",
+   "attributes": "context (format, standalone) x width (abbreviated, wide, narrow), month patterns for leap months",
+   "content": "Month names",
+   "source": "dates/calendars/ethiopic-amete-alem/months, monthPatterns",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle, Date.VerbatimFormatStyle, parse strategies (udat)",
+   "icu4x": "DatetimeNamesMonthEthiopicAmeteAlemV1",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DateNamesMonthHebrewV1",
+   "feature": "Date",
+   "data": "Names",
+   "item": "Month",
+   "calendar": "Hebrew",
+   "foundationCalendars": [
+    "hebrew"
+   ],
+   "key": "locale",
+   "attributes": "context (format, standalone) x width (abbreviated, wide, narrow), month patterns for leap months",
+   "content": "Month names",
+   "source": "dates/calendars/hebrew/months, monthPatterns",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle, Date.VerbatimFormatStyle, parse strategies (udat)",
+   "icu4x": "DatetimeNamesMonthHebrewV1",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DateNamesMonthIndianV1",
+   "feature": "Date",
+   "data": "Names",
+   "item": "Month",
+   "calendar": "Indian",
+   "foundationCalendars": [
+    "indian"
+   ],
+   "key": "locale",
+   "attributes": "context (format, standalone) x width (abbreviated, wide, narrow), month patterns for leap months",
+   "content": "Month names",
+   "source": "dates/calendars/indian/months, monthPatterns",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle, Date.VerbatimFormatStyle, parse strategies (udat)",
+   "icu4x": "DatetimeNamesMonthIndianV1",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DateNamesMonthIslamicV1",
+   "feature": "Date",
+   "data": "Names",
+   "item": "Month",
+   "calendar": "Islamic",
+   "foundationCalendars": [
+    "islamic",
+    "islamicCivil",
+    "islamicTabular",
+    "islamicUmmAlQura"
+   ],
+   "key": "locale",
+   "attributes": "context (format, standalone) x width (abbreviated, wide, narrow), month patterns for leap months",
+   "content": "Month names",
+   "source": "dates/calendars/islamic/months, monthPatterns",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle, Date.VerbatimFormatStyle, parse strategies (udat)",
+   "icu4x": "DatetimeNamesMonthIslamicV1",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DateNamesMonthJapaneseV1",
+   "feature": "Date",
+   "data": "Names",
+   "item": "Month",
+   "calendar": "Japanese",
+   "foundationCalendars": [
+    "japanese"
+   ],
+   "key": "locale",
+   "attributes": "context (format, standalone) x width (abbreviated, wide, narrow), month patterns for leap months",
+   "content": "Month names",
+   "source": "dates/calendars/japanese/months, monthPatterns",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle, Date.VerbatimFormatStyle, parse strategies (udat)",
+   "icu4x": "DatetimeNamesMonthJapaneseV1",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DateNamesMonthPersianV1",
+   "feature": "Date",
+   "data": "Names",
+   "item": "Month",
+   "calendar": "Persian",
+   "foundationCalendars": [
+    "persian"
+   ],
+   "key": "locale",
+   "attributes": "context (format, standalone) x width (abbreviated, wide, narrow), month patterns for leap months",
+   "content": "Month names",
+   "source": "dates/calendars/persian/months, monthPatterns",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle, Date.VerbatimFormatStyle, parse strategies (udat)",
+   "icu4x": "DatetimeNamesMonthPersianV1",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DateNamesMonthRocV1",
+   "feature": "Date",
+   "data": "Names",
+   "item": "Month",
+   "calendar": "Roc",
+   "foundationCalendars": [
+    "republicOfChina"
+   ],
+   "key": "locale",
+   "attributes": "context (format, standalone) x width (abbreviated, wide, narrow), month patterns for leap months",
+   "content": "Month names",
+   "source": "dates/calendars/roc/months, monthPatterns",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle, Date.VerbatimFormatStyle, parse strategies (udat)",
+   "icu4x": "DatetimeNamesMonthRocV1",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DateNamesMonthBanglaV1",
+   "feature": "Date",
+   "data": "Names",
+   "item": "Month",
+   "calendar": "Bangla",
+   "foundationCalendars": [
+    "bangla"
+   ],
+   "key": "locale",
+   "attributes": "context (format, standalone) x width (abbreviated, wide, narrow), month patterns for leap months",
+   "content": "Month names",
+   "source": "dates/calendars/bangla/months, monthPatterns",
+   "sourceAvailability": "apple",
+   "usedBy": "Date.FormatStyle, Date.VerbatimFormatStyle, parse strategies (udat)",
+   "icu4x": "DatetimeNamesMonthBanglaV1",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DateNamesMonthGujaratiV1",
+   "feature": "Date",
+   "data": "Names",
+   "item": "Month",
+   "calendar": "Gujarati",
+   "foundationCalendars": [
+    "gujarati"
+   ],
+   "key": "locale",
+   "attributes": "context (format, standalone) x width (abbreviated, wide, narrow), month patterns for leap months",
+   "content": "Month names",
+   "source": "dates/calendars/gujarati/months, monthPatterns",
+   "sourceAvailability": "apple",
+   "usedBy": "Date.FormatStyle, Date.VerbatimFormatStyle, parse strategies (udat)",
+   "icu4x": "DatetimeNamesMonthGujaratiV1",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DateNamesMonthKannadaV1",
+   "feature": "Date",
+   "data": "Names",
+   "item": "Month",
+   "calendar": "Kannada",
+   "foundationCalendars": [
+    "kannada"
+   ],
+   "key": "locale",
+   "attributes": "context (format, standalone) x width (abbreviated, wide, narrow), month patterns for leap months",
+   "content": "Month names",
+   "source": "dates/calendars/kannada/months, monthPatterns",
+   "sourceAvailability": "apple",
+   "usedBy": "Date.FormatStyle, Date.VerbatimFormatStyle, parse strategies (udat)",
+   "icu4x": "DatetimeNamesMonthKannadaV1",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DateNamesMonthMalayalamV1",
+   "feature": "Date",
+   "data": "Names",
+   "item": "Month",
+   "calendar": "Malayalam",
+   "foundationCalendars": [
+    "malayalam"
+   ],
+   "key": "locale",
+   "attributes": "context (format, standalone) x width (abbreviated, wide, narrow), month patterns for leap months",
+   "content": "Month names",
+   "source": "dates/calendars/malayalam/months, monthPatterns",
+   "sourceAvailability": "apple",
+   "usedBy": "Date.FormatStyle, Date.VerbatimFormatStyle, parse strategies (udat)",
+   "icu4x": "DatetimeNamesMonthMalayalamV1",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DateNamesMonthMarathiV1",
+   "feature": "Date",
+   "data": "Names",
+   "item": "Month",
+   "calendar": "Marathi",
+   "foundationCalendars": [
+    "marathi"
+   ],
+   "key": "locale",
+   "attributes": "context (format, standalone) x width (abbreviated, wide, narrow), month patterns for leap months",
+   "content": "Month names",
+   "source": "dates/calendars/marathi/months, monthPatterns",
+   "sourceAvailability": "apple",
+   "usedBy": "Date.FormatStyle, Date.VerbatimFormatStyle, parse strategies (udat)",
+   "icu4x": "DatetimeNamesMonthMarathiV1",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DateNamesMonthOdiaV1",
+   "feature": "Date",
+   "data": "Names",
+   "item": "Month",
+   "calendar": "Odia",
+   "foundationCalendars": [
+    "odia"
+   ],
+   "key": "locale",
+   "attributes": "context (format, standalone) x width (abbreviated, wide, narrow), month patterns for leap months",
+   "content": "Month names",
+   "source": "dates/calendars/odia/months, monthPatterns",
+   "sourceAvailability": "apple",
+   "usedBy": "Date.FormatStyle, Date.VerbatimFormatStyle, parse strategies (udat)",
+   "icu4x": "DatetimeNamesMonthOdiaV1",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DateNamesMonthTamilV1",
+   "feature": "Date",
+   "data": "Names",
+   "item": "Month",
+   "calendar": "Tamil",
+   "foundationCalendars": [
+    "tamil"
+   ],
+   "key": "locale",
+   "attributes": "context (format, standalone) x width (abbreviated, wide, narrow), month patterns for leap months",
+   "content": "Month names",
+   "source": "dates/calendars/tamil/months, monthPatterns",
+   "sourceAvailability": "apple",
+   "usedBy": "Date.FormatStyle, Date.VerbatimFormatStyle, parse strategies (udat)",
+   "icu4x": "DatetimeNamesMonthTamilV1",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DateNamesMonthTeluguV1",
+   "feature": "Date",
+   "data": "Names",
+   "item": "Month",
+   "calendar": "Telugu",
+   "foundationCalendars": [
+    "telugu"
+   ],
+   "key": "locale",
+   "attributes": "context (format, standalone) x width (abbreviated, wide, narrow), month patterns for leap months",
+   "content": "Month names",
+   "source": "dates/calendars/telugu/months, monthPatterns",
+   "sourceAvailability": "apple",
+   "usedBy": "Date.FormatStyle, Date.VerbatimFormatStyle, parse strategies (udat)",
+   "icu4x": "DatetimeNamesMonthTeluguV1",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DateNamesMonthVikramV1",
+   "feature": "Date",
+   "data": "Names",
+   "item": "Month",
+   "calendar": "Vikram",
+   "foundationCalendars": [
+    "vikram"
+   ],
+   "key": "locale",
+   "attributes": "context (format, standalone) x width (abbreviated, wide, narrow), month patterns for leap months",
+   "content": "Month names",
+   "source": "dates/calendars/vikram/months, monthPatterns",
+   "sourceAvailability": "apple",
+   "usedBy": "Date.FormatStyle, Date.VerbatimFormatStyle, parse strategies (udat)",
+   "icu4x": "DatetimeNamesMonthVikramV1",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DateNamesMonthVietnameseV1",
+   "feature": "Date",
+   "data": "Names",
+   "item": "Month",
+   "calendar": "Vietnamese",
+   "foundationCalendars": [
+    "vietnamese"
+   ],
+   "key": "locale",
+   "attributes": "context (format, standalone) x width (abbreviated, wide, narrow), month patterns for leap months",
+   "content": "Month names",
+   "source": "dates/calendars/vietnamese/months, monthPatterns",
+   "sourceAvailability": "apple",
+   "usedBy": "Date.FormatStyle, Date.VerbatimFormatStyle, parse strategies (udat)",
+   "icu4x": "DatetimeNamesMonthVietnameseV1",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DateNamesEraGregorianV1",
+   "feature": "Date",
+   "data": "Names",
+   "item": "Era",
+   "calendar": "Gregorian",
+   "foundationCalendars": [
+    "gregorian",
+    "iso8601"
+   ],
+   "key": "locale",
+   "attributes": "width (abbreviated, wide, narrow)",
+   "content": "Era names",
+   "source": "dates/calendars/gregorian/eras",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle era field (udat)",
+   "icu4x": "DatetimeNamesYearGregorianV1 (with cyclic years)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DateNamesEraBuddhistV1",
+   "feature": "Date",
+   "data": "Names",
+   "item": "Era",
+   "calendar": "Buddhist",
+   "foundationCalendars": [
+    "buddhist"
+   ],
+   "key": "locale",
+   "attributes": "width (abbreviated, wide, narrow)",
+   "content": "Era names",
+   "source": "dates/calendars/buddhist/eras",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle era field (udat)",
+   "icu4x": "DatetimeNamesYearBuddhistV1 (with cyclic years)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DateNamesEraChineseV1",
+   "feature": "Date",
+   "data": "Names",
+   "item": "Era",
+   "calendar": "Chinese",
+   "foundationCalendars": [
+    "chinese"
+   ],
+   "key": "locale",
+   "attributes": "width (abbreviated, wide, narrow)",
+   "content": "Era names",
+   "source": "dates/calendars/chinese/eras",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle era field (udat)",
+   "icu4x": "DatetimeNamesYearChineseV1 (with cyclic years)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DateNamesEraCopticV1",
+   "feature": "Date",
+   "data": "Names",
+   "item": "Era",
+   "calendar": "Coptic",
+   "foundationCalendars": [
+    "coptic"
+   ],
+   "key": "locale",
+   "attributes": "width (abbreviated, wide, narrow)",
+   "content": "Era names",
+   "source": "dates/calendars/coptic/eras",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle era field (udat)",
+   "icu4x": "DatetimeNamesYearCopticV1 (with cyclic years)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DateNamesEraDangiV1",
+   "feature": "Date",
+   "data": "Names",
+   "item": "Era",
+   "calendar": "Dangi",
+   "foundationCalendars": [
+    "dangi"
+   ],
+   "key": "locale",
+   "attributes": "width (abbreviated, wide, narrow)",
+   "content": "Era names",
+   "source": "dates/calendars/dangi/eras",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle era field (udat)",
+   "icu4x": "DatetimeNamesYearDangiV1 (with cyclic years)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DateNamesEraEthiopicV1",
+   "feature": "Date",
+   "data": "Names",
+   "item": "Era",
+   "calendar": "Ethiopic",
+   "foundationCalendars": [
+    "ethiopicAmeteMihret"
+   ],
+   "key": "locale",
+   "attributes": "width (abbreviated, wide, narrow)",
+   "content": "Era names",
+   "source": "dates/calendars/ethiopic/eras",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle era field (udat)",
+   "icu4x": "DatetimeNamesYearEthiopicV1 (with cyclic years)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DateNamesEraEthiopicAmeteAlemV1",
+   "feature": "Date",
+   "data": "Names",
+   "item": "Era",
+   "calendar": "EthiopicAmeteAlem",
+   "foundationCalendars": [
+    "ethiopicAmeteAlem"
+   ],
+   "key": "locale",
+   "attributes": "width (abbreviated, wide, narrow)",
+   "content": "Era names",
+   "source": "dates/calendars/ethiopic-amete-alem/eras",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle era field (udat)",
+   "icu4x": "DatetimeNamesYearEthiopicAmeteAlemV1 (with cyclic years)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DateNamesEraHebrewV1",
+   "feature": "Date",
+   "data": "Names",
+   "item": "Era",
+   "calendar": "Hebrew",
+   "foundationCalendars": [
+    "hebrew"
+   ],
+   "key": "locale",
+   "attributes": "width (abbreviated, wide, narrow)",
+   "content": "Era names",
+   "source": "dates/calendars/hebrew/eras",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle era field (udat)",
+   "icu4x": "DatetimeNamesYearHebrewV1 (with cyclic years)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DateNamesEraIndianV1",
+   "feature": "Date",
+   "data": "Names",
+   "item": "Era",
+   "calendar": "Indian",
+   "foundationCalendars": [
+    "indian"
+   ],
+   "key": "locale",
+   "attributes": "width (abbreviated, wide, narrow)",
+   "content": "Era names",
+   "source": "dates/calendars/indian/eras",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle era field (udat)",
+   "icu4x": "DatetimeNamesYearIndianV1 (with cyclic years)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DateNamesEraIslamicV1",
+   "feature": "Date",
+   "data": "Names",
+   "item": "Era",
+   "calendar": "Islamic",
+   "foundationCalendars": [
+    "islamic",
+    "islamicCivil",
+    "islamicTabular",
+    "islamicUmmAlQura"
+   ],
+   "key": "locale",
+   "attributes": "width (abbreviated, wide, narrow)",
+   "content": "Era names",
+   "source": "dates/calendars/islamic/eras",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle era field (udat)",
+   "icu4x": "DatetimeNamesYearIslamicV1 (with cyclic years)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DateNamesEraJapaneseV1",
+   "feature": "Date",
+   "data": "Names",
+   "item": "Era",
+   "calendar": "Japanese",
+   "foundationCalendars": [
+    "japanese"
+   ],
+   "key": "locale",
+   "attributes": "width (abbreviated, wide, narrow)",
+   "content": "Era names",
+   "source": "dates/calendars/japanese/eras",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle era field (udat)",
+   "icu4x": "DatetimeNamesYearJapaneseV1 (with cyclic years)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DateNamesEraPersianV1",
+   "feature": "Date",
+   "data": "Names",
+   "item": "Era",
+   "calendar": "Persian",
+   "foundationCalendars": [
+    "persian"
+   ],
+   "key": "locale",
+   "attributes": "width (abbreviated, wide, narrow)",
+   "content": "Era names",
+   "source": "dates/calendars/persian/eras",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle era field (udat)",
+   "icu4x": "DatetimeNamesYearPersianV1 (with cyclic years)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DateNamesEraRocV1",
+   "feature": "Date",
+   "data": "Names",
+   "item": "Era",
+   "calendar": "Roc",
+   "foundationCalendars": [
+    "republicOfChina"
+   ],
+   "key": "locale",
+   "attributes": "width (abbreviated, wide, narrow)",
+   "content": "Era names",
+   "source": "dates/calendars/roc/eras",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle era field (udat)",
+   "icu4x": "DatetimeNamesYearRocV1 (with cyclic years)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DateNamesEraBanglaV1",
+   "feature": "Date",
+   "data": "Names",
+   "item": "Era",
+   "calendar": "Bangla",
+   "foundationCalendars": [
+    "bangla"
+   ],
+   "key": "locale",
+   "attributes": "width (abbreviated, wide, narrow)",
+   "content": "Era names",
+   "source": "dates/calendars/bangla/eras",
+   "sourceAvailability": "apple",
+   "usedBy": "Date.FormatStyle era field (udat)",
+   "icu4x": "DatetimeNamesYearBanglaV1 (with cyclic years)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DateNamesEraGujaratiV1",
+   "feature": "Date",
+   "data": "Names",
+   "item": "Era",
+   "calendar": "Gujarati",
+   "foundationCalendars": [
+    "gujarati"
+   ],
+   "key": "locale",
+   "attributes": "width (abbreviated, wide, narrow)",
+   "content": "Era names",
+   "source": "dates/calendars/gujarati/eras",
+   "sourceAvailability": "apple",
+   "usedBy": "Date.FormatStyle era field (udat)",
+   "icu4x": "DatetimeNamesYearGujaratiV1 (with cyclic years)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DateNamesEraKannadaV1",
+   "feature": "Date",
+   "data": "Names",
+   "item": "Era",
+   "calendar": "Kannada",
+   "foundationCalendars": [
+    "kannada"
+   ],
+   "key": "locale",
+   "attributes": "width (abbreviated, wide, narrow)",
+   "content": "Era names",
+   "source": "dates/calendars/kannada/eras",
+   "sourceAvailability": "apple",
+   "usedBy": "Date.FormatStyle era field (udat)",
+   "icu4x": "DatetimeNamesYearKannadaV1 (with cyclic years)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DateNamesEraMalayalamV1",
+   "feature": "Date",
+   "data": "Names",
+   "item": "Era",
+   "calendar": "Malayalam",
+   "foundationCalendars": [
+    "malayalam"
+   ],
+   "key": "locale",
+   "attributes": "width (abbreviated, wide, narrow)",
+   "content": "Era names",
+   "source": "dates/calendars/malayalam/eras",
+   "sourceAvailability": "apple",
+   "usedBy": "Date.FormatStyle era field (udat)",
+   "icu4x": "DatetimeNamesYearMalayalamV1 (with cyclic years)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DateNamesEraMarathiV1",
+   "feature": "Date",
+   "data": "Names",
+   "item": "Era",
+   "calendar": "Marathi",
+   "foundationCalendars": [
+    "marathi"
+   ],
+   "key": "locale",
+   "attributes": "width (abbreviated, wide, narrow)",
+   "content": "Era names",
+   "source": "dates/calendars/marathi/eras",
+   "sourceAvailability": "apple",
+   "usedBy": "Date.FormatStyle era field (udat)",
+   "icu4x": "DatetimeNamesYearMarathiV1 (with cyclic years)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DateNamesEraOdiaV1",
+   "feature": "Date",
+   "data": "Names",
+   "item": "Era",
+   "calendar": "Odia",
+   "foundationCalendars": [
+    "odia"
+   ],
+   "key": "locale",
+   "attributes": "width (abbreviated, wide, narrow)",
+   "content": "Era names",
+   "source": "dates/calendars/odia/eras",
+   "sourceAvailability": "apple",
+   "usedBy": "Date.FormatStyle era field (udat)",
+   "icu4x": "DatetimeNamesYearOdiaV1 (with cyclic years)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DateNamesEraTamilV1",
+   "feature": "Date",
+   "data": "Names",
+   "item": "Era",
+   "calendar": "Tamil",
+   "foundationCalendars": [
+    "tamil"
+   ],
+   "key": "locale",
+   "attributes": "width (abbreviated, wide, narrow)",
+   "content": "Era names",
+   "source": "dates/calendars/tamil/eras",
+   "sourceAvailability": "apple",
+   "usedBy": "Date.FormatStyle era field (udat)",
+   "icu4x": "DatetimeNamesYearTamilV1 (with cyclic years)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DateNamesEraTeluguV1",
+   "feature": "Date",
+   "data": "Names",
+   "item": "Era",
+   "calendar": "Telugu",
+   "foundationCalendars": [
+    "telugu"
+   ],
+   "key": "locale",
+   "attributes": "width (abbreviated, wide, narrow)",
+   "content": "Era names",
+   "source": "dates/calendars/telugu/eras",
+   "sourceAvailability": "apple",
+   "usedBy": "Date.FormatStyle era field (udat)",
+   "icu4x": "DatetimeNamesYearTeluguV1 (with cyclic years)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DateNamesEraVikramV1",
+   "feature": "Date",
+   "data": "Names",
+   "item": "Era",
+   "calendar": "Vikram",
+   "foundationCalendars": [
+    "vikram"
+   ],
+   "key": "locale",
+   "attributes": "width (abbreviated, wide, narrow)",
+   "content": "Era names",
+   "source": "dates/calendars/vikram/eras",
+   "sourceAvailability": "apple",
+   "usedBy": "Date.FormatStyle era field (udat)",
+   "icu4x": "DatetimeNamesYearVikramV1 (with cyclic years)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DateNamesEraVietnameseV1",
+   "feature": "Date",
+   "data": "Names",
+   "item": "Era",
+   "calendar": "Vietnamese",
+   "foundationCalendars": [
+    "vietnamese"
+   ],
+   "key": "locale",
+   "attributes": "width (abbreviated, wide, narrow)",
+   "content": "Era names",
+   "source": "dates/calendars/vietnamese/eras",
+   "sourceAvailability": "apple",
+   "usedBy": "Date.FormatStyle era field (udat)",
+   "icu4x": "DatetimeNamesYearVietnameseV1 (with cyclic years)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DateNamesCyclicChineseV1",
+   "feature": "Date",
+   "data": "Names",
+   "item": "Cyclic",
+   "calendar": "Chinese",
+   "foundationCalendars": [
+    "chinese"
+   ],
+   "key": "locale",
+   "attributes": "set (years, zodiacs) x width",
+   "content": "Cyclic year names, only for the calendars in CYCLIC_CALENDARS",
+   "source": "dates/calendars/chinese/cyclicNameSets",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle cyclicYear field (udat)",
+   "icu4x": "DatetimeNamesYearChineseV1 (with era names)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DateNamesCyclicDangiV1",
+   "feature": "Date",
+   "data": "Names",
+   "item": "Cyclic",
+   "calendar": "Dangi",
+   "foundationCalendars": [
+    "dangi"
+   ],
+   "key": "locale",
+   "attributes": "set (years, zodiacs) x width",
+   "content": "Cyclic year names, only for the calendars in CYCLIC_CALENDARS",
+   "source": "dates/calendars/dangi/cyclicNameSets",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle cyclicYear field (udat)",
+   "icu4x": "DatetimeNamesYearDangiV1 (with era names)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DateNamesCyclicVietnameseV1",
+   "feature": "Date",
+   "data": "Names",
+   "item": "Cyclic",
+   "calendar": "Vietnamese",
+   "foundationCalendars": [
+    "vietnamese"
+   ],
+   "key": "locale",
+   "attributes": "set (years, zodiacs) x width",
+   "content": "Cyclic year names, only for the calendars in CYCLIC_CALENDARS",
+   "source": "dates/calendars/vietnamese/cyclicNameSets",
+   "sourceAvailability": "apple",
+   "usedBy": "Date.FormatStyle cyclicYear field (udat)",
+   "icu4x": "DatetimeNamesYearVietnameseV1 (with era names)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsStyleGregorianV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Style",
+   "calendar": "Gregorian",
+   "foundationCalendars": [
+    "gregorian",
+    "iso8601"
+   ],
+   "key": "locale",
+   "attributes": "date or time x style (full, long, medium, short)",
+   "content": "The date and time patterns of each style",
+   "source": "dates/calendars/gregorian/dateFormats, timeFormats",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle with date and time styles (udat)",
+   "icu4x": "none (ICU4X has no styles)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsStyleBuddhistV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Style",
+   "calendar": "Buddhist",
+   "foundationCalendars": [
+    "buddhist"
+   ],
+   "key": "locale",
+   "attributes": "date or time x style (full, long, medium, short)",
+   "content": "The date and time patterns of each style",
+   "source": "dates/calendars/buddhist/dateFormats, timeFormats",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle with date and time styles (udat)",
+   "icu4x": "none (ICU4X has no styles)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsStyleChineseV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Style",
+   "calendar": "Chinese",
+   "foundationCalendars": [
+    "chinese"
+   ],
+   "key": "locale",
+   "attributes": "date or time x style (full, long, medium, short)",
+   "content": "The date and time patterns of each style",
+   "source": "dates/calendars/chinese/dateFormats, timeFormats",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle with date and time styles (udat)",
+   "icu4x": "none (ICU4X has no styles)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsStyleCopticV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Style",
+   "calendar": "Coptic",
+   "foundationCalendars": [
+    "coptic"
+   ],
+   "key": "locale",
+   "attributes": "date or time x style (full, long, medium, short)",
+   "content": "The date and time patterns of each style",
+   "source": "dates/calendars/coptic/dateFormats, timeFormats",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle with date and time styles (udat)",
+   "icu4x": "none (ICU4X has no styles)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsStyleDangiV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Style",
+   "calendar": "Dangi",
+   "foundationCalendars": [
+    "dangi"
+   ],
+   "key": "locale",
+   "attributes": "date or time x style (full, long, medium, short)",
+   "content": "The date and time patterns of each style",
+   "source": "dates/calendars/dangi/dateFormats, timeFormats",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle with date and time styles (udat)",
+   "icu4x": "none (ICU4X has no styles)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsStyleEthiopicV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Style",
+   "calendar": "Ethiopic",
+   "foundationCalendars": [
+    "ethiopicAmeteMihret"
+   ],
+   "key": "locale",
+   "attributes": "date or time x style (full, long, medium, short)",
+   "content": "The date and time patterns of each style",
+   "source": "dates/calendars/ethiopic/dateFormats, timeFormats",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle with date and time styles (udat)",
+   "icu4x": "none (ICU4X has no styles)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsStyleEthiopicAmeteAlemV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Style",
+   "calendar": "EthiopicAmeteAlem",
+   "foundationCalendars": [
+    "ethiopicAmeteAlem"
+   ],
+   "key": "locale",
+   "attributes": "date or time x style (full, long, medium, short)",
+   "content": "The date and time patterns of each style",
+   "source": "dates/calendars/ethiopic-amete-alem/dateFormats, timeFormats",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle with date and time styles (udat)",
+   "icu4x": "none (ICU4X has no styles)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsStyleHebrewV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Style",
+   "calendar": "Hebrew",
+   "foundationCalendars": [
+    "hebrew"
+   ],
+   "key": "locale",
+   "attributes": "date or time x style (full, long, medium, short)",
+   "content": "The date and time patterns of each style",
+   "source": "dates/calendars/hebrew/dateFormats, timeFormats",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle with date and time styles (udat)",
+   "icu4x": "none (ICU4X has no styles)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsStyleIndianV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Style",
+   "calendar": "Indian",
+   "foundationCalendars": [
+    "indian"
+   ],
+   "key": "locale",
+   "attributes": "date or time x style (full, long, medium, short)",
+   "content": "The date and time patterns of each style",
+   "source": "dates/calendars/indian/dateFormats, timeFormats",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle with date and time styles (udat)",
+   "icu4x": "none (ICU4X has no styles)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsStyleIslamicV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Style",
+   "calendar": "Islamic",
+   "foundationCalendars": [
+    "islamic",
+    "islamicCivil",
+    "islamicTabular",
+    "islamicUmmAlQura"
+   ],
+   "key": "locale",
+   "attributes": "date or time x style (full, long, medium, short)",
+   "content": "The date and time patterns of each style",
+   "source": "dates/calendars/islamic/dateFormats, timeFormats",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle with date and time styles (udat)",
+   "icu4x": "none (ICU4X has no styles)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsStyleJapaneseV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Style",
+   "calendar": "Japanese",
+   "foundationCalendars": [
+    "japanese"
+   ],
+   "key": "locale",
+   "attributes": "date or time x style (full, long, medium, short)",
+   "content": "The date and time patterns of each style",
+   "source": "dates/calendars/japanese/dateFormats, timeFormats",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle with date and time styles (udat)",
+   "icu4x": "none (ICU4X has no styles)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsStylePersianV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Style",
+   "calendar": "Persian",
+   "foundationCalendars": [
+    "persian"
+   ],
+   "key": "locale",
+   "attributes": "date or time x style (full, long, medium, short)",
+   "content": "The date and time patterns of each style",
+   "source": "dates/calendars/persian/dateFormats, timeFormats",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle with date and time styles (udat)",
+   "icu4x": "none (ICU4X has no styles)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsStyleRocV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Style",
+   "calendar": "Roc",
+   "foundationCalendars": [
+    "republicOfChina"
+   ],
+   "key": "locale",
+   "attributes": "date or time x style (full, long, medium, short)",
+   "content": "The date and time patterns of each style",
+   "source": "dates/calendars/roc/dateFormats, timeFormats",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle with date and time styles (udat)",
+   "icu4x": "none (ICU4X has no styles)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsStyleBanglaV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Style",
+   "calendar": "Bangla",
+   "foundationCalendars": [
+    "bangla"
+   ],
+   "key": "locale",
+   "attributes": "date or time x style (full, long, medium, short)",
+   "content": "The date and time patterns of each style",
+   "source": "dates/calendars/bangla/dateFormats, timeFormats",
+   "sourceAvailability": "apple",
+   "usedBy": "Date.FormatStyle with date and time styles (udat)",
+   "icu4x": "none (ICU4X has no styles)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsStyleGujaratiV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Style",
+   "calendar": "Gujarati",
+   "foundationCalendars": [
+    "gujarati"
+   ],
+   "key": "locale",
+   "attributes": "date or time x style (full, long, medium, short)",
+   "content": "The date and time patterns of each style",
+   "source": "dates/calendars/gujarati/dateFormats, timeFormats",
+   "sourceAvailability": "apple",
+   "usedBy": "Date.FormatStyle with date and time styles (udat)",
+   "icu4x": "none (ICU4X has no styles)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsStyleKannadaV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Style",
+   "calendar": "Kannada",
+   "foundationCalendars": [
+    "kannada"
+   ],
+   "key": "locale",
+   "attributes": "date or time x style (full, long, medium, short)",
+   "content": "The date and time patterns of each style",
+   "source": "dates/calendars/kannada/dateFormats, timeFormats",
+   "sourceAvailability": "apple",
+   "usedBy": "Date.FormatStyle with date and time styles (udat)",
+   "icu4x": "none (ICU4X has no styles)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsStyleMalayalamV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Style",
+   "calendar": "Malayalam",
+   "foundationCalendars": [
+    "malayalam"
+   ],
+   "key": "locale",
+   "attributes": "date or time x style (full, long, medium, short)",
+   "content": "The date and time patterns of each style",
+   "source": "dates/calendars/malayalam/dateFormats, timeFormats",
+   "sourceAvailability": "apple",
+   "usedBy": "Date.FormatStyle with date and time styles (udat)",
+   "icu4x": "none (ICU4X has no styles)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsStyleMarathiV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Style",
+   "calendar": "Marathi",
+   "foundationCalendars": [
+    "marathi"
+   ],
+   "key": "locale",
+   "attributes": "date or time x style (full, long, medium, short)",
+   "content": "The date and time patterns of each style",
+   "source": "dates/calendars/marathi/dateFormats, timeFormats",
+   "sourceAvailability": "apple",
+   "usedBy": "Date.FormatStyle with date and time styles (udat)",
+   "icu4x": "none (ICU4X has no styles)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsStyleOdiaV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Style",
+   "calendar": "Odia",
+   "foundationCalendars": [
+    "odia"
+   ],
+   "key": "locale",
+   "attributes": "date or time x style (full, long, medium, short)",
+   "content": "The date and time patterns of each style",
+   "source": "dates/calendars/odia/dateFormats, timeFormats",
+   "sourceAvailability": "apple",
+   "usedBy": "Date.FormatStyle with date and time styles (udat)",
+   "icu4x": "none (ICU4X has no styles)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsStyleTamilV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Style",
+   "calendar": "Tamil",
+   "foundationCalendars": [
+    "tamil"
+   ],
+   "key": "locale",
+   "attributes": "date or time x style (full, long, medium, short)",
+   "content": "The date and time patterns of each style",
+   "source": "dates/calendars/tamil/dateFormats, timeFormats",
+   "sourceAvailability": "apple",
+   "usedBy": "Date.FormatStyle with date and time styles (udat)",
+   "icu4x": "none (ICU4X has no styles)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsStyleTeluguV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Style",
+   "calendar": "Telugu",
+   "foundationCalendars": [
+    "telugu"
+   ],
+   "key": "locale",
+   "attributes": "date or time x style (full, long, medium, short)",
+   "content": "The date and time patterns of each style",
+   "source": "dates/calendars/telugu/dateFormats, timeFormats",
+   "sourceAvailability": "apple",
+   "usedBy": "Date.FormatStyle with date and time styles (udat)",
+   "icu4x": "none (ICU4X has no styles)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsStyleVikramV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Style",
+   "calendar": "Vikram",
+   "foundationCalendars": [
+    "vikram"
+   ],
+   "key": "locale",
+   "attributes": "date or time x style (full, long, medium, short)",
+   "content": "The date and time patterns of each style",
+   "source": "dates/calendars/vikram/dateFormats, timeFormats",
+   "sourceAvailability": "apple",
+   "usedBy": "Date.FormatStyle with date and time styles (udat)",
+   "icu4x": "none (ICU4X has no styles)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsStyleVietnameseV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Style",
+   "calendar": "Vietnamese",
+   "foundationCalendars": [
+    "vietnamese"
+   ],
+   "key": "locale",
+   "attributes": "date or time x style (full, long, medium, short)",
+   "content": "The date and time patterns of each style",
+   "source": "dates/calendars/vietnamese/dateFormats, timeFormats",
+   "sourceAvailability": "apple",
+   "usedBy": "Date.FormatStyle with date and time styles (udat)",
+   "icu4x": "none (ICU4X has no styles)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsSkeletonGregorianV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Skeleton",
+   "calendar": "Gregorian",
+   "foundationCalendars": [
+    "gregorian",
+    "iso8601"
+   ],
+   "key": "locale",
+   "attributes": "skeleton, append items",
+   "content": "Skeleton to pattern tables of the pattern generator",
+   "source": "dates/calendars/gregorian/dateTimeFormats/availableFormats, appendItems",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle with fields, Date.FormatString (udatpg_getBestPatternWithOptions)",
+   "icu4x": "none (ICU4X uses semantic skeletons: DatetimePatternsDateGregorianV1)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsSkeletonBuddhistV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Skeleton",
+   "calendar": "Buddhist",
+   "foundationCalendars": [
+    "buddhist"
+   ],
+   "key": "locale",
+   "attributes": "skeleton, append items",
+   "content": "Skeleton to pattern tables of the pattern generator",
+   "source": "dates/calendars/buddhist/dateTimeFormats/availableFormats, appendItems",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle with fields, Date.FormatString (udatpg_getBestPatternWithOptions)",
+   "icu4x": "none (ICU4X uses semantic skeletons: DatetimePatternsDateBuddhistV1)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsSkeletonChineseV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Skeleton",
+   "calendar": "Chinese",
+   "foundationCalendars": [
+    "chinese"
+   ],
+   "key": "locale",
+   "attributes": "skeleton, append items",
+   "content": "Skeleton to pattern tables of the pattern generator",
+   "source": "dates/calendars/chinese/dateTimeFormats/availableFormats, appendItems",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle with fields, Date.FormatString (udatpg_getBestPatternWithOptions)",
+   "icu4x": "none (ICU4X uses semantic skeletons: DatetimePatternsDateChineseV1)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsSkeletonCopticV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Skeleton",
+   "calendar": "Coptic",
+   "foundationCalendars": [
+    "coptic"
+   ],
+   "key": "locale",
+   "attributes": "skeleton, append items",
+   "content": "Skeleton to pattern tables of the pattern generator",
+   "source": "dates/calendars/coptic/dateTimeFormats/availableFormats, appendItems",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle with fields, Date.FormatString (udatpg_getBestPatternWithOptions)",
+   "icu4x": "none (ICU4X uses semantic skeletons: DatetimePatternsDateCopticV1)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsSkeletonDangiV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Skeleton",
+   "calendar": "Dangi",
+   "foundationCalendars": [
+    "dangi"
+   ],
+   "key": "locale",
+   "attributes": "skeleton, append items",
+   "content": "Skeleton to pattern tables of the pattern generator",
+   "source": "dates/calendars/dangi/dateTimeFormats/availableFormats, appendItems",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle with fields, Date.FormatString (udatpg_getBestPatternWithOptions)",
+   "icu4x": "none (ICU4X uses semantic skeletons: DatetimePatternsDateDangiV1)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsSkeletonEthiopicV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Skeleton",
+   "calendar": "Ethiopic",
+   "foundationCalendars": [
+    "ethiopicAmeteMihret"
+   ],
+   "key": "locale",
+   "attributes": "skeleton, append items",
+   "content": "Skeleton to pattern tables of the pattern generator",
+   "source": "dates/calendars/ethiopic/dateTimeFormats/availableFormats, appendItems",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle with fields, Date.FormatString (udatpg_getBestPatternWithOptions)",
+   "icu4x": "none (ICU4X uses semantic skeletons: DatetimePatternsDateEthiopicV1)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsSkeletonEthiopicAmeteAlemV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Skeleton",
+   "calendar": "EthiopicAmeteAlem",
+   "foundationCalendars": [
+    "ethiopicAmeteAlem"
+   ],
+   "key": "locale",
+   "attributes": "skeleton, append items",
+   "content": "Skeleton to pattern tables of the pattern generator",
+   "source": "dates/calendars/ethiopic-amete-alem/dateTimeFormats/availableFormats, appendItems",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle with fields, Date.FormatString (udatpg_getBestPatternWithOptions)",
+   "icu4x": "none (ICU4X uses semantic skeletons: DatetimePatternsDateEthiopicAmeteAlemV1)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsSkeletonHebrewV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Skeleton",
+   "calendar": "Hebrew",
+   "foundationCalendars": [
+    "hebrew"
+   ],
+   "key": "locale",
+   "attributes": "skeleton, append items",
+   "content": "Skeleton to pattern tables of the pattern generator",
+   "source": "dates/calendars/hebrew/dateTimeFormats/availableFormats, appendItems",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle with fields, Date.FormatString (udatpg_getBestPatternWithOptions)",
+   "icu4x": "none (ICU4X uses semantic skeletons: DatetimePatternsDateHebrewV1)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsSkeletonIndianV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Skeleton",
+   "calendar": "Indian",
+   "foundationCalendars": [
+    "indian"
+   ],
+   "key": "locale",
+   "attributes": "skeleton, append items",
+   "content": "Skeleton to pattern tables of the pattern generator",
+   "source": "dates/calendars/indian/dateTimeFormats/availableFormats, appendItems",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle with fields, Date.FormatString (udatpg_getBestPatternWithOptions)",
+   "icu4x": "none (ICU4X uses semantic skeletons: DatetimePatternsDateIndianV1)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsSkeletonIslamicV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Skeleton",
+   "calendar": "Islamic",
+   "foundationCalendars": [
+    "islamic",
+    "islamicCivil",
+    "islamicTabular",
+    "islamicUmmAlQura"
+   ],
+   "key": "locale",
+   "attributes": "skeleton, append items",
+   "content": "Skeleton to pattern tables of the pattern generator",
+   "source": "dates/calendars/islamic/dateTimeFormats/availableFormats, appendItems",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle with fields, Date.FormatString (udatpg_getBestPatternWithOptions)",
+   "icu4x": "none (ICU4X uses semantic skeletons: DatetimePatternsDateIslamicV1)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsSkeletonJapaneseV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Skeleton",
+   "calendar": "Japanese",
+   "foundationCalendars": [
+    "japanese"
+   ],
+   "key": "locale",
+   "attributes": "skeleton, append items",
+   "content": "Skeleton to pattern tables of the pattern generator",
+   "source": "dates/calendars/japanese/dateTimeFormats/availableFormats, appendItems",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle with fields, Date.FormatString (udatpg_getBestPatternWithOptions)",
+   "icu4x": "none (ICU4X uses semantic skeletons: DatetimePatternsDateJapaneseV1)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsSkeletonPersianV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Skeleton",
+   "calendar": "Persian",
+   "foundationCalendars": [
+    "persian"
+   ],
+   "key": "locale",
+   "attributes": "skeleton, append items",
+   "content": "Skeleton to pattern tables of the pattern generator",
+   "source": "dates/calendars/persian/dateTimeFormats/availableFormats, appendItems",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle with fields, Date.FormatString (udatpg_getBestPatternWithOptions)",
+   "icu4x": "none (ICU4X uses semantic skeletons: DatetimePatternsDatePersianV1)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsSkeletonRocV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Skeleton",
+   "calendar": "Roc",
+   "foundationCalendars": [
+    "republicOfChina"
+   ],
+   "key": "locale",
+   "attributes": "skeleton, append items",
+   "content": "Skeleton to pattern tables of the pattern generator",
+   "source": "dates/calendars/roc/dateTimeFormats/availableFormats, appendItems",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle with fields, Date.FormatString (udatpg_getBestPatternWithOptions)",
+   "icu4x": "none (ICU4X uses semantic skeletons: DatetimePatternsDateRocV1)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsSkeletonBanglaV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Skeleton",
+   "calendar": "Bangla",
+   "foundationCalendars": [
+    "bangla"
+   ],
+   "key": "locale",
+   "attributes": "skeleton, append items",
+   "content": "Skeleton to pattern tables of the pattern generator",
+   "source": "dates/calendars/bangla/dateTimeFormats/availableFormats, appendItems",
+   "sourceAvailability": "apple",
+   "usedBy": "Date.FormatStyle with fields, Date.FormatString (udatpg_getBestPatternWithOptions)",
+   "icu4x": "none (ICU4X uses semantic skeletons: DatetimePatternsDateBanglaV1)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsSkeletonGujaratiV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Skeleton",
+   "calendar": "Gujarati",
+   "foundationCalendars": [
+    "gujarati"
+   ],
+   "key": "locale",
+   "attributes": "skeleton, append items",
+   "content": "Skeleton to pattern tables of the pattern generator",
+   "source": "dates/calendars/gujarati/dateTimeFormats/availableFormats, appendItems",
+   "sourceAvailability": "apple",
+   "usedBy": "Date.FormatStyle with fields, Date.FormatString (udatpg_getBestPatternWithOptions)",
+   "icu4x": "none (ICU4X uses semantic skeletons: DatetimePatternsDateGujaratiV1)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsSkeletonKannadaV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Skeleton",
+   "calendar": "Kannada",
+   "foundationCalendars": [
+    "kannada"
+   ],
+   "key": "locale",
+   "attributes": "skeleton, append items",
+   "content": "Skeleton to pattern tables of the pattern generator",
+   "source": "dates/calendars/kannada/dateTimeFormats/availableFormats, appendItems",
+   "sourceAvailability": "apple",
+   "usedBy": "Date.FormatStyle with fields, Date.FormatString (udatpg_getBestPatternWithOptions)",
+   "icu4x": "none (ICU4X uses semantic skeletons: DatetimePatternsDateKannadaV1)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsSkeletonMalayalamV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Skeleton",
+   "calendar": "Malayalam",
+   "foundationCalendars": [
+    "malayalam"
+   ],
+   "key": "locale",
+   "attributes": "skeleton, append items",
+   "content": "Skeleton to pattern tables of the pattern generator",
+   "source": "dates/calendars/malayalam/dateTimeFormats/availableFormats, appendItems",
+   "sourceAvailability": "apple",
+   "usedBy": "Date.FormatStyle with fields, Date.FormatString (udatpg_getBestPatternWithOptions)",
+   "icu4x": "none (ICU4X uses semantic skeletons: DatetimePatternsDateMalayalamV1)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsSkeletonMarathiV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Skeleton",
+   "calendar": "Marathi",
+   "foundationCalendars": [
+    "marathi"
+   ],
+   "key": "locale",
+   "attributes": "skeleton, append items",
+   "content": "Skeleton to pattern tables of the pattern generator",
+   "source": "dates/calendars/marathi/dateTimeFormats/availableFormats, appendItems",
+   "sourceAvailability": "apple",
+   "usedBy": "Date.FormatStyle with fields, Date.FormatString (udatpg_getBestPatternWithOptions)",
+   "icu4x": "none (ICU4X uses semantic skeletons: DatetimePatternsDateMarathiV1)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsSkeletonOdiaV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Skeleton",
+   "calendar": "Odia",
+   "foundationCalendars": [
+    "odia"
+   ],
+   "key": "locale",
+   "attributes": "skeleton, append items",
+   "content": "Skeleton to pattern tables of the pattern generator",
+   "source": "dates/calendars/odia/dateTimeFormats/availableFormats, appendItems",
+   "sourceAvailability": "apple",
+   "usedBy": "Date.FormatStyle with fields, Date.FormatString (udatpg_getBestPatternWithOptions)",
+   "icu4x": "none (ICU4X uses semantic skeletons: DatetimePatternsDateOdiaV1)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsSkeletonTamilV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Skeleton",
+   "calendar": "Tamil",
+   "foundationCalendars": [
+    "tamil"
+   ],
+   "key": "locale",
+   "attributes": "skeleton, append items",
+   "content": "Skeleton to pattern tables of the pattern generator",
+   "source": "dates/calendars/tamil/dateTimeFormats/availableFormats, appendItems",
+   "sourceAvailability": "apple",
+   "usedBy": "Date.FormatStyle with fields, Date.FormatString (udatpg_getBestPatternWithOptions)",
+   "icu4x": "none (ICU4X uses semantic skeletons: DatetimePatternsDateTamilV1)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsSkeletonTeluguV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Skeleton",
+   "calendar": "Telugu",
+   "foundationCalendars": [
+    "telugu"
+   ],
+   "key": "locale",
+   "attributes": "skeleton, append items",
+   "content": "Skeleton to pattern tables of the pattern generator",
+   "source": "dates/calendars/telugu/dateTimeFormats/availableFormats, appendItems",
+   "sourceAvailability": "apple",
+   "usedBy": "Date.FormatStyle with fields, Date.FormatString (udatpg_getBestPatternWithOptions)",
+   "icu4x": "none (ICU4X uses semantic skeletons: DatetimePatternsDateTeluguV1)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsSkeletonVikramV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Skeleton",
+   "calendar": "Vikram",
+   "foundationCalendars": [
+    "vikram"
+   ],
+   "key": "locale",
+   "attributes": "skeleton, append items",
+   "content": "Skeleton to pattern tables of the pattern generator",
+   "source": "dates/calendars/vikram/dateTimeFormats/availableFormats, appendItems",
+   "sourceAvailability": "apple",
+   "usedBy": "Date.FormatStyle with fields, Date.FormatString (udatpg_getBestPatternWithOptions)",
+   "icu4x": "none (ICU4X uses semantic skeletons: DatetimePatternsDateVikramV1)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsSkeletonVietnameseV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Skeleton",
+   "calendar": "Vietnamese",
+   "foundationCalendars": [
+    "vietnamese"
+   ],
+   "key": "locale",
+   "attributes": "skeleton, append items",
+   "content": "Skeleton to pattern tables of the pattern generator",
+   "source": "dates/calendars/vietnamese/dateTimeFormats/availableFormats, appendItems",
+   "sourceAvailability": "apple",
+   "usedBy": "Date.FormatStyle with fields, Date.FormatString (udatpg_getBestPatternWithOptions)",
+   "icu4x": "none (ICU4X uses semantic skeletons: DatetimePatternsDateVietnameseV1)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsGlueGregorianV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Glue",
+   "calendar": "Gregorian",
+   "foundationCalendars": [
+    "gregorian",
+    "iso8601"
+   ],
+   "key": "locale",
+   "attributes": "style (full, long, medium, short) x variant (standard, atTime)",
+   "content": "How a date and a time join",
+   "source": "dates/calendars/gregorian/dateTimeFormats",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle with a date and a time (udat)",
+   "icu4x": "DatetimePatternsGlueV1 (one for all calendars)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsGlueBuddhistV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Glue",
+   "calendar": "Buddhist",
+   "foundationCalendars": [
+    "buddhist"
+   ],
+   "key": "locale",
+   "attributes": "style (full, long, medium, short) x variant (standard, atTime)",
+   "content": "How a date and a time join",
+   "source": "dates/calendars/buddhist/dateTimeFormats",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle with a date and a time (udat)",
+   "icu4x": "DatetimePatternsGlueV1 (one for all calendars)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsGlueChineseV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Glue",
+   "calendar": "Chinese",
+   "foundationCalendars": [
+    "chinese"
+   ],
+   "key": "locale",
+   "attributes": "style (full, long, medium, short) x variant (standard, atTime)",
+   "content": "How a date and a time join",
+   "source": "dates/calendars/chinese/dateTimeFormats",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle with a date and a time (udat)",
+   "icu4x": "DatetimePatternsGlueV1 (one for all calendars)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsGlueCopticV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Glue",
+   "calendar": "Coptic",
+   "foundationCalendars": [
+    "coptic"
+   ],
+   "key": "locale",
+   "attributes": "style (full, long, medium, short) x variant (standard, atTime)",
+   "content": "How a date and a time join",
+   "source": "dates/calendars/coptic/dateTimeFormats",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle with a date and a time (udat)",
+   "icu4x": "DatetimePatternsGlueV1 (one for all calendars)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsGlueDangiV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Glue",
+   "calendar": "Dangi",
+   "foundationCalendars": [
+    "dangi"
+   ],
+   "key": "locale",
+   "attributes": "style (full, long, medium, short) x variant (standard, atTime)",
+   "content": "How a date and a time join",
+   "source": "dates/calendars/dangi/dateTimeFormats",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle with a date and a time (udat)",
+   "icu4x": "DatetimePatternsGlueV1 (one for all calendars)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsGlueEthiopicV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Glue",
+   "calendar": "Ethiopic",
+   "foundationCalendars": [
+    "ethiopicAmeteMihret"
+   ],
+   "key": "locale",
+   "attributes": "style (full, long, medium, short) x variant (standard, atTime)",
+   "content": "How a date and a time join",
+   "source": "dates/calendars/ethiopic/dateTimeFormats",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle with a date and a time (udat)",
+   "icu4x": "DatetimePatternsGlueV1 (one for all calendars)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsGlueEthiopicAmeteAlemV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Glue",
+   "calendar": "EthiopicAmeteAlem",
+   "foundationCalendars": [
+    "ethiopicAmeteAlem"
+   ],
+   "key": "locale",
+   "attributes": "style (full, long, medium, short) x variant (standard, atTime)",
+   "content": "How a date and a time join",
+   "source": "dates/calendars/ethiopic-amete-alem/dateTimeFormats",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle with a date and a time (udat)",
+   "icu4x": "DatetimePatternsGlueV1 (one for all calendars)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsGlueHebrewV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Glue",
+   "calendar": "Hebrew",
+   "foundationCalendars": [
+    "hebrew"
+   ],
+   "key": "locale",
+   "attributes": "style (full, long, medium, short) x variant (standard, atTime)",
+   "content": "How a date and a time join",
+   "source": "dates/calendars/hebrew/dateTimeFormats",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle with a date and a time (udat)",
+   "icu4x": "DatetimePatternsGlueV1 (one for all calendars)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsGlueIndianV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Glue",
+   "calendar": "Indian",
+   "foundationCalendars": [
+    "indian"
+   ],
+   "key": "locale",
+   "attributes": "style (full, long, medium, short) x variant (standard, atTime)",
+   "content": "How a date and a time join",
+   "source": "dates/calendars/indian/dateTimeFormats",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle with a date and a time (udat)",
+   "icu4x": "DatetimePatternsGlueV1 (one for all calendars)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsGlueIslamicV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Glue",
+   "calendar": "Islamic",
+   "foundationCalendars": [
+    "islamic",
+    "islamicCivil",
+    "islamicTabular",
+    "islamicUmmAlQura"
+   ],
+   "key": "locale",
+   "attributes": "style (full, long, medium, short) x variant (standard, atTime)",
+   "content": "How a date and a time join",
+   "source": "dates/calendars/islamic/dateTimeFormats",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle with a date and a time (udat)",
+   "icu4x": "DatetimePatternsGlueV1 (one for all calendars)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsGlueJapaneseV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Glue",
+   "calendar": "Japanese",
+   "foundationCalendars": [
+    "japanese"
+   ],
+   "key": "locale",
+   "attributes": "style (full, long, medium, short) x variant (standard, atTime)",
+   "content": "How a date and a time join",
+   "source": "dates/calendars/japanese/dateTimeFormats",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle with a date and a time (udat)",
+   "icu4x": "DatetimePatternsGlueV1 (one for all calendars)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsGluePersianV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Glue",
+   "calendar": "Persian",
+   "foundationCalendars": [
+    "persian"
+   ],
+   "key": "locale",
+   "attributes": "style (full, long, medium, short) x variant (standard, atTime)",
+   "content": "How a date and a time join",
+   "source": "dates/calendars/persian/dateTimeFormats",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle with a date and a time (udat)",
+   "icu4x": "DatetimePatternsGlueV1 (one for all calendars)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsGlueRocV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Glue",
+   "calendar": "Roc",
+   "foundationCalendars": [
+    "republicOfChina"
+   ],
+   "key": "locale",
+   "attributes": "style (full, long, medium, short) x variant (standard, atTime)",
+   "content": "How a date and a time join",
+   "source": "dates/calendars/roc/dateTimeFormats",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle with a date and a time (udat)",
+   "icu4x": "DatetimePatternsGlueV1 (one for all calendars)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsGlueBanglaV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Glue",
+   "calendar": "Bangla",
+   "foundationCalendars": [
+    "bangla"
+   ],
+   "key": "locale",
+   "attributes": "style (full, long, medium, short) x variant (standard, atTime)",
+   "content": "How a date and a time join",
+   "source": "dates/calendars/bangla/dateTimeFormats",
+   "sourceAvailability": "apple",
+   "usedBy": "Date.FormatStyle with a date and a time (udat)",
+   "icu4x": "DatetimePatternsGlueV1 (one for all calendars)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsGlueGujaratiV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Glue",
+   "calendar": "Gujarati",
+   "foundationCalendars": [
+    "gujarati"
+   ],
+   "key": "locale",
+   "attributes": "style (full, long, medium, short) x variant (standard, atTime)",
+   "content": "How a date and a time join",
+   "source": "dates/calendars/gujarati/dateTimeFormats",
+   "sourceAvailability": "apple",
+   "usedBy": "Date.FormatStyle with a date and a time (udat)",
+   "icu4x": "DatetimePatternsGlueV1 (one for all calendars)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsGlueKannadaV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Glue",
+   "calendar": "Kannada",
+   "foundationCalendars": [
+    "kannada"
+   ],
+   "key": "locale",
+   "attributes": "style (full, long, medium, short) x variant (standard, atTime)",
+   "content": "How a date and a time join",
+   "source": "dates/calendars/kannada/dateTimeFormats",
+   "sourceAvailability": "apple",
+   "usedBy": "Date.FormatStyle with a date and a time (udat)",
+   "icu4x": "DatetimePatternsGlueV1 (one for all calendars)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsGlueMalayalamV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Glue",
+   "calendar": "Malayalam",
+   "foundationCalendars": [
+    "malayalam"
+   ],
+   "key": "locale",
+   "attributes": "style (full, long, medium, short) x variant (standard, atTime)",
+   "content": "How a date and a time join",
+   "source": "dates/calendars/malayalam/dateTimeFormats",
+   "sourceAvailability": "apple",
+   "usedBy": "Date.FormatStyle with a date and a time (udat)",
+   "icu4x": "DatetimePatternsGlueV1 (one for all calendars)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsGlueMarathiV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Glue",
+   "calendar": "Marathi",
+   "foundationCalendars": [
+    "marathi"
+   ],
+   "key": "locale",
+   "attributes": "style (full, long, medium, short) x variant (standard, atTime)",
+   "content": "How a date and a time join",
+   "source": "dates/calendars/marathi/dateTimeFormats",
+   "sourceAvailability": "apple",
+   "usedBy": "Date.FormatStyle with a date and a time (udat)",
+   "icu4x": "DatetimePatternsGlueV1 (one for all calendars)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsGlueOdiaV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Glue",
+   "calendar": "Odia",
+   "foundationCalendars": [
+    "odia"
+   ],
+   "key": "locale",
+   "attributes": "style (full, long, medium, short) x variant (standard, atTime)",
+   "content": "How a date and a time join",
+   "source": "dates/calendars/odia/dateTimeFormats",
+   "sourceAvailability": "apple",
+   "usedBy": "Date.FormatStyle with a date and a time (udat)",
+   "icu4x": "DatetimePatternsGlueV1 (one for all calendars)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsGlueTamilV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Glue",
+   "calendar": "Tamil",
+   "foundationCalendars": [
+    "tamil"
+   ],
+   "key": "locale",
+   "attributes": "style (full, long, medium, short) x variant (standard, atTime)",
+   "content": "How a date and a time join",
+   "source": "dates/calendars/tamil/dateTimeFormats",
+   "sourceAvailability": "apple",
+   "usedBy": "Date.FormatStyle with a date and a time (udat)",
+   "icu4x": "DatetimePatternsGlueV1 (one for all calendars)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsGlueTeluguV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Glue",
+   "calendar": "Telugu",
+   "foundationCalendars": [
+    "telugu"
+   ],
+   "key": "locale",
+   "attributes": "style (full, long, medium, short) x variant (standard, atTime)",
+   "content": "How a date and a time join",
+   "source": "dates/calendars/telugu/dateTimeFormats",
+   "sourceAvailability": "apple",
+   "usedBy": "Date.FormatStyle with a date and a time (udat)",
+   "icu4x": "DatetimePatternsGlueV1 (one for all calendars)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsGlueVikramV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Glue",
+   "calendar": "Vikram",
+   "foundationCalendars": [
+    "vikram"
+   ],
+   "key": "locale",
+   "attributes": "style (full, long, medium, short) x variant (standard, atTime)",
+   "content": "How a date and a time join",
+   "source": "dates/calendars/vikram/dateTimeFormats",
+   "sourceAvailability": "apple",
+   "usedBy": "Date.FormatStyle with a date and a time (udat)",
+   "icu4x": "DatetimePatternsGlueV1 (one for all calendars)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsGlueVietnameseV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Glue",
+   "calendar": "Vietnamese",
+   "foundationCalendars": [
+    "vietnamese"
+   ],
+   "key": "locale",
+   "attributes": "style (full, long, medium, short) x variant (standard, atTime)",
+   "content": "How a date and a time join",
+   "source": "dates/calendars/vietnamese/dateTimeFormats",
+   "sourceAvailability": "apple",
+   "usedBy": "Date.FormatStyle with a date and a time (udat)",
+   "icu4x": "DatetimePatternsGlueV1 (one for all calendars)",
+   "splitRule": "2",
+   "settings": [
+    "dates",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsIntervalGregorianV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Interval",
+   "calendar": "Gregorian",
+   "foundationCalendars": [
+    "gregorian",
+    "iso8601"
+   ],
+   "key": "locale",
+   "attributes": "skeleton x greatest difference, fallback",
+   "content": "Date interval patterns",
+   "source": "dates/calendars/gregorian/dateTimeFormats/intervalFormats",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.IntervalFormatStyle (udtitvfmt)",
+   "icu4x": "DatetimePatternsRangeDateGregorianV1",
+   "splitRule": "1, 2",
+   "settings": [
+    "date-intervals",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsIntervalBuddhistV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Interval",
+   "calendar": "Buddhist",
+   "foundationCalendars": [
+    "buddhist"
+   ],
+   "key": "locale",
+   "attributes": "skeleton x greatest difference, fallback",
+   "content": "Date interval patterns",
+   "source": "dates/calendars/buddhist/dateTimeFormats/intervalFormats",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.IntervalFormatStyle (udtitvfmt)",
+   "icu4x": "DatetimePatternsRangeDateBuddhistV1",
+   "splitRule": "1, 2",
+   "settings": [
+    "date-intervals",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsIntervalChineseV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Interval",
+   "calendar": "Chinese",
+   "foundationCalendars": [
+    "chinese"
+   ],
+   "key": "locale",
+   "attributes": "skeleton x greatest difference, fallback",
+   "content": "Date interval patterns",
+   "source": "dates/calendars/chinese/dateTimeFormats/intervalFormats",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.IntervalFormatStyle (udtitvfmt)",
+   "icu4x": "DatetimePatternsRangeDateChineseV1",
+   "splitRule": "1, 2",
+   "settings": [
+    "date-intervals",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsIntervalCopticV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Interval",
+   "calendar": "Coptic",
+   "foundationCalendars": [
+    "coptic"
+   ],
+   "key": "locale",
+   "attributes": "skeleton x greatest difference, fallback",
+   "content": "Date interval patterns",
+   "source": "dates/calendars/coptic/dateTimeFormats/intervalFormats",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.IntervalFormatStyle (udtitvfmt)",
+   "icu4x": "DatetimePatternsRangeDateCopticV1",
+   "splitRule": "1, 2",
+   "settings": [
+    "date-intervals",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsIntervalDangiV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Interval",
+   "calendar": "Dangi",
+   "foundationCalendars": [
+    "dangi"
+   ],
+   "key": "locale",
+   "attributes": "skeleton x greatest difference, fallback",
+   "content": "Date interval patterns",
+   "source": "dates/calendars/dangi/dateTimeFormats/intervalFormats",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.IntervalFormatStyle (udtitvfmt)",
+   "icu4x": "DatetimePatternsRangeDateDangiV1",
+   "splitRule": "1, 2",
+   "settings": [
+    "date-intervals",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsIntervalEthiopicV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Interval",
+   "calendar": "Ethiopic",
+   "foundationCalendars": [
+    "ethiopicAmeteMihret"
+   ],
+   "key": "locale",
+   "attributes": "skeleton x greatest difference, fallback",
+   "content": "Date interval patterns",
+   "source": "dates/calendars/ethiopic/dateTimeFormats/intervalFormats",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.IntervalFormatStyle (udtitvfmt)",
+   "icu4x": "DatetimePatternsRangeDateEthiopicV1",
+   "splitRule": "1, 2",
+   "settings": [
+    "date-intervals",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsIntervalEthiopicAmeteAlemV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Interval",
+   "calendar": "EthiopicAmeteAlem",
+   "foundationCalendars": [
+    "ethiopicAmeteAlem"
+   ],
+   "key": "locale",
+   "attributes": "skeleton x greatest difference, fallback",
+   "content": "Date interval patterns",
+   "source": "dates/calendars/ethiopic-amete-alem/dateTimeFormats/intervalFormats",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.IntervalFormatStyle (udtitvfmt)",
+   "icu4x": "DatetimePatternsRangeDateEthiopicAmeteAlemV1",
+   "splitRule": "1, 2",
+   "settings": [
+    "date-intervals",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsIntervalHebrewV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Interval",
+   "calendar": "Hebrew",
+   "foundationCalendars": [
+    "hebrew"
+   ],
+   "key": "locale",
+   "attributes": "skeleton x greatest difference, fallback",
+   "content": "Date interval patterns",
+   "source": "dates/calendars/hebrew/dateTimeFormats/intervalFormats",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.IntervalFormatStyle (udtitvfmt)",
+   "icu4x": "DatetimePatternsRangeDateHebrewV1",
+   "splitRule": "1, 2",
+   "settings": [
+    "date-intervals",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsIntervalIndianV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Interval",
+   "calendar": "Indian",
+   "foundationCalendars": [
+    "indian"
+   ],
+   "key": "locale",
+   "attributes": "skeleton x greatest difference, fallback",
+   "content": "Date interval patterns",
+   "source": "dates/calendars/indian/dateTimeFormats/intervalFormats",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.IntervalFormatStyle (udtitvfmt)",
+   "icu4x": "DatetimePatternsRangeDateIndianV1",
+   "splitRule": "1, 2",
+   "settings": [
+    "date-intervals",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsIntervalIslamicV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Interval",
+   "calendar": "Islamic",
+   "foundationCalendars": [
+    "islamic",
+    "islamicCivil",
+    "islamicTabular",
+    "islamicUmmAlQura"
+   ],
+   "key": "locale",
+   "attributes": "skeleton x greatest difference, fallback",
+   "content": "Date interval patterns",
+   "source": "dates/calendars/islamic/dateTimeFormats/intervalFormats",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.IntervalFormatStyle (udtitvfmt)",
+   "icu4x": "DatetimePatternsRangeDateIslamicV1",
+   "splitRule": "1, 2",
+   "settings": [
+    "date-intervals",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsIntervalJapaneseV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Interval",
+   "calendar": "Japanese",
+   "foundationCalendars": [
+    "japanese"
+   ],
+   "key": "locale",
+   "attributes": "skeleton x greatest difference, fallback",
+   "content": "Date interval patterns",
+   "source": "dates/calendars/japanese/dateTimeFormats/intervalFormats",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.IntervalFormatStyle (udtitvfmt)",
+   "icu4x": "DatetimePatternsRangeDateJapaneseV1",
+   "splitRule": "1, 2",
+   "settings": [
+    "date-intervals",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsIntervalPersianV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Interval",
+   "calendar": "Persian",
+   "foundationCalendars": [
+    "persian"
+   ],
+   "key": "locale",
+   "attributes": "skeleton x greatest difference, fallback",
+   "content": "Date interval patterns",
+   "source": "dates/calendars/persian/dateTimeFormats/intervalFormats",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.IntervalFormatStyle (udtitvfmt)",
+   "icu4x": "DatetimePatternsRangeDatePersianV1",
+   "splitRule": "1, 2",
+   "settings": [
+    "date-intervals",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsIntervalRocV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Interval",
+   "calendar": "Roc",
+   "foundationCalendars": [
+    "republicOfChina"
+   ],
+   "key": "locale",
+   "attributes": "skeleton x greatest difference, fallback",
+   "content": "Date interval patterns",
+   "source": "dates/calendars/roc/dateTimeFormats/intervalFormats",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.IntervalFormatStyle (udtitvfmt)",
+   "icu4x": "DatetimePatternsRangeDateRocV1",
+   "splitRule": "1, 2",
+   "settings": [
+    "date-intervals",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsIntervalBanglaV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Interval",
+   "calendar": "Bangla",
+   "foundationCalendars": [
+    "bangla"
+   ],
+   "key": "locale",
+   "attributes": "skeleton x greatest difference, fallback",
+   "content": "Date interval patterns",
+   "source": "dates/calendars/bangla/dateTimeFormats/intervalFormats",
+   "sourceAvailability": "apple",
+   "usedBy": "Date.IntervalFormatStyle (udtitvfmt)",
+   "icu4x": "DatetimePatternsRangeDateBanglaV1",
+   "splitRule": "1, 2",
+   "settings": [
+    "date-intervals",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsIntervalGujaratiV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Interval",
+   "calendar": "Gujarati",
+   "foundationCalendars": [
+    "gujarati"
+   ],
+   "key": "locale",
+   "attributes": "skeleton x greatest difference, fallback",
+   "content": "Date interval patterns",
+   "source": "dates/calendars/gujarati/dateTimeFormats/intervalFormats",
+   "sourceAvailability": "apple",
+   "usedBy": "Date.IntervalFormatStyle (udtitvfmt)",
+   "icu4x": "DatetimePatternsRangeDateGujaratiV1",
+   "splitRule": "1, 2",
+   "settings": [
+    "date-intervals",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsIntervalKannadaV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Interval",
+   "calendar": "Kannada",
+   "foundationCalendars": [
+    "kannada"
+   ],
+   "key": "locale",
+   "attributes": "skeleton x greatest difference, fallback",
+   "content": "Date interval patterns",
+   "source": "dates/calendars/kannada/dateTimeFormats/intervalFormats",
+   "sourceAvailability": "apple",
+   "usedBy": "Date.IntervalFormatStyle (udtitvfmt)",
+   "icu4x": "DatetimePatternsRangeDateKannadaV1",
+   "splitRule": "1, 2",
+   "settings": [
+    "date-intervals",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsIntervalMalayalamV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Interval",
+   "calendar": "Malayalam",
+   "foundationCalendars": [
+    "malayalam"
+   ],
+   "key": "locale",
+   "attributes": "skeleton x greatest difference, fallback",
+   "content": "Date interval patterns",
+   "source": "dates/calendars/malayalam/dateTimeFormats/intervalFormats",
+   "sourceAvailability": "apple",
+   "usedBy": "Date.IntervalFormatStyle (udtitvfmt)",
+   "icu4x": "DatetimePatternsRangeDateMalayalamV1",
+   "splitRule": "1, 2",
+   "settings": [
+    "date-intervals",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsIntervalMarathiV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Interval",
+   "calendar": "Marathi",
+   "foundationCalendars": [
+    "marathi"
+   ],
+   "key": "locale",
+   "attributes": "skeleton x greatest difference, fallback",
+   "content": "Date interval patterns",
+   "source": "dates/calendars/marathi/dateTimeFormats/intervalFormats",
+   "sourceAvailability": "apple",
+   "usedBy": "Date.IntervalFormatStyle (udtitvfmt)",
+   "icu4x": "DatetimePatternsRangeDateMarathiV1",
+   "splitRule": "1, 2",
+   "settings": [
+    "date-intervals",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsIntervalOdiaV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Interval",
+   "calendar": "Odia",
+   "foundationCalendars": [
+    "odia"
+   ],
+   "key": "locale",
+   "attributes": "skeleton x greatest difference, fallback",
+   "content": "Date interval patterns",
+   "source": "dates/calendars/odia/dateTimeFormats/intervalFormats",
+   "sourceAvailability": "apple",
+   "usedBy": "Date.IntervalFormatStyle (udtitvfmt)",
+   "icu4x": "DatetimePatternsRangeDateOdiaV1",
+   "splitRule": "1, 2",
+   "settings": [
+    "date-intervals",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsIntervalTamilV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Interval",
+   "calendar": "Tamil",
+   "foundationCalendars": [
+    "tamil"
+   ],
+   "key": "locale",
+   "attributes": "skeleton x greatest difference, fallback",
+   "content": "Date interval patterns",
+   "source": "dates/calendars/tamil/dateTimeFormats/intervalFormats",
+   "sourceAvailability": "apple",
+   "usedBy": "Date.IntervalFormatStyle (udtitvfmt)",
+   "icu4x": "DatetimePatternsRangeDateTamilV1",
+   "splitRule": "1, 2",
+   "settings": [
+    "date-intervals",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsIntervalTeluguV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Interval",
+   "calendar": "Telugu",
+   "foundationCalendars": [
+    "telugu"
+   ],
+   "key": "locale",
+   "attributes": "skeleton x greatest difference, fallback",
+   "content": "Date interval patterns",
+   "source": "dates/calendars/telugu/dateTimeFormats/intervalFormats",
+   "sourceAvailability": "apple",
+   "usedBy": "Date.IntervalFormatStyle (udtitvfmt)",
+   "icu4x": "DatetimePatternsRangeDateTeluguV1",
+   "splitRule": "1, 2",
+   "settings": [
+    "date-intervals",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsIntervalVikramV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Interval",
+   "calendar": "Vikram",
+   "foundationCalendars": [
+    "vikram"
+   ],
+   "key": "locale",
+   "attributes": "skeleton x greatest difference, fallback",
+   "content": "Date interval patterns",
+   "source": "dates/calendars/vikram/dateTimeFormats/intervalFormats",
+   "sourceAvailability": "apple",
+   "usedBy": "Date.IntervalFormatStyle (udtitvfmt)",
+   "icu4x": "DatetimePatternsRangeDateVikramV1",
+   "splitRule": "1, 2",
+   "settings": [
+    "date-intervals",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DatePatternsIntervalVietnameseV1",
+   "feature": "Date",
+   "data": "Patterns",
+   "item": "Interval",
+   "calendar": "Vietnamese",
+   "foundationCalendars": [
+    "vietnamese"
+   ],
+   "key": "locale",
+   "attributes": "skeleton x greatest difference, fallback",
+   "content": "Date interval patterns",
+   "source": "dates/calendars/vietnamese/dateTimeFormats/intervalFormats",
+   "sourceAvailability": "apple",
+   "usedBy": "Date.IntervalFormatStyle (udtitvfmt)",
+   "icu4x": "DatetimePatternsRangeDateVietnameseV1",
+   "splitRule": "1, 2",
+   "settings": [
+    "date-intervals",
+    "calendar"
+   ]
+  },
+  {
+   "name": "DateNamesWeekdayV1",
+   "feature": "Date",
+   "data": "Names",
+   "item": "Weekday",
+   "calendar": null,
+   "foundationCalendars": null,
+   "key": "locale",
+   "attributes": "context x width (abbreviated, wide, narrow, short)",
+   "content": "Weekday names. CLDR has them for each calendar, but all calendars use the Gregorian names",
+   "source": "dates/calendars/gregorian/days",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle weekday fields (udat)",
+   "icu4x": "DatetimeNamesWeekdayV1",
+   "splitRule": "4",
+   "settings": [
+    "dates"
+   ]
+  },
+  {
+   "name": "DateNamesQuarterV1",
+   "feature": "Date",
+   "data": "Names",
+   "item": "Quarter",
+   "calendar": null,
+   "foundationCalendars": null,
+   "key": "locale",
+   "attributes": "context x width",
+   "content": "Quarter names",
+   "source": "dates/calendars/gregorian/quarters",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle quarter field (udat)",
+   "icu4x": "none",
+   "splitRule": "4",
+   "settings": [
+    "dates"
+   ]
+  },
+  {
+   "name": "DateNamesDayPeriodV1",
+   "feature": "Date",
+   "data": "Names",
+   "item": "DayPeriod",
+   "calendar": null,
+   "foundationCalendars": null,
+   "key": "locale",
+   "attributes": "context x width, noon and midnight, flexible periods",
+   "content": "AM, PM, and the flexible day periods (\"in the morning\"), with their hour rules",
+   "source": "dates/calendars/gregorian/dayPeriods, supplemental/dayPeriods",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.FormatStyle hour and dayPeriod fields (udat)",
+   "icu4x": "DatetimeNamesDayperiodV1",
+   "splitRule": "4",
+   "settings": [
+    "dates"
+   ]
+  },
+  {
+   "name": "DateNamesFieldV1",
+   "feature": "Date",
+   "data": "Names",
+   "item": "Field",
+   "calendar": null,
+   "foundationCalendars": null,
+   "key": "locale",
+   "attributes": "field x width",
+   "content": "Display names of the date fields (\"year\", \"month\")",
+   "source": "dates/fields/<field>/displayName",
+   "sourceAvailability": "cldr",
+   "usedBy": "the pattern generator (append items)",
+   "icu4x": "none",
+   "splitRule": "4",
+   "settings": [
+    "dates"
+   ]
+  },
+  {
+   "name": "DateRulesHourCycleV1",
+   "feature": "Date",
+   "data": "Rules",
+   "item": "HourCycle",
+   "calendar": null,
+   "foundationCalendars": null,
+   "key": "region",
+   "attributes": "none",
+   "content": "The preferred and allowed hour cycles (12 or 24 hours)",
+   "source": "supplemental/timeData",
+   "sourceAvailability": "cldr",
+   "usedBy": "Locale.hourCycle, the j skeleton (udatpg_getDefaultHourCycle)",
+   "icu4x": "none (in the patterns)",
+   "splitRule": "4",
+   "settings": [
+    "dates"
+   ]
+  },
+  {
+   "name": "DateRulesContextV1",
+   "feature": "Date",
+   "data": "Rules",
+   "item": "Context",
+   "calendar": null,
+   "foundationCalendars": null,
+   "key": "locale",
+   "attributes": "usage x context",
+   "content": "Capitalization rules for names at the start of a sentence, in a menu, or alone",
+   "source": "contextTransforms",
+   "sourceAvailability": "cldr",
+   "usedBy": "capitalizationContext of the format styles (UDISPCTX_CAPITALIZATION)",
+   "icu4x": "none",
+   "splitRule": "4",
+   "settings": [
+    "dates"
+   ]
+  },
+  {
+   "name": "DateRulesParseV1",
+   "feature": "Date",
+   "data": "Rules",
+   "item": "Parse",
+   "calendar": null,
+   "foundationCalendars": null,
+   "key": "locale",
+   "attributes": "scope (date, number)",
+   "content": "Characters that parsing treats as the same",
+   "source": "characters/parseLenients",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.ParseStrategy, number parse strategies (lenient parsing)",
+   "icu4x": "none",
+   "splitRule": "1",
+   "settings": [
+    "date-parsing"
+   ]
+  },
+  {
+   "name": "CalendarRulesWeekV1",
+   "feature": "Calendar",
+   "data": "Rules",
+   "item": "Week",
+   "calendar": null,
+   "foundationCalendars": null,
+   "key": "region",
+   "attributes": "none",
+   "content": "First weekday, minimum days in the first week, the weekend",
+   "source": "supplemental/weekData",
+   "sourceAvailability": "cldr",
+   "usedBy": "Calendar.firstWeekday, minimumDaysInFirstWeek, isDateInWeekend (ucal)",
+   "icu4x": "CalendarWeekV1",
+   "splitRule": "4",
+   "settings": [
+    "core"
+   ]
+  },
+  {
+   "name": "CalendarRulesPreferenceV1",
+   "feature": "Calendar",
+   "data": "Rules",
+   "item": "Preference",
+   "calendar": null,
+   "foundationCalendars": null,
+   "key": "region",
+   "attributes": "none",
+   "content": "The calendars that a region uses, in order",
+   "source": "supplemental/calendarPreferenceData",
+   "sourceAvailability": "cldr",
+   "usedBy": "the default calendar of a locale (ucal_getKeywordValuesForLocale)",
+   "icu4x": "CalendarPreferredV1",
+   "splitRule": "4",
+   "settings": [
+    "core"
+   ]
+  },
+  {
+   "name": "CalendarTablesJapaneseErasV1",
+   "feature": "Calendar",
+   "data": "Tables",
+   "item": "JapaneseEras",
+   "calendar": null,
+   "foundationCalendars": null,
+   "key": "none",
+   "attributes": "none",
+   "content": "The start dates of the Japanese eras",
+   "source": "supplemental/calendarData/japanese/eras",
+   "sourceAvailability": "cldr",
+   "usedBy": "Calendar(identifier: .japanese)",
+   "icu4x": "CalendarJapaneseModernV1",
+   "splitRule": "2",
+   "settings": [
+    "calendar"
+   ]
+  },
+  {
+   "name": "CalendarTablesUmmAlQuraV1",
+   "feature": "Calendar",
+   "data": "Tables",
+   "item": "UmmAlQura",
+   "calendar": null,
+   "foundationCalendars": null,
+   "key": "none",
+   "attributes": "none",
+   "content": "The month lengths of the Umm al-Qura calendar",
+   "source": "ICU islamic-umalqura table (not CLDR)",
+   "sourceAvailability": "cldr",
+   "usedBy": "Calendar(identifier: .islamicUmmAlQura)",
+   "icu4x": "none (in code)",
+   "splitRule": "2",
+   "settings": [
+    "calendar"
+   ]
+  },
+  {
+   "name": "RelativeDatePatternsUnitV1",
+   "feature": "RelativeDate",
+   "data": "Patterns",
+   "item": "Unit",
+   "calendar": null,
+   "foundationCalendars": null,
+   "key": "locale",
+   "attributes": "unit (year, quarter, month, week, day, hour, minute, second, each weekday) x width (long, short, narrow)",
+   "content": "\"yesterday\", \"in 3 days\", \"next Monday\", with plural forms",
+   "source": "dates/fields/<unit>/relative, relativeTime",
+   "sourceAvailability": "cldr",
+   "usedBy": "Date.RelativeFormatStyle, Date.AnchoredRelativeFormatStyle (ureldatefmt)",
+   "icu4x": "DatetimeRelative<Unit><Length>V1 (24 kinds)",
+   "splitRule": "1",
+   "settings": [
+    "relative-dates"
+   ]
+  },
+  {
+   "name": "DurationPatternsTimeV1",
+   "feature": "Duration",
+   "data": "Patterns",
+   "item": "Time",
+   "calendar": null,
+   "foundationCalendars": null,
+   "key": "locale",
+   "attributes": "fields (hm, hms, ms)",
+   "content": "Patterns such as \"1:05:09\"",
+   "source": "units/durationUnit",
+   "sourceAvailability": "cldr",
+   "usedBy": "Duration.TimeFormatStyle (uatmufmt_getTimePattern)",
+   "icu4x": "UnitsDurationDigitalV1",
+   "splitRule": "1",
+   "settings": [
+    "durations"
+   ]
+  },
+  {
+   "name": "TimeZoneNamesFormatsV1",
+   "feature": "TimeZone",
+   "data": "Names",
+   "item": "Formats",
+   "calendar": null,
+   "foundationCalendars": null,
+   "key": "locale",
+   "attributes": "kind (GMT, GMT zero, hour, region, fallback)",
+   "content": "The patterns that build time zone names, such as \"GMT+02:00\" and \"France Time\"",
+   "source": "dates/timeZoneNames (gmtFormat, hourFormat, regionFormat, fallbackFormat)",
+   "sourceAvailability": "cldr",
+   "usedBy": "TimeZone.localizedName, the z, O, v, V fields (ucal_getTimeZoneDisplayName, uatimezone_getDisplayName)",
+   "icu4x": "TimezoneNamesEssentialsV1",
+   "splitRule": "1",
+   "settings": [
+    "time-zone-names"
+   ]
+  },
+  {
+   "name": "TimeZoneNamesMetazoneV1",
+   "feature": "TimeZone",
+   "data": "Names",
+   "item": "Metazone",
+   "calendar": null,
+   "foundationCalendars": null,
+   "key": "locale",
+   "attributes": "metazone x style (generic, standard, daylight) x width (long, short)",
+   "content": "Names such as \"Central European Summer Time\"",
+   "source": "dates/timeZoneNames/metazone",
+   "sourceAvailability": "cldr",
+   "usedBy": "the same",
+   "icu4x": "TimezoneNames(Generic|Specific|Standard)(Long|Short)V1",
+   "splitRule": "1",
+   "settings": [
+    "time-zone-names"
+   ]
+  },
+  {
+   "name": "TimeZoneNamesZoneV1",
+   "feature": "TimeZone",
+   "data": "Names",
+   "item": "Zone",
+   "calendar": null,
+   "foundationCalendars": null,
+   "key": "locale",
+   "attributes": "zone x style",
+   "content": "Exemplar cities and names for single zones",
+   "source": "dates/timeZoneNames/zone",
+   "sourceAvailability": "cldr",
+   "usedBy": "the same, and the exemplarLocation field",
+   "icu4x": "TimezoneNamesCities(Root|Override)V1, TimezoneNamesLocations(Root|Override)V1",
+   "splitRule": "1",
+   "settings": [
+    "time-zone-names"
+   ]
+  },
+  {
+   "name": "TimeZoneInfoMetazoneMapV1",
+   "feature": "TimeZone",
+   "data": "Info",
+   "item": "MetazoneMap",
+   "calendar": null,
+   "foundationCalendars": null,
+   "key": "none",
+   "attributes": "zone",
+   "content": "Which metazone a zone belongs to, over time, and the primary zone of each region",
+   "source": "supplemental/metaZones, primaryZones",
+   "sourceAvailability": "cldr",
+   "usedBy": "time zone names",
+   "icu4x": "TimezonePeriodsV1",
+   "splitRule": "1",
+   "settings": [
+    "time-zone-names"
+   ]
+  },
+  {
+   "name": "TimeZoneInfoAliasesV1",
+   "feature": "TimeZone",
+   "data": "Info",
+   "item": "Aliases",
+   "calendar": null,
+   "foundationCalendars": null,
+   "key": "none",
+   "attributes": "zone",
+   "content": "Canonical zone IDs and their aliases",
+   "source": "bcp47/timezone",
+   "sourceAvailability": "cldr",
+   "usedBy": "TimeZone(identifier:) (ucal_getCanonicalTimeZoneID)",
+   "icu4x": "TimezoneIdentifiersIanaCoreV1, TimezoneIdentifiersIanaExtendedV1",
+   "splitRule": "4",
+   "settings": [
+    "core"
+   ]
+  },
+  {
+   "name": "TimeZoneInfoWindowsV1",
+   "feature": "TimeZone",
+   "data": "Info",
+   "item": "Windows",
+   "calendar": null,
+   "foundationCalendars": null,
+   "key": "none",
+   "attributes": "Windows zone",
+   "content": "Windows zone names to IANA zones",
+   "source": "supplemental/windowsZones",
+   "sourceAvailability": "cldr",
+   "usedBy": "TimeZone on Windows (ucal_getTimeZoneIDForWindowsID)",
+   "icu4x": "TimezoneIdentifiersWindowsV1",
+   "splitRule": "2",
+   "settings": [
+    "windows"
+   ]
+  },
+  {
+   "name": "TimeZoneRulesTransitionsV1",
+   "feature": "TimeZone",
+   "data": "Rules",
+   "item": "Transitions",
+   "calendar": null,
+   "foundationCalendars": null,
+   "key": "none",
+   "attributes": "zone",
+   "content": "The offsets and transitions of each zone (not locale data)",
+   "source": "IANA tzdata (ICU zoneinfo64)",
+   "sourceAvailability": "cldr",
+   "usedBy": "TimeZone offsets and daylight saving time (TimeZone_ICUResource, uatimezone)",
+   "icu4x": "none (outside ICU4X data)",
+   "splitRule": "4",
+   "settings": [
+    "core"
+   ]
+  },
+  {
+   "name": "NumberSymbolsDecimalV1",
+   "feature": "Number",
+   "data": "Symbols",
+   "item": "Decimal",
+   "calendar": null,
+   "foundationCalendars": null,
+   "key": "locale",
+   "attributes": "numbering system",
+   "content": "Decimal and grouping separators, signs, percent, exponent, infinity, NaN, and the default and native numbering systems",
+   "source": "numbers/symbols-numberSystem-<ns>, defaultNumberingSystem",
+   "sourceAvailability": "cldr",
+   "usedBy": "all number format styles, digits in dates (unumf, unum)",
+   "icu4x": "DecimalSymbolsV1",
+   "splitRule": "4",
+   "settings": [
+    "core"
+   ]
+  },
+  {
+   "name": "NumberPatternsDecimalV1",
+   "feature": "Number",
+   "data": "Patterns",
+   "item": "Decimal",
+   "calendar": null,
+   "foundationCalendars": null,
+   "key": "locale",
+   "attributes": "numbering system x type (decimal, percent, scientific)",
+   "content": "Number patterns and the minimum grouping digits",
+   "source": "numbers/decimalFormats, percentFormats, scientificFormats, minimumGroupingDigits",
+   "sourceAvailability": "cldr",
+   "usedBy": "IntegerFormatStyle, FloatingPointFormatStyle, Decimal.FormatStyle, percent (unumf)",
+   "icu4x": "DecimalSymbolsV1, DecimalPercentV1 (part)",
+   "splitRule": "1",
+   "settings": [
+    "numbers"
+   ]
+  },
+  {
+   "name": "NumberPatternsCompactV1",
+   "feature": "Number",
+   "data": "Patterns",
+   "item": "Compact",
+   "calendar": null,
+   "foundationCalendars": null,
+   "key": "locale",
+   "attributes": "numbering system x width (short, long) x magnitude x plural form",
+   "content": "\"1.2K\", \"1.2 thousand\"",
+   "source": "numbers/decimalFormats-numberSystem-<ns>/short, long",
+   "sourceAvailability": "cldr",
+   "usedBy": "notation .compactName (unumf compact-short)",
+   "icu4x": "DecimalCompactShortV1, DecimalCompactLongV1",
+   "splitRule": "1",
+   "settings": [
+    "numbers"
+   ]
+  },
+  {
+   "name": "NumberInfoNumberingSystemsV1",
+   "feature": "Number",
+   "data": "Info",
+   "item": "NumberingSystems",
+   "calendar": null,
+   "foundationCalendars": null,
+   "key": "none",
+   "attributes": "numbering system",
+   "content": "The digits of each numbering system, and if it is algorithmic",
+   "source": "supplemental/numberingSystems",
+   "sourceAvailability": "cldr",
+   "usedBy": "Locale.NumberingSystem, digits everywhere (unumsys)",
+   "icu4x": "DecimalDigitsV1",
+   "splitRule": "4",
+   "settings": [
+    "core"
+   ]
+  },
+  {
+   "name": "NumberRulesAlgorithmicV1",
+   "feature": "Number",
+   "data": "Rules",
+   "item": "Algorithmic",
+   "calendar": null,
+   "foundationCalendars": null,
+   "key": "none",
+   "attributes": "numbering system",
+   "content": "Rules for numbering systems that are not decimal digits, such as Hebrew or Roman numerals",
+   "source": "rbnf (root)",
+   "sourceAvailability": "cldr",
+   "usedBy": "a locale with -u-nu- of an algorithmic system (unumsys_isAlgorithmic)",
+   "icu4x": "none (in code in ICU4X)",
+   "splitRule": "2",
+   "settings": [
+    "algorithmic-numbers"
+   ]
+  },
+  {
+   "name": "CurrencyNamesDisplayV1",
+   "feature": "Currency",
+   "data": "Names",
+   "item": "Display",
+   "calendar": null,
+   "foundationCalendars": null,
+   "key": "locale",
+   "attributes": "currency x form (symbol, narrow symbol, name, plural names)",
+   "content": "\"$\", \"US$\", \"US dollar\", \"US dollars\"",
+   "source": "numbers/currencies",
+   "sourceAvailability": "cldr",
+   "usedBy": "currency format styles with .narrow, .standard, .fullName (unumf unit-width), Locale.localizedString(forCurrencyCode:) (ucurr_getName)",
+   "icu4x": "CurrencyEssentialsV1, CurrencyDisplaynameV1, CurrencySymbolsV1",
+   "splitRule": "1",
+   "settings": [
+    "currencies"
+   ]
+  },
+  {
+   "name": "CurrencyPatternsFormatV1",
+   "feature": "Currency",
+   "data": "Patterns",
+   "item": "Format",
+   "calendar": null,
+   "foundationCalendars": null,
+   "key": "locale",
+   "attributes": "numbering system x type (standard, accounting), currency spacing, unit pattern",
+   "content": "Currency patterns",
+   "source": "numbers/currencyFormats-numberSystem-<ns>",
+   "sourceAvailability": "cldr",
+   "usedBy": "currency format styles, sign-accounting (unumf)",
+   "icu4x": "CurrencyPatternsDataV1, CurrencyExtendedDataV1",
+   "splitRule": "1",
+   "settings": [
+    "currencies"
+   ]
+  },
+  {
+   "name": "CurrencyInfoFractionsV1",
+   "feature": "Currency",
+   "data": "Info",
+   "item": "Fractions",
+   "calendar": null,
+   "foundationCalendars": null,
+   "key": "none",
+   "attributes": "currency",
+   "content": "Digits and rounding of each currency",
+   "source": "supplemental/currencyData/fractions",
+   "sourceAvailability": "cldr",
+   "usedBy": "currency format styles",
+   "icu4x": "CurrencyFractionsV1",
+   "splitRule": "1",
+   "settings": [
+    "currencies"
+   ]
+  },
+  {
+   "name": "CurrencyInfoRegionV1",
+   "feature": "Currency",
+   "data": "Info",
+   "item": "Region",
+   "calendar": null,
+   "foundationCalendars": null,
+   "key": "region",
+   "attributes": "none",
+   "content": "The currency of each region, over time",
+   "source": "supplemental/currencyData/region",
+   "sourceAvailability": "cldr",
+   "usedBy": "Locale.currency (ucurr_forLocale)",
+   "icu4x": "none",
+   "splitRule": "4",
+   "settings": [
+    "core"
+   ]
+  },
+  {
+   "name": "CurrencyInfoCodesV1",
+   "feature": "Currency",
+   "data": "Info",
+   "item": "Codes",
+   "calendar": null,
+   "foundationCalendars": null,
+   "key": "none",
+   "attributes": "currency",
+   "content": "The ISO currency codes and their numeric codes",
+   "source": "supplemental/codeMappings, ISO 4217",
+   "sourceAvailability": "cldr",
+   "usedBy": "Locale.Currency.isoCurrencies, numeric codes (ucurr_openISOCurrencies, ucurr_getNumericCode)",
+   "icu4x": "none",
+   "splitRule": "4",
+   "settings": [
+    "core"
+   ]
+  },
+  {
+   "name": "UnitNamesDigitalV1",
+   "feature": "Unit",
+   "data": "Names",
+   "item": "Digital",
+   "calendar": null,
+   "foundationCalendars": null,
+   "key": "locale",
+   "attributes": "unit (byte to petabyte, bit) x width x plural form",
+   "content": "\"12 MB\", \"12 megabytes\"",
+   "source": "units/<width>/digital-*",
+   "sourceAvailability": "cldr",
+   "usedBy": "ByteCountFormatStyle (unumf measure-unit/digital)",
+   "icu4x": "none (ICU4X has no digital unit marker)",
+   "splitRule": "1",
+   "settings": [
+    "byte-counts"
+   ]
+  },
+  {
+   "name": "UnitNamesDurationV1",
+   "feature": "Unit",
+   "data": "Names",
+   "item": "Duration",
+   "calendar": null,
+   "foundationCalendars": null,
+   "key": "locale",
+   "attributes": "unit (year to nanosecond) x width x plural form",
+   "content": "\"3 hours\", \"3 hr\"",
+   "source": "units/<width>/duration-*",
+   "sourceAvailability": "cldr",
+   "usedBy": "Duration.UnitsFormatStyle (unumf measure-unit/duration)",
+   "icu4x": "UnitsNamesDurationCoreV1, ...ExtendedV1, ...OutlierV1",
+   "splitRule": "1",
+   "settings": [
+    "durations"
+   ]
+  },
+  {
+   "name": "UnitInfoPreferenceV1",
+   "feature": "Unit",
+   "data": "Info",
+   "item": "Preference",
+   "calendar": null,
+   "foundationCalendars": null,
+   "key": "region",
+   "attributes": "quantity x usage",
+   "content": "Which units a region uses, for example for temperature",
+   "source": "supplemental/unitPreferenceData",
+   "sourceAvailability": "cldr",
+   "usedBy": "Locale.measurementSystem related preferences (uameasfmt_getUnitsForUsage)",
+   "icu4x": "UnitsInfoV1 (part)",
+   "splitRule": "4",
+   "settings": [
+    "core"
+   ]
+  },
+  {
+   "name": "UnitInfoMeasurementSystemV1",
+   "feature": "Unit",
+   "data": "Info",
+   "item": "MeasurementSystem",
+   "calendar": null,
+   "foundationCalendars": null,
+   "key": "region",
+   "attributes": "none",
+   "content": "Metric, US or UK system, and the paper size",
+   "source": "supplemental/measurementData",
+   "sourceAvailability": "cldr",
+   "usedBy": "Locale.measurementSystem, usesMetricSystem (ulocdata_getMeasurementSystem)",
+   "icu4x": "none",
+   "splitRule": "4",
+   "settings": [
+    "core"
+   ]
+  },
+  {
+   "name": "ListPatternsJoinV1",
+   "feature": "List",
+   "data": "Patterns",
+   "item": "Join",
+   "calendar": null,
+   "foundationCalendars": null,
+   "key": "locale",
+   "attributes": "type (and, or, units) x width (standard, short, narrow) x position (start, middle, end, pair)",
+   "content": "\"a, b, and c\"",
+   "source": "listPatterns",
+   "sourceAvailability": "cldr",
+   "usedBy": "ListFormatStyle, Duration units lists (ulistfmt, uatmufmt_getListPattern). swift-foundation already has Swift data: _FoundationInternationalizationData/ListFormatData.swift",
+   "icu4x": "ListAndV1, ListOrV1, ListUnitV1",
+   "splitRule": "1",
+   "settings": [
+    "lists"
+   ]
+  },
+  {
+   "name": "PluralRulesCardinalV1",
+   "feature": "Plural",
+   "data": "Rules",
+   "item": "Cardinal",
+   "calendar": null,
+   "foundationCalendars": null,
+   "key": "locale",
+   "attributes": "none",
+   "content": "Which plural form a number takes (\"1 day\", \"2 days\")",
+   "source": "supplemental/plurals",
+   "sourceAvailability": "cldr",
+   "usedBy": "used inside number, currency, unit and relative date formatting",
+   "icu4x": "PluralsCardinalV1",
+   "splitRule": "4",
+   "settings": [
+    "plurals"
+   ]
+  },
+  {
+   "name": "LocaleNameNamesLanguageV1",
+   "feature": "LocaleName",
+   "data": "Names",
+   "item": "Language",
+   "calendar": null,
+   "foundationCalendars": null,
+   "key": "locale",
+   "attributes": "language x form (standard, short, variant, menu)",
+   "content": "\"French\", \"Swiss French\"",
+   "source": "localeDisplayNames/languages",
+   "sourceAvailability": "cldr",
+   "usedBy": "Locale.localizedString(forLanguageCode:), forIdentifier: (uloc_getDisplayLanguage, uloc_getDisplayName)",
+   "icu4x": "LocaleNamesLanguage...V1 (9 kinds), LocaleNamesLanguageV0",
+   "splitRule": "1",
+   "settings": [
+    "locale-names"
+   ]
+  },
+  {
+   "name": "LocaleNameNamesScriptV1",
+   "feature": "LocaleName",
+   "data": "Names",
+   "item": "Script",
+   "calendar": null,
+   "foundationCalendars": null,
+   "key": "locale",
+   "attributes": "script x form",
+   "content": "\"Cyrillic\"",
+   "source": "localeDisplayNames/scripts",
+   "sourceAvailability": "cldr",
+   "usedBy": "Locale.localizedString(forScriptCode:) (uloc_getDisplayScript)",
+   "icu4x": "LocaleNamesScript...V1 (3 kinds), LocaleNamesScriptV0",
+   "splitRule": "1",
+   "settings": [
+    "locale-names"
+   ]
+  },
+  {
+   "name": "LocaleNameNamesRegionV1",
+   "feature": "LocaleName",
+   "data": "Names",
+   "item": "Region",
+   "calendar": null,
+   "foundationCalendars": null,
+   "key": "locale",
+   "attributes": "region x form (standard, short, variant)",
+   "content": "\"Germany\"",
+   "source": "localeDisplayNames/territories",
+   "sourceAvailability": "cldr",
+   "usedBy": "Locale.localizedString(forRegionCode:) (uloc_getDisplayCountry)",
+   "icu4x": "LocaleNamesRegion...V1 (4 kinds), LocaleNamesRegionV0",
+   "splitRule": "1",
+   "settings": [
+    "locale-names"
+   ]
+  },
+  {
+   "name": "LocaleNameNamesVariantV1",
+   "feature": "LocaleName",
+   "data": "Names",
+   "item": "Variant",
+   "calendar": null,
+   "foundationCalendars": null,
+   "key": "locale",
+   "attributes": "variant",
+   "content": "\"Polytonic\"",
+   "source": "localeDisplayNames/variants",
+   "sourceAvailability": "cldr",
+   "usedBy": "Locale.localizedString(forVariantCode:) (uloc_getDisplayVariant)",
+   "icu4x": "LocaleNamesVariantMediumHeavyV1, LocaleNamesVariantV0",
+   "splitRule": "1",
+   "settings": [
+    "locale-names"
+   ]
+  },
+  {
+   "name": "LocaleNameNamesKeywordV1",
+   "feature": "LocaleName",
+   "data": "Names",
+   "item": "Keyword",
+   "calendar": null,
+   "foundationCalendars": null,
+   "key": "locale",
+   "attributes": "key x type",
+   "content": "\"Gregorian Calendar\", \"Phonebook Sort Order\"",
+   "source": "localeDisplayNames/keys, types",
+   "sourceAvailability": "cldr",
+   "usedBy": "Locale.localizedString(forCalendarIdentifier:), forCollationIdentifier: (uloc_getDisplayKeywordValue)",
+   "icu4x": "none",
+   "splitRule": "1",
+   "settings": [
+    "locale-names"
+   ]
+  },
+  {
+   "name": "LocaleNamePatternsPatternV1",
+   "feature": "LocaleName",
+   "data": "Patterns",
+   "item": "Pattern",
+   "calendar": null,
+   "foundationCalendars": null,
+   "key": "locale",
+   "attributes": "kind (pattern, separator, key-type pattern)",
+   "content": "How the parts of a locale name join: \"English (United States)\"",
+   "source": "localeDisplayNames/localeDisplayPattern",
+   "sourceAvailability": "cldr",
+   "usedBy": "Locale.localizedString(forIdentifier:) (uloc_getDisplayName)",
+   "icu4x": "LocaleNamesEssentialsV1",
+   "splitRule": "1",
+   "settings": [
+    "locale-names"
+   ]
+  },
+  {
+   "name": "LocaleInfoLikelySubtagsV1",
+   "feature": "Locale",
+   "data": "Info",
+   "item": "LikelySubtags",
+   "calendar": null,
+   "foundationCalendars": null,
+   "key": "none",
+   "attributes": "none",
+   "content": "The likely script and region of a language",
+   "source": "supplemental/likelySubtags",
+   "sourceAvailability": "cldr",
+   "usedBy": "the locale fallback, Locale.maximalIdentifier (uloc_addLikelySubtags, uloc_minimizeSubtags)",
+   "icu4x": "LocaleLikelySubtagsLanguageV1, ...ScriptRegionV1, ...ExtendedV1",
+   "splitRule": "4",
+   "settings": [
+    "core"
+   ]
+  },
+  {
+   "name": "LocaleInfoParentsV1",
+   "feature": "Locale",
+   "data": "Info",
+   "item": "Parents",
+   "calendar": null,
+   "foundationCalendars": null,
+   "key": "none",
+   "attributes": "none",
+   "content": "Parent locales, with the Apple additions",
+   "source": "supplemental/parentLocales, Apple parents",
+   "sourceAvailability": "cldr",
+   "usedBy": "the locale fallback (ualoc_getAppleParent)",
+   "icu4x": "LocaleParentsV1",
+   "splitRule": "4",
+   "settings": [
+    "core"
+   ]
+  },
+  {
+   "name": "LocaleInfoAliasesV1",
+   "feature": "Locale",
+   "data": "Info",
+   "item": "Aliases",
+   "calendar": null,
+   "foundationCalendars": null,
+   "key": "none",
+   "attributes": "kind (language, script, region, variant)",
+   "content": "Old and alias codes and their canonical form",
+   "source": "supplemental/aliases",
+   "sourceAvailability": "cldr",
+   "usedBy": "Locale.identifier canonicalization (ualoc_canonicalForm, uloc_toLanguageTag)",
+   "icu4x": "LocaleAliasesV1",
+   "splitRule": "4",
+   "settings": [
+    "core"
+   ]
+  },
+  {
+   "name": "LocaleInfoWindowsLCIDV1",
+   "feature": "Locale",
+   "data": "Info",
+   "item": "WindowsLCID",
+   "calendar": null,
+   "foundationCalendars": null,
+   "key": "none",
+   "attributes": "none",
+   "content": "Windows locale IDs (LCID)",
+   "source": "ICU LCID table (not CLDR)",
+   "sourceAvailability": "cldr",
+   "usedBy": "Locale(windowsLocaleCode:), windowsLocaleCode (uloc_getLCID, uloc_getLocaleForLCID)",
+   "icu4x": "none",
+   "splitRule": "2",
+   "settings": [
+    "windows"
+   ]
+  },
+  {
+   "name": "LocaleInfoAvailableV1",
+   "feature": "Locale",
+   "data": "Info",
+   "item": "Available",
+   "calendar": null,
+   "foundationCalendars": null,
+   "key": "none",
+   "attributes": "kind (locales, ISO languages, ISO regions)",
+   "content": "The list of locales with data, and the ISO code lists",
+   "source": "derived from the data, ISO 639 and ISO 3166",
+   "sourceAvailability": "cldr",
+   "usedBy": "Locale.availableIdentifiers, Locale.LanguageCode.isoLanguageCodes, Locale.Region.isoRegions (uloc_getAvailable, uloc_getISOLanguages)",
+   "icu4x": "none",
+   "splitRule": "4",
+   "settings": [
+    "core"
+   ]
+  },
+  {
+   "name": "LocaleInfoRegionsV1",
+   "feature": "Locale",
+   "data": "Info",
+   "item": "Regions",
+   "calendar": null,
+   "foundationCalendars": null,
+   "key": "none",
+   "attributes": "region",
+   "content": "Which regions contain which regions, and the type of each region",
+   "source": "supplemental/territoryContainment",
+   "sourceAvailability": "cldr",
+   "usedBy": "Locale.Region.containingRegion, subRegions, continent (uregion)",
+   "icu4x": "none",
+   "splitRule": "1",
+   "settings": [
+    "regions"
+   ]
+  },
+  {
+   "name": "LocaleInfoLayoutV1",
+   "feature": "Locale",
+   "data": "Info",
+   "item": "Layout",
+   "calendar": null,
+   "foundationCalendars": null,
+   "key": "locale",
+   "attributes": "none",
+   "content": "Character order and line order",
+   "source": "layout/orientation",
+   "sourceAvailability": "cldr",
+   "usedBy": "Locale.Language.characterDirection, lineLayoutDirection (uloc_getCharacterOrientation)",
+   "icu4x": "LocaleScriptDirectionV1 (by script)",
+   "splitRule": "4",
+   "settings": [
+    "core"
+   ]
+  },
+  {
+   "name": "LocaleInfoDelimitersV1",
+   "feature": "Locale",
+   "data": "Info",
+   "item": "Delimiters",
+   "calendar": null,
+   "foundationCalendars": null,
+   "key": "locale",
+   "attributes": "kind (quotation start and end, alternate)",
+   "content": "Quotation marks",
+   "source": "delimiters",
+   "sourceAvailability": "cldr",
+   "usedBy": "Locale.quotationBeginDelimiter and the related properties (ulocdata_getDelimiter)",
+   "icu4x": "none",
+   "splitRule": "1",
+   "settings": [
+    "locale-info"
+   ]
+  },
+  {
+   "name": "LocaleInfoExemplarsV1",
+   "feature": "Locale",
+   "data": "Info",
+   "item": "Exemplars",
+   "calendar": null,
+   "foundationCalendars": null,
+   "key": "locale",
+   "attributes": "set (main, auxiliary, index, numbers, punctuation)",
+   "content": "The characters that a language uses",
+   "source": "characters/exemplarCharacters",
+   "sourceAvailability": "cldr",
+   "usedBy": "Locale.exemplarCharacterSet (ulocdata_getExemplarSet)",
+   "icu4x": "LocaleExemplarCharacters(Main|Auxiliary|Index|Numbers|Punctuation)V1",
+   "splitRule": "1",
+   "settings": [
+    "locale-info"
+   ]
+  },
+  {
+   "name": "CollationRulesRootV1",
+   "feature": "Collation",
+   "data": "Rules",
+   "item": "Root",
+   "calendar": null,
+   "foundationCalendars": null,
+   "key": "none",
+   "attributes": "none",
+   "content": "The default sort order of all characters",
+   "source": "CLDR root collation (based on the Unicode DUCET)",
+   "sourceAvailability": "cldr",
+   "usedBy": "String.compare(_:options:range:locale:), localizedStandardCompare, SortDescriptor, Predicate localized operators (ucol)",
+   "icu4x": "CollationRootV1, CollationDiacriticsV1, CollationJamoV1, CollationSpecialPrimariesV1",
+   "splitRule": "1",
+   "settings": [
+    "collation"
+   ]
+  },
+  {
+   "name": "CollationRulesTailoringV1",
+   "feature": "Collation",
+   "data": "Rules",
+   "item": "Tailoring",
+   "calendar": null,
+   "foundationCalendars": null,
+   "key": "locale",
+   "attributes": "collation type (standard, phonebook, pinyin, stroke, search, and others)",
+   "content": "The changes of each language to the default sort order",
+   "source": "collation/<locale>",
+   "sourceAvailability": "cldr",
+   "usedBy": "the same, Locale.collation (ucol_open, ucol_getKeywordValuesForLocale)",
+   "icu4x": "CollationTailoringV1, CollationMetadataV1, CollationReorderingV1",
+   "splitRule": "1",
+   "settings": [
+    "collation"
+   ]
+  },
+  {
+   "name": "TextRulesCaseMappingV1",
+   "feature": "Text",
+   "data": "Rules",
+   "item": "CaseMapping",
+   "calendar": null,
+   "foundationCalendars": null,
+   "key": "none",
+   "attributes": "language (tr, az, lt, el, nl)",
+   "content": "The case rules that depend on the language, such as the Turkish dotless i",
+   "source": "Unicode SpecialCasing, ICU case data",
+   "sourceAvailability": "cldr",
+   "usedBy": "uppercased(with:), lowercased(with:), capitalized(with:) (ucasemap)",
+   "icu4x": "CaseMapV1, CaseMapUnfoldV1",
+   "splitRule": "1",
+   "settings": [
+    "case-mapping"
+   ]
+  },
+  {
+   "name": "TextInfoBidiClassV1",
+   "feature": "Text",
+   "data": "Info",
+   "item": "BidiClass",
+   "calendar": null,
+   "foundationCalendars": null,
+   "key": "none",
+   "attributes": "none",
+   "content": "The bidirectional class of each character (Unicode data, not locale data)",
+   "source": "Unicode UCD",
+   "sourceAvailability": "cldr",
+   "usedBy": "BidiClass+ICU.swift",
+   "icu4x": "PropertyEnumBidiClassV1",
+   "splitRule": "1",
+   "settings": [
+    "core"
+   ]
+  },
+  {
+   "name": "TextInfoScriptV1",
+   "feature": "Text",
+   "data": "Info",
+   "item": "Script",
+   "calendar": null,
+   "foundationCalendars": null,
+   "key": "none",
+   "attributes": "none",
+   "content": "The script of each character (Unicode data)",
+   "source": "Unicode UCD",
+   "sourceAvailability": "cldr",
+   "usedBy": "URL lookalike checks, Locale.Script (uscript)",
+   "icu4x": "PropertyEnumScriptV1",
+   "splitRule": "1",
+   "settings": [
+    "urls"
+   ]
+  },
+  {
+   "name": "TextInfoBlockV1",
+   "feature": "Text",
+   "data": "Info",
+   "item": "Block",
+   "calendar": null,
+   "foundationCalendars": null,
+   "key": "none",
+   "attributes": "none",
+   "content": "The Unicode block of each character (Unicode data)",
+   "source": "Unicode UCD",
+   "sourceAvailability": "cldr",
+   "usedBy": "URL lookalike checks (ublock_getCode)",
+   "icu4x": "none",
+   "splitRule": "1",
+   "settings": [
+    "urls"
+   ]
+  },
+  {
+   "name": "URLRulesIDNAV1",
+   "feature": "URL",
+   "data": "Rules",
+   "item": "IDNA",
+   "calendar": null,
+   "foundationCalendars": null,
+   "key": "none",
+   "attributes": "none",
+   "content": "The mapping of international domain names (UTS 46)",
+   "source": "Unicode IDNA mapping",
+   "sourceAvailability": "cldr",
+   "usedBy": "URL host parsing (uidna_nameToASCII, uidna_nameToUnicode)",
+   "icu4x": "none (separate crate in ICU4X)",
+   "splitRule": "1",
+   "settings": [
+    "urls"
+   ]
+  },
+  {
+   "name": "EncodingTablesConvertersV1",
+   "feature": "Encoding",
+   "data": "Tables",
+   "item": "Converters",
+   "calendar": null,
+   "foundationCalendars": null,
+   "key": "none",
+   "attributes": "encoding",
+   "content": "Conversion tables of legacy text encodings (not locale data)",
+   "source": "ICU converter data",
+   "sourceAvailability": "cldr",
+   "usedBy": "String(data:encoding:) for legacy encodings (ucnv)",
+   "icu4x": "none",
+   "splitRule": "1",
+   "settings": [
+    "encodings"
+   ]
+  }
+ ]
+}
