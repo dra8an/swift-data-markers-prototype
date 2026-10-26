@@ -171,6 +171,35 @@ What this means:
 * The automatic cut by marker is lost: a value API keeps the data of every calendar and field set that it can reach. Only a cut at build time (`--markers`, `--locales`) makes the data smaller.
 * If the build cuts the markers of a calendar, the value API module does not compile, because it names all 6 calendars. To make such a cut give an error at run time instead, the generator would have to write empty tables for the cut markers. This is not built.
 
+## Compared with today's Foundation
+
+Added on 2026-10-26. `tools/foundation-compare.swift` (build it with swiftc, run it with `cases/locales.txt`) formats 2026-10-23 13:05:09 UTC with today's Foundation (`Date.FormatStyle`, which uses ICU) for the 396 test locales, the 6 calendars and 7 styles: 16,632 cases (`results/foundation-today.tsv`). The styles map to the field sets: date `.long`, `.abbreviated`, `.numeric` to `YMD` long, medium, short, date `.complete` to `YMDE` long, and the same dates with time `.shortened` to `YMDT`.
+
+**Result: 8,339 cases are the same as ICU4X, and 8,293 are different.** The prototype copies ICU4X, so it is different from today's Foundation in the same cases.
+
+| Cause | Example | ICU4X (and the prototype) | Foundation today |
+|---|---|---|---|
+| Different patterns: ICU4X uses semantic skeletons, Foundation uses the CLDR date styles | `de`, medium | `23.10.2026` | `23. Okt. 2026` |
+| A 4 digit year in the short style | `en`, short | `10/23/26` | `10/23/2026` |
+| Another glue for a date with a time | `en`, medium with time | `Oct 23, 2026, 1:05 PM` | `Oct 23, 2026 at 1:05 PM` |
+| Another order of era and year | `en`, Japanese, medium | `Oct 23, 8 Reiwa` | `Oct 23, Reiwa 8` |
+| Spaces and punctuation | `ja`, complete | `2026年10月23日金曜日` | `2026年10月23日 金曜日` |
+| Another Chinese pattern | `es`, Chinese, long | `14-9-2026` | `2026(bing-wu) M09 14` |
+| `und` | `und`, long | `2026 M10 23` | `October 23, 2026` |
+
+The data design does not depend on which patterns go into the tables. For Foundation, the generator would have to read the data and the rules that Foundation uses today, not the semantic skeletons of `icu4x-datagen`. This was not tried.
+
+## Memory: relocations of the tables
+
+Added on 2026-10-26. `dyld_info -fixups` shows the relocations, which dyld writes at launch. A page that dyld writes is dirty memory in each process.
+
+| App | Relocations in `__DATA_CONST` | Data in `__DATA_CONST` |
+|---|---:|---:|
+| Swift, `GregorianYMD`, 3 flags (`static let` `Array` tables) | 153 | 267,400 bytes |
+| ICU4X, `gregorian_ymd` | 2,326 | |
+
+A `static let` `Array` is an object with a header that points to its type, so each table needs a relocation. `InlineArray` tables are in `__TEXT,__const`, with no relocations, but `.span` copies them (section "The copy of InlineArray"). Two ways to get clean pages with no copy, not tried: tables in a C target as `static const` arrays, or `InlineArray` tables that only a subscript in the data module reads.
+
 ## Limits of the automatic cut, and ways around them
 
 Written on 2026-10-23. Nothing in this section is built, except where it says "tested".
