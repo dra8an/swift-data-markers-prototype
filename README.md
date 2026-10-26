@@ -4,6 +4,12 @@ Can Swift use the data design of [ICU4X](https://github.com/unicode-org/icu4x), 
 
 In ICU4X, each kind of locale data (for example "the month names of the Japanese calendar") is its own type, a **marker**. Code that never uses a marker never refers to its data, so the linker removes that data from the app. A tool can also cut the data to a list of locales before the build.
 
+Two ICU4X documents explain this design:
+* [Principles of data architecture](https://github.com/unicode-org/icu4x/blob/747356078891d513c1f731320e3d0e1ee9912e33/documents/process/data_architecture.md): what markers, locales and attributes are, how each one slices the data, and why a choice at run time links in all the data.
+* [Data management tutorial](https://github.com/unicode-org/icu4x/blob/747356078891d513c1f731320e3d0e1ee9912e33/tutorials/data-management.md): how an app generates its data, finds its markers with `--markers-for-bin`, and cuts the data by locale.
+
+Both links point to the ICU4X commit that the prototypes use.
+
 ## The answers
 
 | Question | Answer |
