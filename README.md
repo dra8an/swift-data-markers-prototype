@@ -1,6 +1,8 @@
 # swift-data-markers-prototype
 
-**New here? Read [`docs/CONCEPT.md`](docs/CONCEPT.md) first.** It explains the idea in plain words, with one measured example. [`DESIGN-DATA-KINDS.md`](docs/DESIGN-DATA-KINDS.md) is a draft design for how Foundation would define and name its kinds of data, and [`MARKER-CATALOG.md`](docs/MARKER-CATALOG.md) is the complete draft catalog: every kind of data that swift-foundation needs, predefined, with its name.
+**New here? Read [`docs/CONCEPT.md`](docs/CONCEPT.md) first.** It explains the idea in plain words, with one measured example, and how it builds on the Swift list data that Foundation already has.
+
+*Appendix, for later:* [`DESIGN-DATA-KINDS.md`](docs/DESIGN-DATA-KINDS.md) (a draft of the rules and the repository layout) and [`MARKER-CATALOG.md`](docs/MARKER-CATALOG.md) (a draft catalog of every kind of data that swift-foundation needs).
 
 Can Swift use the data design of [ICU4X](https://github.com/unicode-org/icu4x), so that an app keeps only the locale data that it uses? This repository answers the question with two prototypes, and measures Swift against Rust and against ICU4X itself.
 

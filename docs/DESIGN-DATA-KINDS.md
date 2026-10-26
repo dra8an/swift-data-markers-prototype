@@ -108,7 +108,59 @@ Users choose in the words of the API. A tool turns the words into kinds, by the 
 
 Code that names its calendar as a type needs no `features` or `calendars` setting, because the linker removes unused kinds by itself.
 
-## 8. Open questions for the team
+## 8. The repository layout in swift-foundation
+
+swift-foundation already has this kind of pipeline for one feature, list formatting:
+* PR #1999 (Jeremy Schonfeld, 2026-05-29) created the data library `_FoundationInternationalizationData`, and PR #2137 (2026-08-04) made it a Swift library.
+* PR #1991 (Christopher Chapman, 2026-08-21) added two tools:
+  * `utils/update-list-format-data` reads a CLDR XML checkout (`CLDR_PATH`) and writes the checked-in file `Sources/FoundationInternationalization/Formatting/ListFormatData.json`.
+  * `utils/build-list-format-data` turns that JSON into the Swift tables `Sources/_FoundationInternationalizationData/ListFormatData.swift`, with a `--locales` option to keep only some locales.
+
+This design extends that pipeline to every kind of data in the catalog. It does not add a second pipeline.
+
+```
+utils/
+  data-kinds.json                  the registry: every kind of data, its name, keys, attributes, user setting. In git, reviewed.
+  update-locale-data               CLDR checkout -> one JSON file per kind. Extends update-list-format-data.
+  update-locale-data-impl.swift
+  build-locale-data                JSON -> Swift tables. Options --locales, --features, --calendars. Extends build-list-format-data.
+  build-locale-data-impl.swift
+  locale-data-schema.swift         the JSON format of each kind. Extends list-format-data-schema.swift.
+
+Sources/
+  _FoundationInternationalizationData/       the existing data library
+    DataVersion.json               CLDR version, tool version, checksums. Generated, in git.
+    Markers.swift                  the marker types, generated from the registry. In git.
+    Lookup.swift                   the lookup and the locale fallback, shared by all kinds. Hand-written, like ListFormatLookup.swift today.
+    JSON/                          the intermediate data: one file per kind, all locales, for example DateNamesMonthGregorianV1.json. In git.
+    Generated/                     the full set of tables, all locales, one Swift file per kind. In git.
+      Date/DateNamesMonthGregorianV1+Data.swift
+      Number/NumberSymbolsDecimalV1+Data.swift
+      List/ListPatternsJoinV1+Data.swift    (today's ListFormatData.swift)
+      ...
+  FoundationInternationalization/            the code that uses the kinds, for example the date formatter
+
+Tests/
+  FoundationInternationalizationTests/LocaleData/   expected outputs, to catch changes when CLDR changes. In git.
+```
+
+**Not in the repository:**
+* **The CLDR checkout.** The tools read it from `CLDR_PATH`, as `update-list-format-data` does today. `DataVersion.json` records which version was used. The checkout could be Apple's CLDR data.
+* **Cut sets for a smaller app.** A build plugin or a package trait runs `build-locale-data` with the settings of the app (section 7), and writes the tables into the build folder, not into the repository.
+
+**How the work flows:**
+1. **A CLDR update:** run `update-locale-data`, then `build-locale-data`. Review the changes in the JSON files and in the expected test outputs, then commit.
+2. **A normal build:** uses the full set in `Generated/` as it is. No tool runs.
+3. **A build for a smaller app:** sets `locales`, `features` and `calendars`. The plugin makes the tables for that build.
+
+**A change from the prototype:** the marker types live in `_FoundationInternationalizationData`, next to their tables. In swift-foundation, `FoundationInternationalization` depends on the data library, not the other way around. With the types and the tables in the same library, the data needs no conformances that another module adds (`@retroactive` in the prototype).
+
+**Open points of the layout:**
+* **Size.** The 25 date kinds of the prototype are 3.9 MB of Swift source for about 1 MB of data, and they compile in about 13 seconds. All of Foundation, with collation, time zone names and locale names, could be tens of MB of source. A compact binary form, checked in instead of Swift literals, may be better.
+* **Where the JSON lives.** Today `ListFormatData.json` is in `FoundationInternationalization/Formatting/`. One folder for all intermediate data is cleaner, but the package manifest must exclude it from the target.
+* **The comment in `update-list-format-data`** still says that the second tool writes "a packed C header". It now writes Swift.
+
+## 9. Open questions for the team
 
 1. Is one registry file acceptable as the source of truth for the Swift types?
 2. Who owns the word lists?

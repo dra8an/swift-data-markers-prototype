@@ -67,13 +67,37 @@ ICU4X has no written rule for these words. The only fixed rule is the version at
 | Where does it help? | Builds that put Foundation into the app: Embedded Swift, WASM, static Linux apps. On Apple platforms, all apps share one Foundation, so the gain there is small. |
 | Is the output the same as today's Foundation? | No, in about half of the cases. The prototype copies ICU4X, which uses other patterns and public CLDR data. A real version would make its pieces from Foundation's own data. |
 
-## 7. What it cannot do
+## 7. How this builds on what Foundation has today
+
+Foundation already uses this idea for one feature. In PR #1991, Christopher Chapman added Swift data for list formatting:
+* `utils/update-list-format-data` reads CLDR and writes `ListFormatData.json`. `utils/build-list-format-data` turns it into Swift tables in `Sources/_FoundationInternationalizationData/ListFormatData.swift`.
+* The data is split into **6 pieces**: "and" and "or", each in 3 widths (`slotAndWide`, `slotOrShort`, …).
+* **Each piece has one entry for each language**, found by a binary search.
+* A missing language **falls back** to its CLDR parent, then to the language without its region, then to the root (`ListFormatLookup.swift`).
+* `build-list-format-data --locales` **keeps only some languages.**
+
+So the list data is already "pieces with one entry for each language". This idea does not replace that work. It takes the same approach to every feature:
+
+| | List data today (#1991) | This idea |
+|---|---|---|
+| Features | list formatting only | every feature that uses locale data |
+| Format of the tables | made for list patterns | one format for all pieces |
+| Lookup and fallback | made for lists (`ListFormatLookup.swift`) | one lookup and one fallback for all pieces |
+| Cut by language | `--locales`, in the list tool | `--locales`, once for all features |
+| Cut by feature or calendar | not needed: lists are one feature | features that the app never calls are removed by the build; calendars by a setting |
+| Evidence | Foundation tests | the prototype: a date formatter with 25 pieces, the same output as ICU4X on 327,888 cases, sizes and speed |
+
+Two lessons from the prototype apply to the list data too:
+* The list tables are `static let` `InlineArray` values, and the lookup takes their `.span`. In the prototype, `.span` on a `static let` `InlineArray` copied the whole table each time. The list tables are small (about 1 KB each), so the cost is small there. It grows with the size of the table. This was not measured for the list data.
+* In a build that puts Foundation into the app, normal Swift keeps all data unless the build uses 3 linker flags. Embedded Swift needs none.
+
+## 8. What it cannot do
 
 * It cannot remove languages by itself. The language is chosen at run time, so the developer must give the list. ICU4X has the same limit.
 * A language that was removed gives no error. It falls back to the root data, which is not in the user's language.
 * With a calendar chosen at run time, it cannot remove calendars by itself (section 4, case 2).
 
-## 8. The words that ICU4X uses
+## 9. The words that ICU4X uses
 
 | ICU4X word | On this page |
 |---|---|
