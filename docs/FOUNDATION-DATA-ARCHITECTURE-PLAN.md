@@ -1,6 +1,6 @@
 # A plan for Foundation's locale data (an alternative to ICU4X data markers)
 
-**Started:** 2026-10-27. **Status:** part 1 (the inventory) is done. Part 2 (the model) is a draft that Dragan agreed on 2026-10-28. Parts 3 and 4 are not started.
+**Started:** 2026-10-27. **Status:** part 1 (the inventory) is done. Part 2 (the model) is a draft that Dragan agreed on 2026-10-28. Part 3 is started: section 3.1 (layout and sharing). Part 4 is not started.
 
 **Sources:**
 * swift-foundation `main` at `bfbded0f70` (2026-10-27), a snapshot in `/tmp/deep-review/sf-main-bfbded0f70/`
@@ -293,6 +293,66 @@ The concerns come from the meeting of 2026-10-27 and from the talk of 2026-10-28
 2. Does Darwin move to this data, or does it keep ICU?
 3. Where does the selection live: a file in the package, build settings, or a SwiftPM plugin?
 4. The split of the 2.9 MB of locale files into dates, numbers, lists and the other kinds. This needs a reader for ICU's `.res` format.
+
+# Part 3: the architecture in detail (started 2026-10-28)
+
+## 3.1 Layout and sharing (deduplication)
+
+### Two kinds of sharing
+
+1. **Identical blocks (structure).** This sharing works only inside one kind. A block of 12 month names can only equal another block of 12 month names, so blocks of different kinds never match. Inside a kind, it is the large win: across locales (in #2330, 1,071 locales give 332 distinct rows), and across the kind's own key (for example, the Buddhist and Japanese month names equal the Gregorian ones, 15% of the date data in the prototype).
+2. **Identical text (strings).** This sharing can work across kinds. Expected examples: city and country names in time zone names and region names ("Japan"), "hour" and "hours" in units and relative time, and fragments of date patterns and interval patterns.
+
+### One text pool per kind, or one for the whole selection
+
+| | A. One text pool per kind | B. One text pool for the whole selection |
+|---|---|---|
+| Sharing | inside each kind only | across all selected kinds |
+| Kinds stay independent | yes: each kind has its own tables | no: all selected kinds share one pool |
+| Generator | one run per kind | one run over all selected kinds |
+| Change of one kind | only that kind changes | the pool and all kinds change |
+
+Both designs fit the model, because the generator runs for each build selection. ICU uses design A: its data has one pool for each tree (for example `zone/pool.res`, 140 KB, and `unit/pool.res`, 145 KB), and no pool across trees.
+
+**Decision for now:** start with A. It keeps the kinds independent, and #2330 already works this way. Change to B only if a measure shows a large overlap between kinds. The overlap is not measured yet (see 3.2).
+
+### How the generator finds duplicates
+
+Only the generator finds duplicates, at build time. It keeps a dictionary from the exact content to the place where that content is stored. When the same content comes again, it reuses that place and stores nothing new. #2330 does this at 4 levels: blocks (`blockIndex`), sub-blocks (`subBlockStarts`), rows (`rowIndexes`) and text (`StringPool`, where short text inside longer text also shares its bytes).
+
+### How the binary holds shared data
+
+Nothing in the binary is marked as a duplicate, because no duplicate is in the binary. The data is stored once, and each user holds a number that points to it (the numbers below are an example):
+
+```
+locale "de_AT" ─► localeRows[i] = row 17
+row 17          ─► rows[17 × 29 + months] = start 412
+start 412       ─► names[412 + month] = entry
+entry           ─► the text inline (3 bytes or fewer), or an offset into pool
+```
+
+Two locales with the same months have the same start number in their rows. That shared number is the only "mark". The code reads every value by the same path, with 2 table reads, and it never knows if the value is shared.
+
+### Across kinds (only with design B)
+
+The shared text pool goes in one core table that all kinds use. Each kind keeps its own tables, and its entries hold offsets into that pool. The generator writes the pool and the tables of all kinds in one run, so the offsets always match.
+
+**A guard against a stale combination.** A pool from one run must never meet the tables of another run. The generator puts a hash of the pool into the name of the pool's type (for example `_DataPool_3fa2c1`), and the tables of every kind use that name. A stale combination then fails at compile time, not at run time.
+
+### How people can see what is shared
+
+* **A report from the generator** for each kind: the sizes before and after sharing, and which locales and keys use each stored block. #2330 already prints a short form ("names: 17979, rows: 332, pool: 97066 B").
+* **A test** that reads every value of every locale through the tables, and compares it with the intermediate JSON. It proves that the sharing changed no value.
+* **A small dump function** that prints the value for one kind, locale and key, so that a person does not follow the numbers by hand.
+
+### What we do not rely on
+
+The linker. LLVM merges only whole identical constants, not parts inside one table. ICU4X relies on LLVM for this. In this design, all sharing happens in the generator.
+
+## 3.2 Still open in part 3
+
+1. Measure the text overlap between kinds in the CLDR XML (dates, time zone names, units, currencies, language and region names, numbers, lists). This decides between A and B.
+2. The pipeline, the build selection, and Darwin with Embedded, in detail.
 
 ## Where the material is
 
