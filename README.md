@@ -1,12 +1,8 @@
 # swift-data-markers-prototype
 
-**The current work (from 2026-10-27):** a plan for Foundation's own locale data, as an alternative to ICU4X data markers: [`docs/FOUNDATION-DATA-ARCHITECTURE-PLAN.md`](docs/FOUNDATION-DATA-ARCHITECTURE-PLAN.md). It starts from Foundation's code and data, not from ICU4X. One input is the study of the date data in PR #2330: [`docs/FOUNDATION-DATE-DATA-ARCHITECTURE.md`](docs/FOUNDATION-DATE-DATA-ARCHITECTURE.md). Their scripts and raw data are in `docs/scripts/icu-data-inventory/` and `docs/scripts/pr2330-date-data/`.
+**The current work (from 2026-10-27):** a plan for Foundation's own locale data, as an alternative to ICU4X data markers: [`docs/FOUNDATION-DATA-ARCHITECTURE-PLAN.md`](docs/FOUNDATION-DATA-ARCHITECTURE-PLAN.md). It starts from Foundation's code and data, not from ICU4X. One input is the study of the date data in PR #2330: [`docs/FOUNDATION-DATE-DATA-ARCHITECTURE.md`](docs/FOUNDATION-DATE-DATA-ARCHITECTURE.md). Their scripts and raw data are in `docs/scripts/icu-data-inventory/` and `docs/scripts/pr2330-date-data/`. Section "The documents" of the plan lists every document and its status.
 
-**New here? Read [`docs/CONCEPT.md`](docs/CONCEPT.md) first.** It explains the idea in plain words, with one measured example, and how it builds on the Swift list data that Foundation already has.
-
-**How an app would get only the data it needs, step by step:** [`docs/DEV_GUIDE.md`](docs/DEV_GUIDE.md).
-
-*Appendix, for later:* [`DESIGN-DATA-KINDS.md`](docs/DESIGN-DATA-KINDS.md) (a draft of the rules and the repository layout) and [`MARKER-CATALOG.md`](docs/MARKER-CATALOG.md) (a draft catalog of every kind of data that swift-foundation needs).
+The rest of this README describes the two prototypes of 2026-10-23. They copied ICU4X, and they showed that the mechanism works in Swift. The documents of that phase that are now superseded are in `docs/Archive/`.
 
 Can Swift use the data design of [ICU4X](https://github.com/unicode-org/icu4x), so that an app keeps only the locale data that it uses? This repository answers the question with two prototypes, and measures Swift against Rust and against ICU4X itself.
 
@@ -103,7 +99,7 @@ Know these limits:
 | `prototype/` | The small prototype |
 | `prototype-large/` | The large prototype. Its `README.md` lists its folders and all its commands. |
 | `icu4x-experiments/` | Two small ICU4X apps and the `icu4x-datagen` runs that the background notes use |
-| `docs/` | The documents: `CONCEPT.md` (the idea in plain words), `MARKER-CATALOG.md` (the draft catalog of data kinds for Foundation, made by `catalog/build_catalog.py`), `DESIGN-DATA-KINDS.md` (the rules behind the catalog), `NOTES.md` (internal notes). Also background notes: how the date data of swift-foundation PR #2330 slices, how it compares with ICU4X, and a step by step guide to the ICU4X data (`ICU4X-DATA-GUIDE.md`) |
+| `docs/` | The documents. Start with `FOUNDATION-DATA-ARCHITECTURE-PLAN.md`, which lists every document and its status. `scripts/` has the scripts and raw data. `Archive/` has the superseded documents of the ICU4X phase. |
 | `env.sh` | Sets the paths of the tools. Run `. ./env.sh` first. |
 
 ## Rebuild after a fresh clone

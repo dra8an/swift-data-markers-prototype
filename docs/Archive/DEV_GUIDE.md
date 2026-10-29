@@ -1,5 +1,7 @@
 # Developer guide: from CLDR to an app with only the data it needs
 
+> **Archived on 2026-10-28. Superseded by [`FOUNDATION-DATA-ARCHITECTURE-PLAN.md`](../FOUNDATION-DATA-ARCHITECTURE-PLAN.md).** Its steps 5 to 7 follow the rejected design of `DESIGN-DATA-KINDS.md`. Kept for the record only.
+
 **Status:** a design, 2026-10-26. Steps 1 to 4 exist today for list data and date data, in Christopher Chapman's tools (`utils/update-list-format-data` and `utils/build-list-format-data` from PR #1991, and the date data tools of the open PR #2330). This guide uses general names for them (`update-locale-data`, `build-locale-data`), which would cover every kind of data. Steps 5 to 7 are proposed and not built. The design behind these steps is in `DESIGN-DATA-KINDS.md`.
 
 **The example:** an app that formats Gregorian dates and lists, in French and German.

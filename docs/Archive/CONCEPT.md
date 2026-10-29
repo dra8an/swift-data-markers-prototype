@@ -1,5 +1,7 @@
 # The idea, in plain words
 
+> **Archived on 2026-10-28. Superseded by [`FOUNDATION-DATA-ARCHITECTURE-PLAN.md`](../FOUNDATION-DATA-ARCHITECTURE-PLAN.md).** This page comes from the phase that copied ICU4X. Kept for the record only.
+
 This page explains the idea with no special words. The words that ICU4X uses come at the end.
 
 ## 1. The problem

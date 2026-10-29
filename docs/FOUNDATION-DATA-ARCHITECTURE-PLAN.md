@@ -1,6 +1,6 @@
 # A plan for Foundation's locale data (an alternative to ICU4X data markers)
 
-**Started:** 2026-10-27. **Status:** part 1 (the inventory) is done. Parts 2 to 4 come after the talk on general architecture concerns.
+**Started:** 2026-10-27. **Status:** part 1 (the inventory) is done. Part 2 (the model) is a draft that Dragan agreed on 2026-10-28. Parts 3 and 4 are not started.
 
 **Sources:**
 * swift-foundation `main` at `bfbded0f70` (2026-10-27), a snapshot in `/tmp/deep-review/sf-main-bfbded0f70/`
@@ -12,10 +12,28 @@ This plan starts from Foundation's own code and data. It compares with ICU4X onl
 
 ## The parts of the plan
 
-1. **The inventory** (this version): every place where Foundation reads locale data or ICU data, and what that data costs today.
-2. **The units of a cut:** the axes that the data really has, and which axes a build can know.
-3. **The architecture:** the pipeline, the layout and deduplication, the build selection, the names, the failure behavior, and Darwin with Embedded.
+1. **The inventory:** every place where Foundation reads locale data or ICU data, and what that data costs today.
+2. **The model:** the kinds of data, the optional cuts, and the answers to the concerns of the team.
+3. **The architecture in detail:** the pipeline, the layout, the build selection, and Darwin with Embedded.
 4. **The comparison with ICU4X markers.**
+
+## The documents
+
+Start here. This plan is the only entry point. Add new results to it, not to a new document.
+
+| Status | Document | What it is |
+|---|---|---|
+| Current | `FOUNDATION-DATA-ARCHITECTURE-PLAN.md` | this plan |
+| Current | `FOUNDATION-DATE-DATA-ARCHITECTURE.md` | the study of the date data in PR #2330 (head `80ebeafa3d`), an input to this plan |
+| Background, correct for its date | `DATA-SLICING.md` | #2330 data in an Embedded Swift app, at head `bfe992339c` (2026-10-20) |
+| Background, correct for its date | `RESULTS.md` | #2330 date formatting in Embedded Swift, and its size (2026-10-20) |
+| Background, for part 4 | `ICU4X-COMPARISON.md` | how #2330 compares with ICU4X (2026-10-20) |
+| Background, for part 4 | `ICU4X-DATA-GUIDE.md` | one request through the ICU4X data, step by step (2026-10-21) |
+| Internal | `NOTES.md` | notes on git, the sandbox and provenance |
+| Scripts and raw data | `scripts/` | `icu-data-inventory/` for part 1, `pr2330-date-data/` for the date study, and older build scripts |
+| Archived on 2026-10-28 | `Archive/` | `CONCEPT.md`, `DEV_GUIDE.md`, `DESIGN-DATA-KINDS.md`, `MARKER-CATALOG.md` and `catalog/`: the phase that copied ICU4X. The team rejected its fine kinds on 2026-10-27. Do not use them. |
+
+The results of the two prototypes (2026-10-23) are in `prototype-large/RESULTS.md`, outside `docs/`.
 
 # Part 1: the inventory
 
@@ -71,7 +89,7 @@ The Darwin checkout calls these ICU services too. swift-foundation does not use 
 
 ## 1.3 What the ICU data costs today
 
-swift-foundation ships ICU 76 data outside Darwin as one C array (`icu_packaged_main_data.*.inc.h`, 4 parts, 210 MB of source). The array is **33,976,096 bytes**. I read its table of contents (4,855 items):
+swift-foundation ships ICU 76 data outside Darwin as one C array (`icu_packaged_main_data.*.inc.h`, 4 parts, 210 MB of source). The array is **33,976,096 bytes**. These are binary bytes in the library, not source text. A built object of `icu_packaged_data.cpp` (in `swift-foundation-seven/.build/index-build/`) has exactly 33,976,096 bytes of `__TEXT,__const`, in the symbol `_icudt76_dat`. All sizes in this part are binary bytes, unless they say "source". I read its table of contents (4,855 items):
 
 | Category | Bytes | Items | Used by (features above) |
 |---|---:|---:|---|
@@ -104,6 +122,7 @@ The Unicode character properties are separate. They are compiled into code (`uch
 1. **Most of the 34 MB is not per locale.** Converters, collation, break dictionaries, transforms and Unicode data make about 15.8 MB. Different axes select them: the encoding, the language of the collation, the script.
 2. **Some ICU data has no user in swift-foundation, but less than a count of direct calls suggests.** ICU loads some parts itself. See 1.5.
 3. **The axes are not only the locale.** The inventory shows these axes: locale, calendar, time zone, numbering system, currency, unit, collation type, encoding, and the pattern or skeleton.
+   * **What a locale cut makes smaller:** about 20.5 MB of the 34 MB, not only the 2.9 MB of the main locale files. ICU stores 6 more kinds of data with one file per locale: collation 4.3 MB, time zone names 3.3 MB, units 3.0 MB, currencies 2.9 MB, language names 2.9 MB and region names 1.2 MB. Without collation, it is about 16.2 MB. The locale is not a kind of data of its own. It is a cut inside each kind (see part 2).
 4. **Almost every axis is a run time value in the API.** `Locale`, `Calendar.Identifier`, `TimeZone` and the format style fields are values. So a build can only know an axis if the build names it in a list, as `--locales` does for lists and dates today.
 5. **Some features are code, not data.** Calendar arithmetic and the tz rules need algorithms or tables that do not depend on the locale.
 6. **Only one feature is fully in Swift today: lists.** Dates follow in #2330. Most features still call ICU.
@@ -196,6 +215,84 @@ The README in that folder tells how to run each step again.
 * The Darwin counts come from a checkout of 2026-10-05.
 * The 34 MB is ICU 76 data. Apple platforms use Apple's own ICU build, with other data and a size that I did not measure.
 * I did not count the converters that CoreFoundation reaches.
+
+# Part 2: the model (a draft, agreed on 2026-10-28)
+
+## 2.1 The two levels
+
+**Level 1: the kinds of data.** Each kind is one feature of Foundation, with its own tables. By default, a kind holds all its data: all locales, all its keys.
+
+**Level 2: the cuts.** Each cut is optional. A build can cut a kind by locale, by its own key, or by both. The locale is not a kind of its own. It is a cut inside each kind.
+
+| Kind | Size today (ICU) | Can cut by locale | Can cut by its own key |
+|---|---:|---|---|
+| Dates (names, patterns, intervals, relative time) | part of 2.9 MB | yes | calendar |
+| Numbers (symbols, patterns, compact forms) | part of 2.9 MB | yes | numbering system |
+| Lists | part of 2.9 MB | yes | none |
+| Units and durations | 3.0 MB | yes | unit |
+| Currencies | 2.9 MB | yes | currency code |
+| Time zone names | 3.3 MB | yes | zone |
+| Language and region names | 4.1 MB | yes | language code, region code |
+| Collation | 4.3 MB | yes | collation type |
+| Break iteration | 3.8 MB | yes, through the script | script |
+| Converters | 5.7 MB | no | encoding |
+| Time zone rules | 0.15 MB | no | zone |
+| Core locale data (parents, aliases, likely subtags, week data, plural rules) | about 1.2 MB | no, always kept | none |
+
+"Can cut by locale: no" means that the data is the same for every locale, so a locale cut cannot make it smaller. Example: the Shift_JIS converter is the same table in every locale.
+
+**Break iteration is cut through the script.** ICU selects the dictionary by the script of the text, not by the locale of the call. So a locale cut keeps the dictionaries of the scripts of the selected languages. Text in another script still breaks, with the rules only, and the breaks are worse.
+
+| Language | Break data | Size |
+|---|---|---:|
+| Chinese, Japanese | `cjdict.dict` and the CJ line rules | 2.0 MB and 0.47 MB |
+| Khmer | `khmerdict.dict` | 0.45 MB |
+| Burmese | `burmesedict.dict` | 0.25 MB |
+| Lao | `laodict.dict` | 0.16 MB |
+| Thai | `thaidict.dict` | 0.13 MB |
+| All languages | the base rules (line, word, sentence, character, title) | about 0.35 MB |
+| Some languages | small tailorings (de, ja, pt, es, en, fr and others) | under 3 KB each |
+
+Example: an app with only Thai keeps about 0.5 MB of break data, not 3.8 MB.
+
+## 2.2 The build selection
+
+One small configuration:
+* the kinds that are on
+* one locale list for all kinds, with an optional different list for one kind (for example, collation for fewer locales)
+* optional lists for the own keys (for example, the calendars `gregorian` and `iso8601`)
+
+## 2.3 The concerns of the team, and the answers of the model
+
+The concerns come from the meeting of 2026-10-27 and from the talk of 2026-10-28.
+
+1. **Who names the markers?** No one invents names. We name the kinds, about 12, after Foundation's features. All other values use standard identifiers: BCP 47 for locales, CLDR identifiers for calendars and units, IANA names for encodings and time zones, ISO 4217 for currencies.
+2. **Is the slicing too fine?** No. The model never cuts inside one kind for one locale (for example, months apart from weekdays). In the #2330 data, one locale of dates is 3.4 KB, and a pattern at run time can need any part of it.
+3. **Do we lose the sharing of identical data?** No. The generator first selects the data, then stores identical data once inside the selected set, as layout E in #2330 does today. Chris's dense format stays.
+4. **Do we get megabytes of generated source?** No. A kind is one set of tables, not one type per marker. The source grows only with the selected data. The full date data of #2330 is 953 KB of source for 198 KB of binary, and it compiles in about 3 seconds.
+5. **How large is the data?** ICU ships 34 MB today. About 7.3 MB has no user in swift-foundation, so the generator does not make it. The cuts make the rest smaller. Measured so far for dates only: all locales 198 KB, about 40 locales 28 KB, one locale 3.4 KB.
+6. **How does missing data fail?** At build time, the generator refuses a selection that it cannot make correct, with a clear message. (Today #2330 stops with a trap, with no message in an optimized build.) At run time, each kind has a defined fallback, and a debug build can log each fallback:
+
+   | Kind | If the value is not in the build |
+   |---|---|
+   | All locale data | the parent locales, then the fallback locale, then root |
+   | Converters | `nil`, which `String(data:encoding:)` already returns |
+   | Collation | root order |
+   | Time zone names | the GMT form, such as "GMT+2" |
+   | Break iteration | the rules only, without the dictionary |
+   | Calendar | not decided yet |
+
+7. **How are dependencies resolved?** The generator adds what a selection needs, and it reports what it added: for a locale, its parent locales, root, its aliases and the redirects. For a language, its default calendar, its default numbering system and the dictionary of its script. The core locale data, always.
+8. **Why not rely on the linker, as ICU4X does?** Foundation's API takes values: `Locale`, `Calendar.Identifier`, `TimeZone` and the format styles. With values, the linker cannot know what is unused (the prototype of 2026-10-23 showed this). So the cut happens at build time, from the lists.
+9. **One pipeline, or two for Darwin and Embedded?** One pipeline and the same tables, with different selections: Darwin the full selection, Embedded a small one. The data must not depend on ICU, so that it can work without `FoundationInternationalization` and its ICU. The tables go in `__TEXT,__const` as `InlineArray` (clean pages, no relocations), and the code reads them with subscripts (no `.span` copy).
+10. **Scripts, or Swift macros?** Scripts, as in #1991 and #2330. The inputs (CLDR XML, tzdata, Unicode data) are large, and a macro gains nothing from them. One shared fallback logic already exists: `utils/cldr-locale-fallback.swift`.
+
+## 2.4 Still open
+
+1. The fallback for a calendar that is not in the build.
+2. Does Darwin move to this data, or does it keep ICU?
+3. Where does the selection live: a file in the package, build settings, or a SwiftPM plugin?
+4. The split of the 2.9 MB of locale files into dates, numbers, lists and the other kinds. This needs a reader for ICU's `.res` format.
 
 ## Where the material is
 

@@ -1,5 +1,7 @@
 # Draft design: the kinds of data, their names, and who defines them
 
+> **Archived on 2026-10-28. Superseded by part 2 of [`FOUNDATION-DATA-ARCHITECTURE-PLAN.md`](../FOUNDATION-DATA-ARCHITECTURE-PLAN.md).** The meeting of 2026-10-27 rejected its fine kinds of data. Kept for the record only.
+
 **Status:** a draft proposal for discussion, 2026-10-26. Nothing in it is built. The prototypes copied the 25 names of ICU4X by hand. This page proposes how Foundation could define its own kinds of data instead. The complete catalog that follows these rules is [`MARKER-CATALOG.md`](MARKER-CATALOG.md).
 
 ## 1. The questions
