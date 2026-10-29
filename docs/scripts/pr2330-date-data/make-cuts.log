@@ -1,0 +1,7 @@
+# Output of make-cuts.sh on 2026-10-28 (PR 2330 at 80ebeafa3d, Apple Swift 6.5)
+all:   locales: 1071, redirects: 225 (147 for script fallback), names: 17979, rows: 332, pool: 97066 B   table bytes: 197340  source bytes 953116
+en_US:   locales: 2, redirects: 1 (1 for script fallback), names: 136, rows: 2, pool: 782 B   table bytes: 2338  source bytes 13187
+en_US+es_US:   locales: 3, redirects: 2 (2 for script fallback), names: 225, rows: 3, pool: 1038 B   table bytes: 3022  source bytes 16203
+five:   locales: 6, redirects: 19 (11 for script fallback), names: 416, rows: 6, pool: 1937 B   table bytes: 5013  source bytes 25475
+forty:   locales: 41, redirects: 169 (83 for script fallback), names: 2609, rows: 40, pool: 11981 B   table bytes: 27211  source bytes 129510
+zh_Hans-only: main/cldr-locale-fallback.swift:324: Precondition failed: zh_AA needs a redirect for every region  source bytes 

@@ -1,0 +1,85 @@
+all exit 0 in 3 s
+Segment : 224992
+	Section (__TEXT, __text): 20972
+	Section (__TEXT, __const): 198384
+	Section (__TEXT, __swift5_typeref): 123
+	Section (__DATA, __data): 48
+	Section (__DATA, __bss): 1536 (zerofill)
+	Section (__TEXT, __swift5_reflstr): 327
+	Section (__TEXT, __swift5_assocty): 96
+	Section (__TEXT, __constg_swiftt): 268
+	Section (__DATA, __const): 1016
+	Section (__TEXT, __swift5_fieldmd): 524
+	Section (__TEXT, __cstring): 1
+	Section (__TEXT, __swift5_proto): 48
+	Section (__TEXT, __swift5_types): 32
+	Section (__LLVM, __swift_modhash): 16
+	Section (__DATA, __objc_imageinfo): 8
+	Section (__LD, __compact_unwind): 1504
+	Section (__TEXT, __eh_frame): 72
+	total 224975
+total 224992
+set-forty exit 0 in 1 s
+Segment : 54752
+	Section (__TEXT, __text): 20844
+	Section (__TEXT, __const): 28264
+	Section (__TEXT, __swift5_typeref): 123
+	Section (__DATA, __data): 48
+	Section (__DATA, __bss): 1536 (zerofill)
+	Section (__TEXT, __swift5_reflstr): 327
+	Section (__TEXT, __swift5_assocty): 96
+	Section (__TEXT, __constg_swiftt): 268
+	Section (__DATA, __const): 1016
+	Section (__TEXT, __swift5_fieldmd): 524
+	Section (__TEXT, __cstring): 1
+	Section (__TEXT, __swift5_proto): 48
+	Section (__TEXT, __swift5_types): 32
+	Section (__LLVM, __swift_modhash): 16
+	Section (__DATA, __objc_imageinfo): 8
+	Section (__LD, __compact_unwind): 1504
+	Section (__TEXT, __eh_frame): 72
+	total 54727
+total 54752
+set-five exit 0 in 1 s
+Segment : 32752
+	Section (__TEXT, __text): 21048
+	Section (__TEXT, __const): 6056
+	Section (__TEXT, __swift5_typeref): 123
+	Section (__DATA, __data): 48
+	Section (__DATA, __bss): 1536 (zerofill)
+	Section (__TEXT, __swift5_reflstr): 327
+	Section (__TEXT, __swift5_assocty): 96
+	Section (__TEXT, __constg_swiftt): 268
+	Section (__DATA, __const): 1016
+	Section (__TEXT, __swift5_fieldmd): 524
+	Section (__TEXT, __cstring): 1
+	Section (__TEXT, __swift5_proto): 48
+	Section (__TEXT, __swift5_types): 32
+	Section (__LLVM, __swift_modhash): 16
+	Section (__DATA, __objc_imageinfo): 8
+	Section (__LD, __compact_unwind): 1504
+	Section (__TEXT, __eh_frame): 72
+	total 32723
+total 32752
+DateFormatData-en_US exit 0 in 1 s
+Segment : 29360
+	Section (__TEXT, __text): 20328
+	Section (__TEXT, __const): 3384
+	Section (__TEXT, __swift5_typeref): 123
+	Section (__DATA, __data): 48
+	Section (__DATA, __bss): 1536 (zerofill)
+	Section (__TEXT, __swift5_reflstr): 327
+	Section (__TEXT, __swift5_assocty): 96
+	Section (__TEXT, __constg_swiftt): 268
+	Section (__DATA, __const): 1016
+	Section (__TEXT, __swift5_fieldmd): 524
+	Section (__TEXT, __cstring): 1
+	Section (__TEXT, __swift5_proto): 48
+	Section (__TEXT, __swift5_types): 32
+	Section (__LLVM, __swift_modhash): 16
+	Section (__DATA, __objc_imageinfo): 8
+	Section (__LD, __compact_unwind): 1504
+	Section (__TEXT, __eh_frame): 72
+	total 29331
+total 29360
+DONE

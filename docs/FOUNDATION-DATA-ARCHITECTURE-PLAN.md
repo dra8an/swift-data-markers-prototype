@@ -102,11 +102,92 @@ The Unicode character properties are separate. They are compiled into code (`uch
 ## 1.4 What the inventory shows (input for the talk)
 
 1. **Most of the 34 MB is not per locale.** Converters, collation, break dictionaries, transforms and Unicode data make about 15.8 MB. Different axes select them: the encoding, the language of the collation, the script.
-2. **Some ICU data has no user in swift-foundation.** I found no calls for break iteration, transforms, spellout, string prep or confusables (about 5.8 MB). Darwin uses some of them.
+2. **Some ICU data has no user in swift-foundation, but less than a count of direct calls suggests.** ICU loads some parts itself. See 1.5.
 3. **The axes are not only the locale.** The inventory shows these axes: locale, calendar, time zone, numbering system, currency, unit, collation type, encoding, and the pattern or skeleton.
 4. **Almost every axis is a run time value in the API.** `Locale`, `Calendar.Identifier`, `TimeZone` and the format style fields are values. So a build can only know an axis if the build names it in a list, as `--locales` does for lists and dates today.
 5. **Some features are code, not data.** Calendar arithmetic and the tz rules need algorithms or tables that do not depend on the locale.
 6. **Only one feature is fully in Swift today: lists.** Dates follow in #2330. Most features still call ICU.
+
+## 1.5 Which data parts are unused (checked 2026-10-28)
+
+A part with no direct call can still be in use, because ICU loads it inside another service. I checked ICU's source (`swift-foundation-icu`) for these indirect uses:
+* `smpdtfmt.cpp`, `reldatefmt.cpp` and `reldtfmt.cpp` create break iterators, to capitalize dates and relative dates.
+* `capitalized(with:)` calls `ucasemap_utf8ToTitle` with no break iterator, so ICU uses a word break iterator. Word breaks in Chinese, Japanese, Thai, Lao, Khmer and Burmese text load the break dictionaries.
+* `smpdtfmt.cpp` and `numfmt.cpp` use spellout rules for algorithmic numbering systems, such as `hebr` and `hanidays`.
+* I resolved the 11 legacy encodings of `ICU+StringConverter.swift` with the system ICU. They use 9 converter files, 211,936 bytes in total. ISO-2022-JP reuses the Shift_JIS table.
+
+**Not used by swift-foundation:**
+
+| Part | Size | Note |
+|---|---:|---|
+| Converters that no `String.Encoding` reaches | about 5.46 MB of 5.67 MB | Foundation reaches 9 files (0.21 MB) and the alias table (0.06 MB) |
+| Transforms | 1.11 MB | |
+| Unicode names (`unames.icu`) | 0.34 MB | |
+| NFKC normalization (`nfkc`, `nfkc_cf`, `nfkc_scf`) | 0.16 MB | only `uts46.nrm` is in use, for IDNA |
+| String prep | 0.20 MB | Foundation uses UTS 46, not the old IDNA |
+| Confusables | 0.05 MB | |
+| **Total** | **about 7.3 MB** | |
+
+**Used only in some cases:**
+* Spellout rules (0.63 MB): only the few rule sets of the algorithmic numbering systems.
+* Break iteration (3.84 MB): the rules (0.83 MB) for capitalization. The dictionaries (3.0 MB) only when someone capitalizes text in the scripts above.
+
+**What Darwin uses in addition:**
+* Transforms (`CFStringTransform.c`), and with them Unicode names (the `Any-Name` transform) and NFKC.
+* Break iteration for hyphenation (`CFStringHyphenation.c`).
+* More converters: CoreFoundation builds the converter names from its encoding database at run time (`CFICUConverters.c`). I did not count them.
+* Regular expressions, bidi and locale aware search. They need code and the Unicode and collation data, not other data files.
+* Neither swift-foundation nor Darwin calls string prep or confusables.
+
+## 1.6 A short summary of the ICU data (plain text)
+
+```
+ICU data in swift-foundation outside Darwin (ICU 76): 34.0 MB
+
+Converters                                          5.7 MB
+Collation                                           4.3 MB
+Break iteration                                     3.8 MB
+Time zone names                                     3.3 MB
+Units                                               3.0 MB
+Currencies                                          2.9 MB
+Language names                                      2.9 MB
+Locale files (dates, numbers and the other kinds)   2.9 MB
+Others                                              5.2 MB
+
+Others (5.2 MB):
+Region names                                        1.2 MB
+Supplemental files (likely subtags, week and
+  calendar data, plural rules, tz rules, metazones) 1.2 MB
+Transforms                                          1.1 MB
+Spellout rules                                      0.6 MB
+Normalization, string prep, confusables             0.5 MB
+Unicode names, layout, emoji                        0.4 MB
+Table of contents                                   0.15 MB
+
+Not used by swift-foundation (about 7.3 MB):
+Converters that no String.Encoding reaches          5.46 MB
+Transforms                                          1.11 MB
+Unicode names                                       0.34 MB
+String prep                                         0.20 MB
+NFKC normalization                                  0.16 MB
+Confusables                                         0.05 MB
+```
+
+**Where the calendar, date and number data is.** It is in the row "Locale files", not in "Others". Each of the 1,097 locale files has the names for all calendars, the date and time patterns, the skeletons, the intervals, the number symbols and patterns, the lists and the relative time patterns. Calendar arithmetic is mostly code. Its data is small: era start dates and week rules in `supplementalData.res`. Date and number formatting also read other rows: time zone names (`z`, `v`) in "Time zone names", currency names and symbols in "Currencies", and plural rules in the supplemental files.
+
+## 1.7 How the research was done
+
+| Step | Method | Files (in `docs/scripts/icu-data-inventory/`) |
+|---|---|---|
+| The ICU calls of swift-foundation | A text search for ICU function names (`u…_…(` and `u_…(`) in `Sources/` of `main` `bfbded0f70`, grouped by family and file | `icu-call-map.sh`, `swift-foundation-icu-call-map.tsv` |
+| The ICU calls of Darwin | The same search in the Darwin checkout `1e2ed46155`, without ICU's own source in `.build/`, tests, benchmarks and fuzzing | `darwin-icu-calls.txt`, `darwin-icu-family-files.tsv` |
+| The features | I read the file list of `FoundationInternationalization` and `FoundationEssentials`, and the call sites of each family | none |
+| Embedded | I counted the files with Embedded guards per module | none |
+| The ICU data size | I converted the 4 parts of `icu_packaged_main_data.*.inc.h` to bytes, and read the table of contents of ICU's common data format | `toc.py`, `items.tsv` |
+| The converters that Foundation reaches | I resolved the 11 encoding names of `ICU+StringConverter.swift` with the system ICU (`libicucore`), and looked up the file sizes in `items.tsv` | `cnv.c` |
+| The indirect uses inside ICU | I read ICU's source in swift-foundation-icu | `README.md` lists the files and lines |
+
+The README in that folder tells how to run each step again.
 
 ## Open points of the inventory
 
@@ -114,10 +195,12 @@ The Unicode character properties are separate. They are compiled into code (`uch
 * The split of the 2.9 MB of locale files into dates, numbers and the other kinds is not done yet. ICU's `.res` format needs a reader for that.
 * The Darwin counts come from a checkout of 2026-10-05.
 * The 34 MB is ICU 76 data. Apple platforms use Apple's own ICU build, with other data and a size that I did not measure.
+* I did not count the converters that CoreFoundation reaches.
 
 ## Where the material is
 
-* swift-foundation `main`: `/tmp/deep-review/sf-main-bfbded0f70/`
-* The ICU data as bytes, and its table of contents: `/tmp/deep-review/icudata/` (`icudt.dat`, `items.tsv`, `toc.py`)
-* The Darwin ICU calls: `/tmp/deep-review/darwin-icu-calls.txt`
-* macOS cleans `/tmp` after about 3 days. All results are in this document.
+* **Kept in this repo:** the scripts, the raw lists and their READMEs in `docs/scripts/icu-data-inventory/` (this plan) and `docs/scripts/pr2330-date-data/` (the date study).
+* **Only in `/tmp` (macOS cleans it after about 3 days, the scripts make it again):**
+  * swift-foundation `main`: `/tmp/deep-review/sf-main-bfbded0f70/`
+  * the ICU data as bytes: `/tmp/deep-review/icudata/icudt.dat`
+  * the PR #2330 files and builds: `/tmp/deep-review/pr2330-80ebeafa/`

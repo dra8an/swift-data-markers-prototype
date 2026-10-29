@@ -1,5 +1,7 @@
 # swift-data-markers-prototype
 
+**The current work (from 2026-10-27):** a plan for Foundation's own locale data, as an alternative to ICU4X data markers: [`docs/FOUNDATION-DATA-ARCHITECTURE-PLAN.md`](docs/FOUNDATION-DATA-ARCHITECTURE-PLAN.md). It starts from Foundation's code and data, not from ICU4X. One input is the study of the date data in PR #2330: [`docs/FOUNDATION-DATE-DATA-ARCHITECTURE.md`](docs/FOUNDATION-DATE-DATA-ARCHITECTURE.md). Their scripts and raw data are in `docs/scripts/icu-data-inventory/` and `docs/scripts/pr2330-date-data/`.
+
 **New here? Read [`docs/CONCEPT.md`](docs/CONCEPT.md) first.** It explains the idea in plain words, with one measured example, and how it builds on the Swift list data that Foundation already has.
 
 **How an app would get only the data it needs, step by step:** [`docs/DEV_GUIDE.md`](docs/DEV_GUIDE.md).
