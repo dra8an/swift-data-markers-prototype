@@ -5,6 +5,7 @@ Notes for the people who work in this repository. They are not needed to underst
 ## Work rules
 
 * Dragan does all git work: commits, pushes and branches.
+* All work goes to `main`. The repository is a research project, so it has no feature branches.
 * The repository has its own `.git/config`, with `commit.gpgsign false` and the identity `dra8an <chonbey@hotmail.com>`. The global `~/.gitconfig` signs with another tool and must not change.
 
 ## The Mac where the prototypes were made
